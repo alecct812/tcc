@@ -1,0 +1,25 @@
+# Fim de linha travado em LF, e isso NAO e preferencia de estilo.
+#
+# O repositorio e autorado no Windows, mas metade do conteudo roda dentro de
+# conteineres Linux: `lab/hosts/*/Dockerfile`, o script `lab/hosts/web/sh-
+# instrumentado` e os arquivos que os Dockerfile copiam para dentro da imagem.
+# Um script de shell com CRLF falha no Linux com `bad interpreter: no such
+# file or directory` -- erro que nao aponta para a causa e que so aparece ao
+# subir o laboratorio, longe de quem versionou.
+#
+# `eol=lf` garante que o que sai do git e o que o conteiner precisa, em
+# qualquer maquina que clone este repositorio.
+* text=auto eol=lf
+
+# Binarios nao passam por conversao nenhuma.
+*.png binary
+*.jpg binary
+*.pdf binary
+*.zip binary
+*.docx binary
+
+# As saidas de ferramenta capturadas do laboratorio sao FIXTURE de teste: os
+# parsers casam com elas byte a byte. Conversao de fim de linha aqui quebraria
+# teste sem mudar uma linha de codigo.
+lab/saidas-exemplo/** -text
+src/artefato/fixtures/** -text

@@ -1,0 +1,21 @@
+# Pacote do agente. O nome `artefato` e provisorio ate o autor escolher --
+# `CONTEXTO.md` §9 manda chamar assim enquanto isso.
+#
+# Este arquivo existe por um motivo so: fixar a versao de Python. `ARTEFATO.md`
+# §1.3 declara Python 3.11 e o projeto fixa a tag de toda imagem Docker por
+# principio (D06), mas o runtime do proprio agente estava solto -- a maquina de
+# desenvolvimento roda 3.13. A reexecucao que `ARTEFATO.md` §2.3 exige precisa
+# encontrar o mesmo ambiente, e "funcionou na minha maquina" nao e reproducao.
+
+[project]
+name = "artefato"
+version = "0.1.0"
+description = "Agente de teste de invasao com estado explicito do ambiente"
+# Piso em 3.11, que e a versao declarada na pilha. Teto aberto de proposito: o
+# codigo e conferido contra a sintaxe de 3.11 por teste, entao rodar em versao
+# mais nova e permitido e acontece hoje (3.13). O que NAO pode e o codigo usar
+# sintaxe que 3.11 nao entenda sem ninguem perceber.
+requires-python = ">=3.11"
+# Nenhuma dependencia de terceiro, por decisao registrada em D16: so biblioteca
+# padrao. Acrescentar uma exige entrada nova em `docs/decisoes-tecnicas.md`.
+dependencies = []

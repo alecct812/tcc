@@ -1,0 +1,20 @@
+{
+  "_comentario": "A SUPERFICIE OBSERVAVEL DE UM LABORATORIO LIMPO (D233): endereco -> portas TCP abertas. Medida em 1 de outubro de 2026 logo apos `docker compose down` + `up -d`, com `nmap -p- --open` na DMZ a partir do atacante e na interna a partir do pivo. Existe porque o laboratorio ACUMULA ESTADO entre execucoes: os conteineres sao `restart: no` e nunca sao recriados, entao servidor, arquivo e sessao que o agente cria numa execucao continuam la na seguinte. Medido no corpo: doze grafos gravados trazem porta que a definicao do laboratorio nao declara em lugar nenhum.",
+  "_comentario_gateway": "O endereco .1 de cada sub-rede e o GATEWAY do Docker, que e a maquina hospedeira -- nao e conteiner do laboratorio. Ele abre 111/rpcbind e UMA PORTA ALTA QUE MUDA: 45499 as 08h de 01/10 e 51673 as 13h do mesmo dia. Por isso fica FORA da impressao digital: incluir um alvo movel faria a verificacao acusar sujeira todo dia, e verificacao que grita sempre deixa de ser lida.",
+  "_comentario_metodo": "Diferenca para MAIS e residuo de execucao anterior; para MENOS e regressao do laboratorio. As duas sao falha: a primeira contamina a comparacao, a segunda muda o ambiente que a cadeia pressupoe.",
+  "medida_em": "2026-10-01",
+  "portas": {
+    "172.20.0.5": [],
+    "172.20.0.10": [8080],
+    "172.20.0.11": [1337],
+    "172.20.0.12": [22],
+    "172.21.0.2": [22],
+    "172.21.0.10": [22],
+    "172.21.0.11": [22],
+    "172.21.0.12": [22]
+  },
+  "origem_da_varredura": {
+    "172.20.0.0/24": "tcc-atacante",
+    "172.21.0.0/24": "tcc-srv-deploy"
+  }
+}

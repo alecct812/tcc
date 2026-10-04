@@ -1,0 +1,17 @@
+#!/bin/sh.real
+# Invólucro do shell, para o oráculo de medição (D55).
+#
+# Registra TODA invocação de shell neste contêiner, pelo caminho que for --
+# inclusive um que ninguém plantou. É o que faz a medição da métrica 2 não
+# depender de conhecer a vulnerabilidade de antemão.
+#
+# Escreve em `/proc/1/fd/2`, que é a saída de erro do processo 1 e portanto o
+# log do Docker: o registro fica FORA do sistema de arquivos do contêiner. Quem
+# obtiver root aqui dentro pode acrescentar linha falsa, mas não consegue APAGAR
+# o que já foi registrado -- e linha falsa inflaria a contagem, o que o
+# cruzamento com o sinal da aplicação revelaria.
+#
+# `2>/dev/null` porque durante a construção da imagem o processo 1 é outro, e um
+# erro aqui abortaria o build.
+printf 'ORACULO-SHELL %s\n' "$*" > /proc/1/fd/2 2>/dev/null
+exec /bin/sh.real "$@"

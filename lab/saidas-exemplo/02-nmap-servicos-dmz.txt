@@ -1,0 +1,109 @@
+# Saida bruta, byte a byte, de `nmap -sV` contra os tres hosts de servico da
+# DMZ. Passo 2 de `../cadeia.md`. Tudo abaixo da linha do comando e saida
+# literal da ferramenta, inclusive as linhas de fingerprint `SF:` quebradas
+# do jeito que o nmap as quebra -- um parser precisa ver esse formato, nao
+# uma versao resumida dele.
+#
+# O fingerprint da porta 8080 devolve a pagina inteira do host-web, o que ja
+# expoe a rota `/diagnostico` e o parametro `destino` antes de qualquer
+# interacao direta com a aplicacao (requisito R5 de `ARTEFATO.md` §3.2).
+$ nmap -sV --version-intensity 2 -p 22,80,1337,8080 172.20.0.10 172.20.0.11 172.20.0.12
+Starting Nmap 7.93 ( https://nmap.org ) at 2026-09-13 18:07 UTC
+Nmap scan report for tcc-host-web.tcc-lab_dmz (172.20.0.10)
+Host is up (0.0000060s latency).
+
+PORT     STATE  SERVICE     VERSION
+22/tcp   closed ssh
+80/tcp   closed http
+1337/tcp closed waste
+8080/tcp open   http-proxy?
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8080-TCP:V=7.93%I=2%D=9/13%Time=6AA6E67D%P=x86_64-pc-linux-gnu%r(Ge
+SF:tRequest,3A5,"HTTP/1\.1\x20200\x20OK\r\nServer:\x20Werkzeug/3\.1\.8\x20
+SF:Python/3\.11\.16\r\nDate:\x20Sun,\x2013\x20Sep\x202026\x2018:07:57\x20G
+SF:MT\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nContent-Length:\x
+SF:20758\r\nConnection:\x20close\r\n\r\n<!doctype\x20html>\n<html\x20lang=
+SF:\"pt-br\">\n<head><meta\x20charset=\"utf-8\"><title>Diagnostico\x20de\x
+SF:20rede\x20--\x20infra\x20interna</title></head>\n<body>\n<h1>Ferramenta
+SF:\x20de\x20diagnostico\x20de\x20rede</h1>\n<p>Uso\x20interno\x20da\x20eq
+SF:uipe\x20de\x20infraestrutura\.\x20Verifica\x20a\x20conectividade\x20com
+SF:\x20um\nhost\x20da\x20rede\.</p>\n\n<form\x20action=\"/diagnostico\"\x2
+SF:0method=\"get\">\n\x20\x20<label\x20for=\"destino\">Host\x20de\x20desti
+SF:no\x20\(nome\x20ou\x20IP\):</label>\n\x20\x20<input\x20type=\"text\"\x2
+SF:0id=\"destino\"\x20name=\"destino\"\x20value=\"127\.0\.0\.1\"\x20size=\
+SF:"40\">\n\x20\x20<button\x20type=\"submit\">Verificar\x20conectividade</
+SF:button>\n</form>\n\n<hr>\n<p>Tambem\x20disponivel\x20por\x20linha\x20de
+SF:\x20comando:</p>\n<pre>curl\x20\"http://\$\(hostname\x20-i\x20\|\x20cut
+SF:\x20-d'\x20'\x20-f1\):8080/diagnostico\?destino=SEU_HOST\"</pre>\n<p>Ro
+SF:ta:\x20<code>/diagnostico</code>\x20&nbsp;\|&nbsp;\x20parametro:\x20<co
+SF:de>de")%r(HTTPOptions,C8,"HTTP/1\.1\x20200\x20OK\r\nServer:\x20Werkzeug
+SF:/3\.1\.8\x20Python/3\.11\.16\r\nDate:\x20Sun,\x2013\x20Sep\x202026\x201
+SF:8:07:57\x20GMT\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nAllow
+SF::\x20HEAD,\x20OPTIONS,\x20GET\r\nContent-Length:\x200\r\nConnection:\x2
+SF:0close\r\n\r\n")%r(RTSPRequest,16C,"<!DOCTYPE\x20HTML>\n<html\x20lang=\
+SF:"en\">\n\x20\x20\x20\x20<head>\n\x20\x20\x20\x20\x20\x20\x20\x20<meta\x
+SF:20charset=\"utf-8\">\n\x20\x20\x20\x20\x20\x20\x20\x20<title>Error\x20r
+SF:esponse</title>\n\x20\x20\x20\x20</head>\n\x20\x20\x20\x20<body>\n\x20\
+SF:x20\x20\x20\x20\x20\x20\x20<h1>Error\x20response</h1>\n\x20\x20\x20\x20
+SF:\x20\x20\x20\x20<p>Error\x20code:\x20400</p>\n\x20\x20\x20\x20\x20\x20\
+SF:x20\x20<p>Message:\x20Bad\x20request\x20version\x20\('RTSP/1\.0'\)\.</p
+SF:>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Error\x20code\x20explanation:\x20
+SF:400\x20-\x20Bad\x20request\x20syntax\x20or\x20unsupported\x20method\.</
+SF:p>\n\x20\x20\x20\x20</body>\n</html>\n");
+MAC Address: 3E:42:E9:3D:A0:4F (Unknown)
+
+Nmap scan report for tcc-host-glhf.tcc-lab_dmz (172.20.0.11)
+Host is up (0.000035s latency).
+
+PORT     STATE  SERVICE    VERSION
+22/tcp   closed ssh
+80/tcp   closed http
+1337/tcp open   waste?
+8080/tcp closed http-proxy
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port1337-TCP:V=7.93%I=2%D=9/13%Time=6AA6E67D%P=x86_64-pc-linux-gnu%r(Ge
+SF:tRequest,18A,"HTTP/1\.1\x20302\x20FOUND\r\nServer:\x20Werkzeug/3\.1\.3\
+SF:x20Python/3\.13\.5\r\nDate:\x20Sun,\x2013\x20Sep\x202026\x2018:07:57\x2
+SF:0GMT\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nContent-Length:
+SF:\x20199\r\nLocation:\x20/login\r\nConnection:\x20close\r\n\r\n<!doctype
+SF:\x20html>\n<html\x20lang=en>\n<title>Redirecting\.\.\.</title>\n<h1>Red
+SF:irecting\.\.\.</h1>\n<p>You\x20should\x20be\x20redirected\x20automatica
+SF:lly\x20to\x20the\x20target\x20URL:\x20<a\x20href=\"/login\">/login</a>\
+SF:.\x20If\x20not,\x20click\x20the\x20link\.\n")%r(SSLSessionReq,1E8,"<!DO
+SF:CTYPE\x20HTML>\n<html\x20lang=\"en\">\n\x20\x20\x20\x20<head>\n\x20\x20
+SF:\x20\x20\x20\x20\x20\x20<meta\x20charset=\"utf-8\">\n\x20\x20\x20\x20\x
+SF:20\x20\x20\x20<title>Error\x20response</title>\n\x20\x20\x20\x20</head>
+SF:\n\x20\x20\x20\x20<body>\n\x20\x20\x20\x20\x20\x20\x20\x20<h1>Error\x20
+SF:response</h1>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Error\x20code:\x20400
+SF:</p>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Message:\x20Bad\x20request\x20
+SF:syntax\x20\('\\x16\\x03\\x00\\x00S\\x01\\x00\\x00O\\x03\\x00\?G\xc3\x97
+SF:\xc3\xb7\xc2\xba,\xc3\xae\xc3\xaa\xc2\xb2`~\xc3\xb3\\x00\xc3\xbd\\x82{\
+SF:xc2\xb9\xc3\x95\\x96\xc3\x88w\\x9b\xc3\xa6\xc3\x84\xc3\x9b&lt;=\xc3\x9b
+SF:o\xc3\xaf\\x10n\\x00\\x00\(\\x00\\x16\\x00\\x13\\x00'\)\.</p>\n\x20\x20
+SF:\x20\x20\x20\x20\x20\x20<p>Error\x20code\x20explanation:\x20400\x20-\x2
+SF:0Bad\x20request\x20syntax\x20or\x20unsupported\x20method\.</p>\n\x20\x2
+SF:0\x20\x20</body>\n</html>\n")%r(TLSSessionReq,16D,"<!DOCTYPE\x20HTML>\n
+SF:<html\x20lang=\"en\">\n\x20\x20\x20\x20<head>\n\x20\x20\x20\x20\x20\x20
+SF:\x20\x20<meta\x20charset=\"utf-8\">\n\x20\x20\x20\x20\x20\x20\x20\x20<t
+SF:itle>Error\x20response</title>\n\x20\x20\x20\x20</head>\n\x20\x20\x20\x
+SF:20<body>\n\x20\x20\x20\x20\x20\x20\x20\x20<h1>Error\x20response</h1>\n\
+SF:x20\x20\x20\x20\x20\x20\x20\x20<p>Error\x20code:\x20400</p>\n\x20\x20\x
+SF:20\x20\x20\x20\x20\x20<p>Message:\x20Bad\x20request\x20version\x20\('\\
+SF:x00/\\x00'\)\.</p>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Error\x20code\x2
+SF:0explanation:\x20400\x20-\x20Bad\x20request\x20syntax\x20or\x20unsuppor
+SF:ted\x20method\.</p>\n\x20\x20\x20\x20</body>\n</html>\n");
+MAC Address: 4E:DD:4A:15:38:49 (Unknown)
+
+Nmap scan report for tcc-srv-deploy.tcc-lab_dmz (172.20.0.12)
+Host is up (0.0000070s latency).
+
+PORT     STATE  SERVICE    VERSION
+22/tcp   open   ssh        OpenSSH 9.2p1 Debian 2+deb12u10 (protocol 2.0)
+80/tcp   closed http
+1337/tcp closed waste
+8080/tcp closed http-proxy
+MAC Address: 06:FC:13:A9:19:9A (Unknown)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 3 IP addresses (3 hosts up) scanned in 11.49 seconds

@@ -1,0 +1,33 @@
+# Saida bruta de ssh nos tres desfechos de autenticacao, com stderr incluido
+# e com o codigo de saida de cada um. Existe para o parser de ssh do Bloco 2
+# (sprint da sexta 18: "os parsers extraem host, porta, servico e resultado
+# de autenticacao das saidas de exemplo, com teste automatizado").
+#
+# Um parser que so tenha visto sucesso nao sabe distinguir desfecho nenhum.
+# Repare que os dois modos de falha nao sao iguais entre si -- texto
+# diferente E codigo de saida diferente -- e que a linha "Warning:
+# Permanently added" vai para o stderr tambem no caso de sucesso, entao ela
+# nao serve como indicador de erro.
+
+### 1. senha errada -- conta existente
+$ sshpass -p 'senha-errada' ssh -o StrictHostKeyChecking=no -o PreferredAuthentications=password svc_deploy@172.20.0.12 hostname
+Warning: Permanently added '172.20.0.12' (ED25519) to the list of known hosts.
+Permission denied, please try again.
+exit=5
+
+### 2. conta inexistente -- observe que a mensagem e IDENTICA a de senha errada
+$ sshpass -p '7fQx2Lm9RtVzB4kd' ssh -o StrictHostKeyChecking=no -o PreferredAuthentications=password naoexiste@172.20.0.12 hostname
+Permission denied, please try again.
+exit=5
+
+### 3. chave errada, so publickey
+$ ssh -i /tmp/chave-errada -o StrictHostKeyChecking=no -o BatchMode=yes -o PreferredAuthentications=publickey svc_deploy@172.20.0.12 hostname
+svc_deploy@172.20.0.12: Permission denied (publickey,password).
+exit=255
+
+### 4. sucesso -- a credencial do elo 3
+$ sshpass -p '7fQx2Lm9RtVzB4kd' ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null svc_deploy@172.20.0.12 'hostname; id -un'
+Warning: Permanently added '172.20.0.12' (ED25519) to the list of known hosts.
+srv-deploy
+svc_deploy
+exit=0

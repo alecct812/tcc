@@ -1,0 +1,9 @@
+# Pipeline de backup -- Equipe de Infraestrutura
+# Gerado pelo provisionamento. Nao editar a mao.
+#
+# Chamado #4471 pede segregar a chave do financeiro das outras. Em aberto.
+
+Host host-arquivo
+    HostName 172.21.0.11
+    User svc_backup
+    IdentityFile ~/.ssh/id_ed25519

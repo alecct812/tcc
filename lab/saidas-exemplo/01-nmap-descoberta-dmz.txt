@@ -1,0 +1,20 @@
+# Saida bruta de `nmap -sn 172.20.0.0/24`, executado de dentro do container
+# `atacante`. Passo 1 de `../cadeia.md`. Cinco hosts respondem: o gateway da
+# rede bridge (172.20.0.1) e os quatro containers da DMZ.
+$ nmap -sn 172.20.0.0/24
+Starting Nmap 7.93 ( https://nmap.org ) at 2026-09-13 18:07 UTC
+Nmap scan report for 172.20.0.1
+Host is up (0.000076s latency).
+MAC Address: 32:38:03:79:3F:B6 (Unknown)
+Nmap scan report for tcc-host-web.tcc-lab_dmz (172.20.0.10)
+Host is up (0.0000040s latency).
+MAC Address: 3E:42:E9:3D:A0:4F (Unknown)
+Nmap scan report for tcc-host-glhf.tcc-lab_dmz (172.20.0.11)
+Host is up (0.000016s latency).
+MAC Address: 4E:DD:4A:15:38:49 (Unknown)
+Nmap scan report for tcc-srv-deploy.tcc-lab_dmz (172.20.0.12)
+Host is up (0.000030s latency).
+MAC Address: 06:FC:13:A9:19:9A (Unknown)
+Nmap scan report for atacante (172.20.0.5)
+Host is up.
+Nmap done: 256 IP addresses (5 hosts up) scanned in 2.03 seconds

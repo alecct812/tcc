@@ -1,0 +1,45 @@
+=== conferir_caminhos.py ===
+AUSENTE: 4 caminho(s) gravado(s) que nao existem nem no host nem no pivo. E FATO FALSO no grafo. Nao e o mecanismo de D171; explicar cada um por escrito antes de usar esta execucao como dado.
+coleta-A-08      ok   50   atribuicao   0   ausente   4   indeterminado   0
+    ausente     172.20.0.10     /path/to/config/file
+    ausente     172.20.0.10     /var/app/images
+    ausente     172.20.0.10     /config-
+    ausente     172.20.0.10     /.idlerc/config-
+
+
+=== conferir_hosts.py ===
+coleta-A-08                    ok   8   origem  1   FANTASMA  0   PERNA  0
+
+todo host comprometido e conteiner do laboratorio, e nenhuma perna do pivo virou host
+
+=== conferir_lab.py (estado pos-execucao) ===
+  varrendo 172.20.0.0/24 de dentro de tcc-atacante...
+  varrendo 172.21.0.0/24 de dentro de tcc-srv-deploy...
+
+OK    172.20.0.10: a superficie e a de um laboratorio limpo
+OK    172.20.0.11: a superficie e a de um laboratorio limpo
+OK    172.20.0.12: a superficie e a de um laboratorio limpo
+OK    172.20.0.5: nenhuma porta aberta, como esperado
+OK    172.21.0.10: a superficie e a de um laboratorio limpo
+OK    172.21.0.11: a superficie e a de um laboratorio limpo
+OK    172.21.0.12: a superficie e a de um laboratorio limpo
+OK    172.21.0.2: a superficie e a de um laboratorio limpo
+
+OK    D243: os conteineres do laboratorio foram encontrados
+FALHA tcc-atacante: o disco e o da imagem, sem residuo   8 alteracao(oes): ['A /root/.ssh', 'A /root/.ssh/known_hosts', 'A /root/.ssh/known_hosts.old', 'A /tmp/readme.txt', 'A /tmp/rockyou.txt', 'A /tmp/cookies.txt']
+OK    tcc-host-arquivo: o disco e o da imagem, sem residuo
+OK    tcc-host-db: o disco e o da imagem, sem residuo
+OK    tcc-host-glhf: o disco e o da imagem, sem residuo
+FALHA tcc-host-web: o disco e o da imagem, sem residuo   1 alteracao(oes): ['A /1']
+FALHA tcc-srv-deploy: o disco e o da imagem, sem residuo   4 alteracao(oes): ['A /home/svc_deploy/.ssh', 'A /home/svc_deploy/.ssh/known_hosts', 'A /home/svc_deploy/.ssh/known_hosts.old', 'A /tmp/nfsmnt']
+OK    tcc-srv-financeiro: o disco e o da imagem, sem residuo
+
+======================================================================
+3 PROBLEMA(S) -- o laboratorio NAO esta limpo:
+  - tcc-atacante: o disco e o da imagem, sem residuo: 8 alteracao(oes): ['A /root/.ssh', 'A /root/.ssh/known_hosts', 'A /root/.ssh/known_hosts.old', 'A /tmp/readme.txt', 'A /tmp/rockyou.txt', 'A /tmp/cookies.txt']
+  - tcc-host-web: o disco e o da imagem, sem residuo: 1 alteracao(oes): ['A /1']
+  - tcc-srv-deploy: o disco e o da imagem, sem residuo: 4 alteracao(oes): ['A /home/svc_deploy/.ssh', 'A /home/svc_deploy/.ssh/known_hosts', 'A /home/svc_deploy/.ssh/known_hosts.old', 'A /tmp/nfsmnt']
+
+  conserto:  cd lab && docker compose down && docker compose up -d
+  e so entao disparar execucao paga -- residuo contamina a
+  comparacao, e dentro do par ele contamina SO o braco B (D233).

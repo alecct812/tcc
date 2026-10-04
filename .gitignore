@@ -1,0 +1,54 @@
+# ---------------------------------------------------------------------------
+# Chaves de API de modelos de linguagem: NUNCA versionadas.
+#
+# Elas são lidas apenas de variável de ambiente. Os segredos de verdade não
+# moram nesta árvore. Os padrões abaixo são rede de segurança contra recaída,
+# não o mecanismo principal.
+#
+# ⚠️ ATENÇÃO: o laboratório contém, DE PROPÓSITO, uma chave SSH privada e
+# listas de senha sintéticas, criadas para ele e sem valor fora dos
+# contêineres. Elas são parte do instrumento de medida e PRECISAM estar
+# versionadas, senão o agente não tem o que descobrir. É por isso que os
+# padrões abaixo são específicos e não um `*.key` genérico: um padrão largo
+# excluiria o material do laboratório e quebraria a reprodução. Ver o README.
+# ---------------------------------------------------------------------------
+.env
+.env.*
+*.env
+*.pem
+*.pfx
+*.p12
+*.token
+*_token
+segredos*
+credenciais*
+kv/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Saída de execução gerada localmente, fora da coleta publicada
+execucoes/piloto-*/
+execucoes/descartada-*/
+execucoes/diag-*/
+execucoes/dmz-*/
+execucoes/teto-*/
+execucoes/auto-*/
+
+# Binários pesados e material de terceiros
+*.zip
+*.pdf
+*.docx
+output/
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Área de trabalho de ferramentas de desenvolvimento
+.superpowers/

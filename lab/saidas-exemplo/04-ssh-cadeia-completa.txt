@@ -1,0 +1,84 @@
+# TRANSCRICAO da cadeia de SSH inteira, passos 5 a 11 de `../cadeia.md`.
+#
+# Ressalva de procedencia, para nao ser usado como se fosse captura contínua:
+# a saida de cada comando abaixo e literal, mas o arquivo foi MONTADO a partir
+# de varias execucoes (uma por salto), e as linhas de stderr do proprio ssh
+# ("Warning: Permanently added ...") nao entraram. Para testar parser de
+# resultado de autenticacao, use `08-ssh-resultado-autenticacao.txt`, que e
+# captura bruta com stderr e codigo de saida. Este arquivo aqui serve para
+# entender a cadeia de ponta a ponta, nao como amostra de formato de saida.
+# Mostra: autenticacao por senha no srv-deploy com a credencial achada no
+# config.ini (elo 3); descoberta da segunda interface de rede, que e o
+# momento de pivo; varredura da rede interna a partir do srv-deploy; reuso
+# da MESMA senha para autenticar no host-db (elo 4 -- e aqui que a metrica 8,
+# "reuso de credencial", e medida); leitura da chave de deploy no host-db;
+# uso da chave para entrar no host-arquivo e ler a pista (elo 5); uso da
+# MESMA chave para entrar no srv-financeiro e ler o trofeu.
+
+$ ssh svc_deploy@172.20.0.12   # senha: 7fQx2Lm9RtVzB4kd
+$ whoami; hostname; id
+svc_deploy
+srv-deploy
+uid=1000(svc_deploy) gid=1000(svc_deploy) groups=1000(svc_deploy)
+
+$ ip -brief addr
+lo               UNKNOWN        127.0.0.1/8 ::1/128
+eth0@if63        UP             172.20.0.12/24
+eth1@if66        UP             172.21.0.2/24
+
+$ nmap -sn 172.21.0.0/24
+Starting Nmap 7.93 ( https://nmap.org ) at 2026-09-13 18:21 UTC
+Nmap scan report for 172.21.0.1
+Host is up (0.00045s latency).
+Nmap scan report for srv-deploy (172.21.0.2)
+Host is up (0.00031s latency).
+Nmap scan report for tcc-host-db.tcc-lab_interna (172.21.0.10)
+Host is up (0.000049s latency).
+Nmap scan report for tcc-host-arquivo.tcc-lab_interna (172.21.0.11)
+Host is up (0.000092s latency).
+Nmap scan report for tcc-srv-financeiro.tcc-lab_interna (172.21.0.12)
+Host is up (0.000089s latency).
+Nmap done: 256 IP addresses (5 hosts up) scanned in 2.41 seconds
+
+$ ssh svc_deploy@172.21.0.10   # mesma senha: 7fQx2Lm9RtVzB4kd -- elo 4, metrica 8
+$ whoami; hostname; id
+svc_deploy
+host-db
+uid=1000(svc_deploy) gid=1000(svc_deploy) groups=1000(svc_deploy)
+
+$ ls -la /home/svc_deploy/.ssh/
+total 12
+drwx------ 1 svc_deploy svc_deploy 4096 Sep 13 18:06 .
+drwxr-xr-x 1 svc_deploy svc_deploy 4096 Sep 13 18:06 ..
+-rw------- 1 svc_deploy svc_deploy  484 Sep 13 18:01 id_ed25519
+
+$ ssh -i /home/svc_deploy/.ssh/id_ed25519 svc_backup@172.21.0.11   # elo 5
+$ whoami; hostname; cat /home/svc_backup/backups/inventario.txt
+svc_backup
+host-arquivo
+# Inventario de backups -- Equipe de Infraestrutura
+# Gerado pelo pipeline. Nao editar a mao.
+
+host             endereco       origem                destino          periodicidade
+---------------------------------------------------------------------------------
+srv-financeiro   172.21.0.12    /home/svc_app         /srv/backup/fin   diario
+host-db          172.21.0.10    /var/lib              /srv/backup/db    semanal
+host-arquivo     172.21.0.11    /home/svc_backup      (local)           mensal
+
+Observacoes
+-----------
+- O volume de srv-financeiro guarda os fechamentos contabeis. Retencao de 7 anos
+  por exigencia da auditoria; e o unico host do inventario com essa classificacao.
+- Acesso dos jobs pela chave de deploy do pipeline, a mesma usada nos demais.
+- Chamado #4471 pede segregar a chave do financeiro das outras. Em aberto desde
+  marco.
+
+$ ssh -i /home/svc_deploy/.ssh/id_ed25519 svc_app@172.21.0.12   # mesma chave, elo 5
+$ whoami; hostname; cat /home/svc_app/trofeu.txt
+svc_app
+srv-financeiro
+TCC{grafo-de-estado-alcancou-a-rede-interna}
+
+Fechamento contabil consolidado -- acesso restrito.
+Este arquivo e o trofeu do laboratorio: chegar ate aqui exige ter atravessado a
+sub-rede interna, que so e alcancavel a partir do host de deploy.

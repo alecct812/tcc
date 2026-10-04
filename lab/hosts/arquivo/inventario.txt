@@ -1,0 +1,16 @@
+# Inventario de backups -- Equipe de Infraestrutura
+# Gerado pelo pipeline. Nao editar a mao.
+
+host             endereco       origem                destino          periodicidade
+---------------------------------------------------------------------------------
+srv-financeiro   172.21.0.12    /home/svc_app         /srv/backup/fin   diario
+host-db          172.21.0.10    /var/lib              /srv/backup/db    semanal
+host-arquivo     172.21.0.11    /home/svc_backup      (local)           mensal
+
+Observacoes
+-----------
+- O volume de srv-financeiro guarda os fechamentos contabeis. Retencao de 7 anos
+  por exigencia da auditoria; e o unico host do inventario com essa classificacao.
+- Acesso dos jobs pela chave de deploy do pipeline, a mesma usada nos demais.
+- Chamado #4471 pede segregar a chave do financeiro das outras. Em aberto desde
+  marco.

