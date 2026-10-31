@@ -5,7 +5,7 @@
 (que e GERADA), cada linha das tabelas de topologia e de falhas contra os
 `passos.jsonl` das vinte execucoes, os dois p-valores recalculados pelas funcoes do
 projeto, as somas de custo pela propria `metricas.custo`, **a contagem da suite
-medida rodando as seis suites**, as contagens de mutacao e de decisao, os doze
+medida no que `testes.py` executa**, as contagens de mutacao e de decisao, os doze
 verificadores no disco e a ausencia de travessao (`AGENTS.md`).
 
 ⚠️ **O total de conferencias NAO esta escrito nesta docstring, de proposito.** Ele e
@@ -229,56 +229,107 @@ checa("os outros 5 verificadores existem",
       all((RAIZ / "src/artefato" / o).exists() for o in outros), True)
 checa("7 + 5 = 12 verificadores", len(conf) + len(outros), 12)
 
-# ---------- 9b. a contagem da suite, MEDIDA rodando as seis suites
+# ---------- 9b. a contagem da suite, MEDIDA no que `testes.py` EXECUTA
 #
-# ⚠️ **Esta guarda existe porque a contagem passou errada por todas as outras.** Uma
-# revisao afirmou 3.941 verificacoes e nucleo 2.252 sem que nenhum arquivo de teste
-# tivesse sido tocado, e as conferencias deste script passaram inteiras: nenhuma
-# delas media a suite. O numero vive em prosa em varios arquivos, e so a medida o
-# ancora.
+# ⚠️ **Esta guarda existe porque a contagem passou errada por todas as outras, e a
+# primeira versao dela errou do mesmo jeito.** Uma revisao afirmou 3.941
+# verificacoes, e as conferencias deste script passaram inteiras: nenhuma media a
+# suite. A primeira versao desta secao passou a medir, e SOMAVA as seis suites. Mas
+# `testes.py` chama por subprocesso, sem capturar a saida, `testes_grafo.py`,
+# `testes_laco.py`, `testes_cadeia.py`, `testes_metricas.py`, `testes_memoria.py`,
+# `ensaio.py` e `paridade.py`: as linhas `OK` delas ja entram na saida dele. O
+# "nucleo" de 2.251 ja continha as outras cinco, e 1.689 verificacoes eram contadas
+# duas vezes (3.940 declarado contra 2.252 reais). O total correto e o que
+# `python testes.py` executa, e a quebra em oito partes soma esse total.
 # ⚠️ **E conferir a sintese nao bastava:** o numero errado entrou pelo `README.md`,
 # que por isso tambem e lido aqui.
-# As suites nao imprimem total; a contagem e o numero de linhas `OK`.
-ROTULOS = {"testes.py": "nucleo", "testes_grafo.py": "grafo",
-           "testes_laco.py": "laco de decisao",
-           "testes_metricas.py": "medida de progresso",
-           "testes_memoria.py": "memoria do braco B",
-           "testes_cadeia.py": "cadeia"}
+# As suites nao imprimem total; a contagem e o numero de linhas que COMECAM com `OK`.
+# ⚠️ **A contagem nao pode depender do buffer.** Com a saida em buffer, `testes.py`
+# nao esvaziava o seu antes de chamar as filhas, e a ultima linha dele saia colada a
+# primeira da filha ("...esta declaradoOK    grafo nasce vazio"), o que dava 2.251 em
+# vez de 2.252. Por isso a contagem e feita COM e SEM buffer, e conta tambem as
+# linhas coladas, que tem de ser zero.
 SRC = RAIZ / "src/artefato"
-checa("as seis suites estao no disco", len(sorted(SRC.glob("testes*.py"))), 6)
+# rotulo na sintese -> suite filha que o mede (o nucleo proprio e o que sobra)
+FILHAS = {"grafo": "testes_grafo.py", "laco de decisao": "testes_laco.py",
+          "medida de progresso": "testes_metricas.py",
+          "memoria do braco B": "testes_memoria.py", "cadeia": "testes_cadeia.py",
+          "ensaio geral": "ensaio.py", "paridade": "paridade.py"}
+checa("as suites e verificadores chamados por testes.py estao no disco",
+      all((SRC / a).exists() for a in ["testes.py", *FILHAS.values()]), True)
+
+def conta_ok(saida):
+    """(linhas que comecam com OK, linhas em que dois OK ficaram colados)."""
+    ls = saida.splitlines()
+    return (sum(1 for l in ls if l.startswith("OK")),
+            sum(1 for l in ls if l.count("OK    ") > 1))
+
+def roda(arq, *, sem_buffer):
+    env = dict(os.environ)
+    env.pop("PYTHONUNBUFFERED", None)   # o modo sem `-u` nao pode herdar a variavel
+    cmd = [sys.executable, "-B"] + (["-u"] if sem_buffer else []) + [arq]
+    return subprocess.run(cmd, cwd=SRC, env=env, capture_output=True, text=True,
+                          encoding="utf-8", errors="replace")
 
 def declarado_em(txt, rotulo):
-    m = re.search(re.escape(rotulo) + r"\s+([\d.]+)\b", txt)
-    return int(m.group(1).replace(".", "")) if m else None
+    ms = re.findall(re.escape(rotulo) + r"\s+([\d.]+)\b", txt)
+    return int(ms[0].replace(".", "")) if len(ms) == 1 else None   # 0 ou 2+ = ambiguo
+
+# ⚠️ Codigo de saida != 0 e suite QUEBRADA, nao contagem divergente: a causa mais
+# provavel e a versao do Python, e o README fixa 3.13.6 ou posterior depois de medir
+# sete versoes (as anteriores a correcao do `html.parser` falham 2 verificacoes).
+r_u = roda("testes.py", sem_buffer=True)
+checa("testes.py passa inteiro, sem buffer", r_u.returncode, 0)
+TOTAL_SUITE, coladas_u = conta_ok(r_u.stdout)
+# Contagem zero aprovaria a conferencia sem conferir nada (D158, D209).
+checa("testes.py nao devolveu contagem vazia", TOTAL_SUITE > 0, True)
+checa("nenhuma linha colada, sem buffer", coladas_u, 0)
+
+r_b = roda("testes.py", sem_buffer=False)
+checa("testes.py passa inteiro, COM buffer", r_b.returncode, 0)
+total_b, coladas_b = conta_ok(r_b.stdout)
+checa("nenhuma linha colada, COM buffer", coladas_b, 0)
+checa("a contagem e a mesma COM e SEM buffer", total_b, TOTAL_SUITE)
 
 medido = {}
-for arq, rotulo in ROTULOS.items():
-    r = subprocess.run([sys.executable, "-B", arq], cwd=SRC, capture_output=True,
-                       text=True, encoding="utf-8", errors="replace")
-    # ⚠️ Codigo de saida != 0 e suite QUEBRADA, nao contagem divergente, e o rotulo
-    # diz qual quebrou: a causa mais provavel e a versao do Python, que o README fixa
-    # em 3.13 depois de medir a 3.12.5.
-    checa(f"a suite {arq} passa inteira", r.returncode, 0)
-    medido[rotulo] = sum(1 for l in r.stdout.splitlines() if l.startswith("OK"))
-    # Contagem zero aprovaria a conferencia sem conferir nada (D158, D209).
-    checa(f"a suite {arq} nao devolveu contagem vazia", medido[rotulo] > 0, True)
-    checa(f"contagem da suite {rotulo} declarada na sintese",
-          declarado_em(SINT, rotulo), medido[rotulo])
+for rotulo, arq in FILHAS.items():
+    r = roda(arq, sem_buffer=True)
+    checa(f"{arq} passa inteira", r.returncode, 0)
+    medido[rotulo] = conta_ok(r.stdout)[0]
+    checa(f"{arq} nao devolveu contagem vazia", medido[rotulo] > 0, True)
+# O nucleo proprio e o que sobra do total depois de tirar o que as filhas escrevem.
+medido = {"nucleo proprio": TOTAL_SUITE - sum(medido.values()), **medido}
+checa("o nucleo proprio de testes.py e positivo", medido["nucleo proprio"] > 0, True)
+for rotulo, n in medido.items():
+    checa(f"contagem {rotulo} declarada na sintese", declarado_em(SINT, rotulo), n)
+checa("a quebra declarada soma o total, sem contar nada duas vezes",
+      sum(declarado_em(SINT, r) or 0 for r in medido), TOTAL_SUITE)
 
 def contagens_citadas(txt):
     return {int(x.replace(".", "")) for x in re.findall(r"(\d\.\d{3})\s+verifica", txt)}
 
-TOTAL_SUITE = sum(medido.values())
 LEIAME = (RAIZ / "README.md").read_text(encoding="utf-8")
 for nome, txt in (("sintese", SINT), ("README", LEIAME)):
     checa(f"a contagem da suite citada no {nome}", contagens_citadas(txt), {TOTAL_SUITE})
 
-# E as guardas pegam de verdade: o controle positivo reproduz o defeito de origem,
+# E as guardas pegam de verdade: cada controle reproduz um defeito que ja aconteceu,
 # em memoria, sem escrever no disco.
-checa("a guarda da contagem dispara em '3.941 verificacoes'",
-      contagens_citadas(SINT.replace("3.940", "3.941")) == {TOTAL_SUITE}, False)
-checa("a guarda por suite dispara em 'nucleo 2.252'",
-      declarado_em(SINT.replace("2.251", "2.252"), "nucleo") == medido["nucleo"], False)
+_dobro = TOTAL_SUITE + sum(medido[r] for r in ("grafo", "laco de decisao",
+                                                "medida de progresso",
+                                                "memoria do braco B", "cadeia"))
+# 2.252 + 1.689 = 3.941: e o numero que uma revisao publicou, entao este controle
+# reproduz o defeito de origem e nao um numero inventado.
+checa("a guarda dispara na soma em dobro (as cinco filhas somadas ao total)",
+      contagens_citadas(SINT.replace(f"{TOTAL_SUITE:,}".replace(",", "."),
+                                     f"{_dobro:,}".replace(",", "."))) == {TOTAL_SUITE},
+      False)
+checa("a guarda por parte dispara quando o nucleo proprio declarado muda",
+      declarado_em(SINT.replace("nucleo proprio    509", "nucleo proprio    510"),
+                   "nucleo proprio") == medido["nucleo proprio"], False)
+checa("a guarda de linha colada dispara em 'OK    aOK    b'",
+      conta_ok("OK    a" + "OK    b" + chr(10))[1], 1)
+checa("a contagem por inicio de linha perde uma verificacao numa linha colada",
+      conta_ok("OK    a" + "OK    b" + chr(10))[0], 1)
 
 # ---------- 10. contexto mediano por passo
 for b, esperado in (("A", 5494), ("B", 7173)):
@@ -357,7 +408,7 @@ checa("a sintese declara quantas conferencias este script roda",
 print()
 print(f"{n_sempre} conferencias que rodam em qualquer copia, "
       f"{n_diario} que exigem os diarios internos, "
-      f"{TOTAL_SUITE} verificacoes medidas nas seis suites")
+      f"{TOTAL_SUITE} verificacoes medidas em testes.py")
 if falhas:
     print(f"{len(falhas)} FALHA(S):")
     for f in falhas:

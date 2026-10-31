@@ -66,24 +66,41 @@ de variável de ambiente.
 
 ## Como reproduzir
 
-**Requisitos:** Docker com Compose, **Python 3.13**, e uma chave de API da Anthropic em variável de
-ambiente. A coleta publicada usou `claude-sonnet-5` em regime de raciocínio, com saída estruturada.
+**Requisitos:** Docker com Compose, **Python 3.13.6 ou posterior**, e uma chave de API da Anthropic
+em variável de ambiente. A coleta publicada usou `claude-sonnet-5` em regime de raciocínio, com saída
+estruturada, e rodou em Python 3.13.15.
 
-⚠️ **A versão do Python não é indiferente, e a medida está aqui.** A coleta rodou em 3.13.15. Em
-3.12.5, cinco das seis suítes passam e **duas verificações de `testes.py` falham**, as duas no parser
-de resposta HTTP:
+⚠️ **O que decide é a versão de correção do Python, e não "3.12 contra 3.13".** Em versões anteriores
+à correção, **duas verificações de `testes.py` falham**, as duas no parser de resposta HTTP
+(`ferramentas/curl.py`). Medido nesta máquina (Windows), rodando `python testes.py` inteiro com
+`PYTHONUNBUFFERED=1`, uma versão por linha:
 
 ```
-                     Python 3.13.15        Python 3.12.5
-seis suites          TODAS passam          testes.py falha, as outras cinco passam
-verificacoes         3.940                 2 falham, em `ferramentas/curl.py`
+versao      python testes.py    linhas OK    linhas FALHA
+3.12.5      falha (codigo 1)    2.250        2
+3.12.11     falha (codigo 1)    2.250        2
+3.12.12     passa (codigo 0)    2.252        0
+3.13.2      falha (codigo 1)    2.250        2
+3.13.5      falha (codigo 1)    2.250        2
+3.13.6      passa (codigo 0)    2.252        0
+3.13.15     passa (codigo 0)    2.252        0     <- a da coleta
 ```
 
-A causa é a biblioteca padrão, não o projeto: o `html.parser` trata `<title>` **não fechado** de
-formas diferentes nas duas versões. Com `<title>abre e nao fecha</head><body><a href="/some?x=1">`,
-o 3.13 deixa o título engolir o resto do documento e nenhuma rota é extraída, enquanto o 3.12 ainda
-emite a tag `<a>` e uma rota aparece. As duas verificações fixam o comportamento do 3.13, que é o do
-HTML, e por isso o requisito é 3.13.
+O limite está medido aqui nos dois ramos, e não inferido: **3.12.11 falha e 3.12.12 passa; 3.13.5
+falha e 3.13.6 passa.** Por isso um 3.13 não basta (o 3.13.2 falha) e um 3.12 pode bastar (o 3.12.12
+passa); o requisito é a versão da correção, e a menor 3.13 que a traz é a 3.13.6. As duas
+verificações que falham são `curl: titulo nao fechado engole o documento, como manda o HTML` e `e o
+que sobrou vira o titulo, sem inventar rota`.
+
+A causa é a biblioteca padrão, não o projeto: o `html.parser` corrigiu o tratamento de `<title>`
+**não fechado** (o modo de texto bruto escapável de `textarea` e `title`, registrado no
+[changelog da 3.11](https://docs.python.org/pt-br/3.11/whatsnew/changelog.html) como gh-118350, na
+3.11.14). Com `<title>abre e nao fecha</head><body><a href="/some?x=1">`, a versão corrigida deixa o
+título engolir o resto do documento e nenhuma rota é extraída, enquanto a anterior ainda emite a tag
+`<a>` e uma rota aparece. As duas verificações fixam o comportamento corrigido, que é o do HTML.
+
+Medido em **outro ambiente (Linux), não nesta máquina**: 3.11.9 falha e 3.11.17 passa. Esse resultado
+não foi reproduzido aqui, e fica registrado só para dizer de onde vem.
 
 ### 1. Subir o laboratório
 
@@ -100,7 +117,24 @@ Sete contêineres em duas sub-redes. A verificação de que o isolamento vale es
 cd src/artefato && python testes.py
 ```
 
-3.940 verificações em seis suítes, sem chamar modelo e sem precisar do laboratório.
+**2.252 verificações**, sem chamar modelo e sem precisar do laboratório. `testes.py` é a única porta de
+entrada: ele executa por subprocesso as outras sete suítes, então o total é o que ele imprime, e a
+quebra soma esse mesmo total, sem contar nada duas vezes:
+
+```
+nucleo proprio de testes.py     509
+grafo                           747   (testes_grafo.py)
+laco de decisao                 557   (testes_laco.py)
+medida de progresso             227   (testes_metricas.py)
+memoria do braco B              102   (testes_memoria.py)
+cadeia                           56   (testes_cadeia.py)
+ensaio geral                     18   (ensaio.py)
+paridade                         36   (paridade.py)
+total                         2.252
+```
+
+A contagem é o número de linhas que começam com `OK`, e não depende de a saída ir para o terminal,
+para um arquivo ou para um pipe: `testes.py` esvazia o buffer antes de cada suíte filha.
 
 ### 3. Conferir a cadeia à mão, antes de confiar no agente
 
@@ -155,7 +189,7 @@ guia/ARTEFATO.md                  O DESENHO DO EXPERIMENTO: as onze metricas e o
 
 src/artefato/                     o agente: laco de decisao, grafo de estado, involucros de
                                   ferramenta com parser dedicado, acesso ao modelo
-src/artefato/testes*.py           seis suites, 3.940 verificacoes
+src/artefato/testes.py            a suite: ela e as sete que chama, 2.252 verificacoes
 src/artefato/mutacoes.py          bateria de mutacao, 793 mutacoes cadastradas
 src/artefato/conferir_*.py        verificadores de laboratorio, execucao, caminhos, hosts,
                                   paridade do par e integridade da bateria

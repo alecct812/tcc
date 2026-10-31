@@ -251,10 +251,11 @@ verificadores independentes   12
                               percurso da cadeia, ensaio geral, aceite com
                               chamada real
 
-suite de testes               3.940 verificacoes, todas passando
-  nucleo            2.251      grafo               747
-  laco de decisao     557      medida de progresso 227
-  memoria do braco B  102      cadeia               56
+suite de testes               2.252 verificacoes, todas passando
+  nucleo proprio    509        grafo               747
+  laco de decisao   557        medida de progresso 227
+  memoria do braco B 102       cadeia               56
+  ensaio geral       18        paridade             36
 
 bateria de mutacao            793 mutacoes cadastradas
   0 ancoradouro morto, 0 ambiguo, 0 inocuo
@@ -728,7 +729,7 @@ renomear cresce com o código já escrito e está declarado: hoje são doze veri
 ```
 coleta de dados             CONCLUIDA   10 pares, 20 execucoes, 1.600 passos, US$ 39,80
 tabulacao das 11 metricas   CONCLUIDA   gerada por programa, 726 linhas
-suite de testes             3.940 verificacoes, todas passando
+suite de testes             2.252 verificacoes, todas passando
 bateria de mutacao          793 mutacoes cadastradas, 0 ancoradouro morto
 registro metodologico       cada decisao com data e justificativa, sem lacuna
 capitulo 3 do relatorio     PENDENTE, condicionado ao template LaTeX
@@ -747,7 +748,7 @@ programa contra eles. Os caminhos são relativos à raiz do repositório:
 | arquivo | o que contém |
 |---|---|
 | `src/artefato/` | o agente, os invólucros de ferramenta, o grafo de estado e os doze verificadores |
-| `src/artefato/testes*.py` | seis suítes, 3.940 verificações |
+| `src/artefato/testes.py` | a suíte: ela e as sete que chama, 2.252 verificações |
 | `src/artefato/mutacoes.py` | a bateria de mutação, 793 mutações cadastradas |
 | `lab/docker-compose.yml` | os sete contêineres e as duas sub-redes |
 | `lab/cadeia.md` | os onze passos da cadeia, com a saída literal de cada comando |
@@ -781,7 +782,9 @@ desta síntese é rastreável até o ajuste que o produziu**, sem exigir a leitu
 
 ⚠️ **A tabela de resultados é gerada, não escrita.** A razão é que número digitado à mão envelhece em
 silêncio: se os registros mudarem e a tabela não for regerada, ninguém percebe. Pelo mesmo motivo, as
-afirmações quantitativas desta síntese são conferidas por script contra as fontes, com 247
+afirmações quantitativas desta síntese são conferidas por script contra as fontes, com 261
 verificações que rodam em qualquer cópia deste repositório, e a conferência falha se qualquer uma
-divergir. A contagem da suíte é uma delas, e é **medida** executando as seis suítes e contando o que
-elas imprimem, em vez de lida de um número escrito à mão.
+divergir. A contagem da suíte é uma delas, e é **medida** executando `testes.py`, com e sem buffer de
+saída, e contando o que ele imprime, em vez de lida de um número escrito à mão. O total é o que
+`testes.py` executa, que já inclui as sete suítes que ele chama, e a quebra em oito partes soma esse
+mesmo total.

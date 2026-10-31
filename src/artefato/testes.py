@@ -3351,10 +3351,18 @@ checa("D241: LIMITE -- a segunda linha de um comentario de bloco NAO e coberta, 
       sorted(analisar_saida(" * backup em /srv/dados/legado\n").caminhos),
       ["/srv/dados/legado"])
 
+# ⚠️ O BUFFER e esvaziado ANTES de cada suite filha. Sem isto, com a saida em
+# buffer (redirecionada para arquivo ou pipe), as linhas desta suite ficavam no
+# buffer do pai enquanto a filha escrevia direto no descritor: a ultima linha do
+# pai saia colada a primeira da filha (`...esta declaradoOK    grafo nasce vazio`),
+# e quem contava linhas que COMECAM com `OK` achava 2.251 em vez de 2.252. A
+# contagem nao pode depender de a saida ser terminal, arquivo ou pipe (D262).
+sys.stdout.flush()
 _g = _sp.run([sys.executable, "testes_grafo.py"], cwd=str(pathlib.Path(__file__).parent))
 
 print()
 print("=" * 60)
+sys.stdout.flush()
 _l = _sp.run([sys.executable, "testes_laco.py"], cwd=str(pathlib.Path(__file__).parent))
 
 # A cadeia tem suite propria pelo mesmo motivo do grafo e do laco: D94 a criou
@@ -3362,6 +3370,7 @@ _l = _sp.run([sys.executable, "testes_laco.py"], cwd=str(pathlib.Path(__file__).
 # execucoes (§E32), e ela cresce junto com as tarefas seguintes do plano.
 print()
 print("=" * 60)
+sys.stdout.flush()
 _c = _sp.run([sys.executable, "testes_cadeia.py"], cwd=str(pathlib.Path(__file__).parent))
 
 # As metricas 4, 5 e 9 saem do LOG, e nao do grafo -- fonte diferente, suite
@@ -3371,6 +3380,7 @@ _c = _sp.run([sys.executable, "testes_cadeia.py"], cwd=str(pathlib.Path(__file__
 # Aconteceu em 24 de setembro (D110), com a suite do grafo.
 print()
 print("=" * 60)
+sys.stdout.flush()
 _m = _sp.run([sys.executable, "testes_metricas.py"], cwd=str(pathlib.Path(__file__).parent))
 
 # O braco B (D125). Entra AQUI, antes da conferencia de saida la embaixo, pela
@@ -3378,6 +3388,7 @@ _m = _sp.run([sys.executable, "testes_metricas.py"], cwd=str(pathlib.Path(__file
 # assim sai com codigo 0 -- a suite se declara verde mentindo.
 print()
 print("=" * 60)
+sys.stdout.flush()
 _b = _sp.run([sys.executable, "testes_memoria.py"], cwd=str(pathlib.Path(__file__).parent))
 
 # O ENSAIO GERAL entra na suite, e nao so na mao (D133). Ele roda o pipeline
@@ -3387,6 +3398,7 @@ _b = _sp.run([sys.executable, "testes_memoria.py"], cwd=str(pathlib.Path(__file_
 # achou (D132) poderia voltar sem nada acusar.
 print()
 print("=" * 60)
+sys.stdout.flush()
 _e = _sp.run([sys.executable, "ensaio.py"], cwd=str(pathlib.Path(__file__).parent))
 
 # A PARIDADE ENTRE OS BRACOS (D134), aceite da sexta 25. Entra aqui pela mesma
@@ -3395,6 +3407,7 @@ _e = _sp.run([sys.executable, "ensaio.py"], cwd=str(pathlib.Path(__file__).paren
 # inteiro -- `CONTEXTO.md` §9.
 print()
 print("=" * 60)
+sys.stdout.flush()
 _p = _sp.run([sys.executable, "paridade.py"], cwd=str(pathlib.Path(__file__).parent))
 
 print()
