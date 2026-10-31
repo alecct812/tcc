@@ -781,5 +781,7 @@ desta síntese é rastreável até o ajuste que o produziu**, sem exigir a leitu
 
 ⚠️ **A tabela de resultados é gerada, não escrita.** A razão é que número digitado à mão envelhece em
 silêncio: se os registros mudarem e a tabela não for regerada, ninguém percebe. Pelo mesmo motivo, as
-afirmações quantitativas desta síntese são conferidas por script contra as fontes, com 219
-verificações, e a conferência falha se qualquer uma divergir.
+afirmações quantitativas desta síntese são conferidas por script contra as fontes, com 247
+verificações que rodam em qualquer cópia deste repositório, e a conferência falha se qualquer uma
+divergir. A contagem da suíte é uma delas, e é **medida** executando as seis suítes e contando o que
+elas imprimem, em vez de lida de um número escrito à mão.

@@ -1,11 +1,17 @@
 """Confere `docs/sintese-para-orientacao.md` contra as fontes do projeto.
 
-**Nenhum numero conferido de olho.** 217 verificacoes: a hipotese literal contra
+**Nenhum numero conferido de olho.** A hipotese literal contra
 `guia/CONTEXTO.md`, cada linha da tabela par a par contra `docs/resultados/coleta.md`
 (que e GERADA), cada linha das tabelas de topologia e de falhas contra os
 `passos.jsonl` das vinte execucoes, os dois p-valores recalculados pelas funcoes do
-projeto, as somas de custo pela propria `metricas.custo`, as contagens de mutacao e
-de decisao, os doze verificadores no disco e a ausencia de travessao (`AGENTS.md`).
+projeto, as somas de custo pela propria `metricas.custo`, **a contagem da suite
+medida rodando as seis suites**, as contagens de mutacao e de decisao, os doze
+verificadores no disco e a ausencia de travessao (`AGENTS.md`).
+
+⚠️ **O total de conferencias NAO esta escrito nesta docstring, de proposito.** Ele e
+impresso ao fim da execucao e conferido contra o numero que a sintese declara. Numero
+de conferencia digitado em prosa envelhece calado, que e exatamente o defeito pelo
+qual a contagem da suite passou errada por este script inteiro.
 
 ⚠️ **RODAR DA RAIZ DO REPOSITORIO** (`produção/`), nao de `docs/`: os caminhos sao
 relativos a raiz e `sys.path` aponta para `src/artefato`.
@@ -26,7 +32,18 @@ RAIZ = pathlib.Path(".")
 SINT = (RAIZ / "docs/sintese-para-orientacao.md").read_text(encoding="utf-8")
 falhas = []
 
-def checa(rotulo, obtido, esperado):
+# ⚠️ **A contagem separa o que roda em QUALQUER copia do que depende dos diarios
+# internos**, ausentes do repositorio publicado. Sem essa separacao o total mudaria
+# conforme a copia, e nenhum numero declarado no texto poderia valer para as duas.
+n_sempre = 0
+n_diario = 0
+
+def checa(rotulo, obtido, esperado, diario=False):
+    global n_sempre, n_diario
+    if diario:
+        n_diario += 1
+    else:
+        n_sempre += 1
     ok = obtido == esperado
     print(f"{'OK   ' if ok else 'FALHA'} {rotulo}")
     if not ok:
@@ -191,7 +208,8 @@ if _dec.exists():
     dec = _dec.read_text(encoding="utf-8")
     ns = [int(x) for x in re.findall(r"^## D(\d+)\.", dec, re.M)]
     checa("registro de decisoes sem lacuna e sem duplicata",
-          (sorted(set(range(1, max(ns) + 1)) - set(ns)), len(ns) == len(set(ns))), ([], True))
+          (sorted(set(range(1, max(ns) + 1)) - set(ns)), len(ns) == len(set(ns))), ([], True),
+          diario=True)
 else:
     print("PULA  registro de decisoes: mantido fora deste repositorio")
 
@@ -199,8 +217,8 @@ _hip = RAIZ / "docs/hipotese.md"
 if _hip.exists():
     hip_doc = _hip.read_text(encoding="utf-8")
     es = [int(x) for x in re.findall(r"^## §E(\d+)\.", hip_doc, re.M)]
-    checa("ultima observacao e §E120", max(es), 120)
-    checa("64 observacoes", len(es), 64)
+    checa("ultima observacao e §E120", max(es), 120, diario=True)
+    checa("64 observacoes", len(es), 64, diario=True)
 else:
     print("PULA  registro de observacoes: mantido fora deste repositorio")
 
@@ -210,6 +228,57 @@ outros = ["paridade.py", "auditar_corpus.py", "percorrer_cadeia.py", "ensaio.py"
 checa("os outros 5 verificadores existem",
       all((RAIZ / "src/artefato" / o).exists() for o in outros), True)
 checa("7 + 5 = 12 verificadores", len(conf) + len(outros), 12)
+
+# ---------- 9b. a contagem da suite, MEDIDA rodando as seis suites
+#
+# ⚠️ **Esta guarda existe porque a contagem passou errada por todas as outras.** Uma
+# revisao afirmou 3.941 verificacoes e nucleo 2.252 sem que nenhum arquivo de teste
+# tivesse sido tocado, e as conferencias deste script passaram inteiras: nenhuma
+# delas media a suite. O numero vive em prosa em varios arquivos, e so a medida o
+# ancora.
+# ⚠️ **E conferir a sintese nao bastava:** o numero errado entrou pelo `README.md`,
+# que por isso tambem e lido aqui.
+# As suites nao imprimem total; a contagem e o numero de linhas `OK`.
+ROTULOS = {"testes.py": "nucleo", "testes_grafo.py": "grafo",
+           "testes_laco.py": "laco de decisao",
+           "testes_metricas.py": "medida de progresso",
+           "testes_memoria.py": "memoria do braco B",
+           "testes_cadeia.py": "cadeia"}
+SRC = RAIZ / "src/artefato"
+checa("as seis suites estao no disco", len(sorted(SRC.glob("testes*.py"))), 6)
+
+def declarado_em(txt, rotulo):
+    m = re.search(re.escape(rotulo) + r"\s+([\d.]+)\b", txt)
+    return int(m.group(1).replace(".", "")) if m else None
+
+medido = {}
+for arq, rotulo in ROTULOS.items():
+    r = subprocess.run([sys.executable, "-B", arq], cwd=SRC, capture_output=True,
+                       text=True, encoding="utf-8", errors="replace")
+    # ⚠️ Codigo de saida != 0 e suite QUEBRADA, nao contagem divergente, e o rotulo
+    # diz qual quebrou: a causa mais provavel e a versao do Python, que o README fixa
+    # em 3.13 depois de medir a 3.12.5.
+    checa(f"a suite {arq} passa inteira", r.returncode, 0)
+    medido[rotulo] = sum(1 for l in r.stdout.splitlines() if l.startswith("OK"))
+    # Contagem zero aprovaria a conferencia sem conferir nada (D158, D209).
+    checa(f"a suite {arq} nao devolveu contagem vazia", medido[rotulo] > 0, True)
+    checa(f"contagem da suite {rotulo} declarada na sintese",
+          declarado_em(SINT, rotulo), medido[rotulo])
+
+def contagens_citadas(txt):
+    return {int(x.replace(".", "")) for x in re.findall(r"(\d\.\d{3})\s+verifica", txt)}
+
+TOTAL_SUITE = sum(medido.values())
+LEIAME = (RAIZ / "README.md").read_text(encoding="utf-8")
+for nome, txt in (("sintese", SINT), ("README", LEIAME)):
+    checa(f"a contagem da suite citada no {nome}", contagens_citadas(txt), {TOTAL_SUITE})
+
+# E as guardas pegam de verdade: o controle positivo reproduz o defeito de origem,
+# em memoria, sem escrever no disco.
+checa("a guarda da contagem dispara em '3.941 verificacoes'",
+      contagens_citadas(SINT.replace("3.940", "3.941")) == {TOTAL_SUITE}, False)
+checa("a guarda por suite dispara em 'nucleo 2.252'",
+      declarado_em(SINT.replace("2.251", "2.252"), "nucleo") == medido["nucleo"], False)
 
 # ---------- 10. contexto mediano por passo
 for b, esperado in (("A", 5494), ("B", 7173)):
@@ -272,7 +341,23 @@ checa("a guarda de possessivo dispara em 'minha hipotese'",
 checa("a guarda de plural dispara em 'nosso artefato'",
       bool(re.search(PRIMEIRA_PLURAL, "nosso artefato", re.IGNORECASE)), True)
 
+# ---------- 14. o total de conferencias que a sintese declara
+#
+# ⚠️ **Esta conferencia conta a si mesma**, e por isso e a ultima do arquivo: o
+# esperado abaixo inclui a propria linha. O numero declarado na sintese cobre as
+# conferencias que rodam em QUALQUER copia, para valer igual aqui e no repositorio
+# publicado, onde os diarios internos nao existem.
+checa("as conferencias de diario interno rodaram todas ou nenhuma",
+      n_diario in (0, 3), True)
+# ⚠️ `\s+` e nao espaco: a frase quebra linha entre o numero e a palavra.
+_m = re.search(r"conferidas por script contra as fontes, com ([\d.]+)\s+verificações", SINT)
+checa("a sintese declara quantas conferencias este script roda",
+      int(_m.group(1).replace(".", "")) if _m else None, n_sempre + 1)
+
 print()
+print(f"{n_sempre} conferencias que rodam em qualquer copia, "
+      f"{n_diario} que exigem os diarios internos, "
+      f"{TOTAL_SUITE} verificacoes medidas nas seis suites")
 if falhas:
     print(f"{len(falhas)} FALHA(S):")
     for f in falhas:
