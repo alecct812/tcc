@@ -66,8 +66,24 @@ de variável de ambiente.
 
 ## Como reproduzir
 
-**Requisitos:** Docker com Compose, Python 3.13, e uma chave de API da Anthropic em variável de
+**Requisitos:** Docker com Compose, **Python 3.13**, e uma chave de API da Anthropic em variável de
 ambiente. A coleta publicada usou `claude-sonnet-5` em regime de raciocínio, com saída estruturada.
+
+⚠️ **A versão do Python não é indiferente, e a medida está aqui.** A coleta rodou em 3.13.15. Em
+3.12.5, cinco das seis suítes passam e **duas verificações de `testes.py` falham**, as duas no parser
+de resposta HTTP:
+
+```
+                     Python 3.13.15        Python 3.12.5
+seis suites          TODAS passam          testes.py falha, as outras cinco passam
+verificacoes         3.940                 2 falham, em `ferramentas/curl.py`
+```
+
+A causa é a biblioteca padrão, não o projeto: o `html.parser` trata `<title>` **não fechado** de
+formas diferentes nas duas versões. Com `<title>abre e nao fecha</head><body><a href="/some?x=1">`,
+o 3.13 deixa o título engolir o resto do documento e nenhuma rota é extraída, enquanto o 3.12 ainda
+emite a tag `<a>` e uma rota aparece. As duas verificações fixam o comportamento do 3.13, que é o do
+HTML, e por isso o requisito é 3.13.
 
 ### 1. Subir o laboratório
 
@@ -175,6 +191,12 @@ até o ajuste que o produziu sem exigir a leitura do diário.
 experimento. As três que importam para avaliar o trabalho estão descritas em `docs/ajustes.md`: uma
 perdida para um defeito de reconhecimento de nome, uma corrompida por concorrência e uma
 interrompida pelo resumo de ferramenta truncado.
+
+**Sobre o histórico de versões.** O desenvolvimento foi feito num repositório local, com histórico
+completo de commits, e este repositório público foi criado a partir dele em 4 de outubro de 2026,
+depois do fechamento da coleta. Por isso ele começa com um único commit. O histórico de
+desenvolvimento fica preservado e pode ser disponibilizado aos avaliadores do trabalho mediante
+pedido.
 
 ---
 
