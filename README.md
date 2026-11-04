@@ -181,9 +181,9 @@ docs/relatorio-pares-6-a-10.md    o fechamento da coleta, verificacao por verifi
 docs/heterogeneidade-do-instrumento.md   as versoes de instrumento entre pares
 docs/premissa.md                  verificacao da premissa nas fontes primarias
 docs/motor.md                     a medicao que decidiu o modelo adotado
-docs/medicao/                     so os arquivos que sustentam o Apendice B, mais medir.py e
-                                  motores.py; docs/medicao/LEIA-ME.md liga cada linha da
-                                  tabela ao arquivo que a sustenta
+docs/medicao/                     so os arquivos que sustentam o Apendice B, mais medir.py,
+                                  motores.py e os dois prompts; docs/medicao/LEIA-ME.md liga
+                                  cada linha da tabela ao arquivo e ao prompt que a sustentam
 docs/conferir-sintese.py          confere a sintese contra as fontes
 
 guia/CONTEXTO.md                  fundamentacao, levantamento das cinco solucoes, hipotese

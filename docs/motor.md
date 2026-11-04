@@ -39,9 +39,13 @@ primeiro. A definição operacional está na seção 3.
 
 ## 2. O prompt de teste
 
-`medicao/prompt-teste.txt`, 5.743 caracteres, doze hosts fictícios em duas sub-redes, com
-serviços versionados, interfaces, alcançabilidade, três credenciais e catorze tentativas
+`medicao/prompt-teste-2026-09-10.txt`, 5.743 caracteres, doze hosts fictícios em duas sub-redes,
+com serviços versionados, interfaces, alcançabilidade, três credenciais e catorze tentativas
 registradas, fechado por uma instrução de escolha de próxima ação com resposta em JSON.
+
+O `medicao/prompt-teste.txt`, que o `medir.py` lê por padrão, é uma **revisão posterior** (6.698
+caracteres) e não foi usado em nenhuma das medições descritas aqui; para medir com o texto deste
+capítulo é preciso `--prompt prompt-teste-2026-09-10.txt` (ver `medicao/LEIA-ME.md`).
 
 **É um grafo de estresse, não uma aproximação do laboratório.** O laboratório planejado
 (`ARTEFATO.md` Parte 2) tem sete containers; cinco dos doze hosts do prompt
