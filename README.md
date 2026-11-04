@@ -250,6 +250,9 @@ professor da própria instituição sob **GPL-3.0**. Ela **não** é redistribu�
 modificação. O único arquivo local relacionado a ela, `lab/hosts/glhf/bloqueio.py`, é do autor e
 serve para confirmar o isolamento dela em relação à cadeia.
 
+O código-fonte da GLHF está em <https://github.com/pedro-coelho-dr/glhf> (licença GPL-3.0). O README
+desse repositório indica a imagem `coriscope/glhf:v0.1-beta`, a usada no laboratório.
+
 ---
 
 ## Licença
