@@ -1,0 +1,287 @@
+{
+  "data": "2026-09-09T10:08:06.633496-03:00",
+  "chamadas": 30,
+  "recusadas": 17,
+  "taxa_observada": 0.5667,
+  "ic95_wilson": [
+    0.392,
+    0.7262
+  ],
+  "categorias": {
+    "cyber": 4,
+    "sem_categoria": 13
+  },
+  "sem_retentativa": true,
+  "registros": [
+    {
+      "chamada": 1,
+      "passo": 1,
+      "segundos": 15.206,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 719,
+      "trecho": null
+    },
+    {
+      "chamada": 2,
+      "passo": 2,
+      "segundos": 15.49,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 738,
+      "trecho": null
+    },
+    {
+      "chamada": 3,
+      "passo": 3,
+      "segundos": 5.318,
+      "recusada": true,
+      "categoria": "cyber",
+      "saida_tokens": 0,
+      "trecho": "API Error: Opus 5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Our intentionally broad safeguards allow us to deliver more capabilities faster, but can sometimes flag legit"
+    },
+    {
+      "chamada": 4,
+      "passo": 4,
+      "segundos": 15.114,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 572,
+      "trecho": null
+    },
+    {
+      "chamada": 5,
+      "passo": 5,
+      "segundos": 11.61,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 518,
+      "trecho": null
+    },
+    {
+      "chamada": 6,
+      "passo": 6,
+      "segundos": 20.068,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 552,
+      "trecho": null
+    },
+    {
+      "chamada": 7,
+      "passo": 7,
+      "segundos": 14.921,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 607,
+      "trecho": null
+    },
+    {
+      "chamada": 8,
+      "passo": 8,
+      "segundos": 5.926,
+      "recusada": true,
+      "categoria": "cyber",
+      "saida_tokens": 0,
+      "trecho": "API Error: Opus 5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Our intentionally broad safeguards allow us to deliver more capabilities faster, but can sometimes flag legit"
+    },
+    {
+      "chamada": 9,
+      "passo": 9,
+      "segundos": 16.64,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 862,
+      "trecho": null
+    },
+    {
+      "chamada": 10,
+      "passo": 10,
+      "segundos": 14.807,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 667,
+      "trecho": null
+    },
+    {
+      "chamada": 11,
+      "passo": 11,
+      "segundos": 16.857,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 659,
+      "trecho": null
+    },
+    {
+      "chamada": 12,
+      "passo": 12,
+      "segundos": 15.832,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 777,
+      "trecho": null
+    },
+    {
+      "chamada": 13,
+      "passo": 13,
+      "segundos": 4.455,
+      "recusada": true,
+      "categoria": "cyber",
+      "saida_tokens": 0,
+      "trecho": "API Error: Opus 5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Our intentionally broad safeguards allow us to deliver more capabilities faster, but can sometimes flag legit"
+    },
+    {
+      "chamada": 14,
+      "passo": 14,
+      "segundos": 8.472,
+      "recusada": true,
+      "categoria": "cyber",
+      "saida_tokens": 0,
+      "trecho": "API Error: Opus 5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Our intentionally broad safeguards allow us to deliver more capabilities faster, but can sometimes flag legit"
+    },
+    {
+      "chamada": 15,
+      "passo": 15,
+      "segundos": 13.717,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 637,
+      "trecho": null
+    },
+    {
+      "chamada": 16,
+      "passo": 16,
+      "segundos": 11.616,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 459,
+      "trecho": null
+    },
+    {
+      "chamada": 17,
+      "passo": 17,
+      "segundos": 17.947,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 757,
+      "trecho": null
+    },
+    {
+      "chamada": 18,
+      "passo": 18,
+      "segundos": 4.08,
+      "recusada": true,
+      "categoria": "sem_categoria",
+      "saida_tokens": 0,
+      "trecho": "You've hit your session limit · resets 1:20pm (America/Fortaleza)"
+    },
+    {
+      "chamada": 19,
+      "passo": 19,
+      "segundos": 7.323,
+      "recusada": true,
+      "categoria": "sem_categoria",
+      "saida_tokens": 0,
+      "trecho": "You've hit your session limit · resets 1:20pm (America/Fortaleza)"
+    },
+    {
+      "chamada": 20,
+      "passo": 20,
+      "segundos": 5.439,
+      "recusada": true,
+      "categoria": "sem_categoria",
+      "saida_tokens": 0,
+      "trecho": "You've hit your session limit · resets 1:20pm (America/Fortaleza)"
+    },
+    {
+      "chamada": 21,
+      "passo": 21,
+      "segundos": 4.279,
+      "recusada": true,
+      "categoria": "sem_categoria",
+      "saida_tokens": 0,
+      "trecho": "You've hit your session limit · resets 1:20pm (America/Fortaleza)"
+    },
+    {
+      "chamada": 22,
+      "passo": 22,
+      "segundos": 8.524,
+      "recusada": true,
+      "categoria": "sem_categoria",
+      "saida_tokens": 0,
+      "trecho": "You've hit your session limit · resets 1:20pm (America/Fortaleza)"
+    },
+    {
+      "chamada": 23,
+      "passo": 23,
+      "segundos": 5.312,
+      "recusada": true,
+      "categoria": "sem_categoria",
+      "saida_tokens": 0,
+      "trecho": "You've hit your session limit · resets 1:20pm (America/Fortaleza)"
+    },
+    {
+      "chamada": 24,
+      "passo": 24,
+      "segundos": 6.614,
+      "recusada": true,
+      "categoria": "sem_categoria",
+      "saida_tokens": 0,
+      "trecho": "You've hit your session limit · resets 1:20pm (America/Fortaleza)"
+    },
+    {
+      "chamada": 25,
+      "passo": 25,
+      "segundos": 4.396,
+      "recusada": true,
+      "categoria": "sem_categoria",
+      "saida_tokens": 0,
+      "trecho": "You've hit your session limit · resets 1:20pm (America/Fortaleza)"
+    },
+    {
+      "chamada": 26,
+      "passo": 26,
+      "segundos": 7.497,
+      "recusada": true,
+      "categoria": "sem_categoria",
+      "saida_tokens": 0,
+      "trecho": "You've hit your session limit · resets 1:20pm (America/Fortaleza)"
+    },
+    {
+      "chamada": 27,
+      "passo": 27,
+      "segundos": 11.763,
+      "recusada": true,
+      "categoria": "sem_categoria",
+      "saida_tokens": 0,
+      "trecho": "You've hit your session limit · resets 1:20pm (America/Fortaleza)"
+    },
+    {
+      "chamada": 28,
+      "passo": 28,
+      "segundos": 5.568,
+      "recusada": true,
+      "categoria": "sem_categoria",
+      "saida_tokens": 0,
+      "trecho": "You've hit your session limit · resets 1:20pm (America/Fortaleza)"
+    },
+    {
+      "chamada": 29,
+      "passo": 29,
+      "segundos": 4.298,
+      "recusada": true,
+      "categoria": "sem_categoria",
+      "saida_tokens": 0,
+      "trecho": "You've hit your session limit · resets 1:20pm (America/Fortaleza)"
+    },
+    {
+      "chamada": 30,
+      "passo": 30,
+      "segundos": 5.179,
+      "recusada": true,
+      "categoria": "sem_categoria",
+      "saida_tokens": 0,
+      "trecho": "You've hit your session limit · resets 1:20pm (America/Fortaleza)"
+    }
+  ]
+}

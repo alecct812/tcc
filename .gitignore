@@ -35,6 +35,7 @@ venv/
 execucoes/piloto-*/
 execucoes/descartada-*/
 execucoes/diag-*/
+!execucoes/diag-05/
 execucoes/dmz-*/
 execucoes/teto-*/
 execucoes/auto-*/

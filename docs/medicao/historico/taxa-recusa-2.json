@@ -1,0 +1,242 @@
+{
+  "data": "2026-09-09T13:27:53.721803-03:00",
+  "chamadas": 25,
+  "recusadas": 7,
+  "taxa_observada": 0.28,
+  "ic95_wilson": [
+    0.1428,
+    0.4758
+  ],
+  "categorias": {
+    "cyber": 7
+  },
+  "sem_retentativa": true,
+  "limite_de_uso_excluido": true,
+  "registros": [
+    {
+      "chamada": 1,
+      "passo": 21,
+      "segundos": 21.591,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 618,
+      "trecho": null
+    },
+    {
+      "chamada": 2,
+      "passo": 22,
+      "segundos": 15.357,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 687,
+      "trecho": null
+    },
+    {
+      "chamada": 3,
+      "passo": 23,
+      "segundos": 4.832,
+      "recusada": true,
+      "categoria": "cyber",
+      "saida_tokens": 0,
+      "trecho": "API Error: Opus 5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Our intentionally broad safeguards allow us to deliver more capabilities faster, but can sometimes flag legit"
+    },
+    {
+      "chamada": 4,
+      "passo": 24,
+      "segundos": 15.158,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 609,
+      "trecho": null
+    },
+    {
+      "chamada": 5,
+      "passo": 25,
+      "segundos": 14.447,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 722,
+      "trecho": null
+    },
+    {
+      "chamada": 6,
+      "passo": 26,
+      "segundos": 4.463,
+      "recusada": true,
+      "categoria": "cyber",
+      "saida_tokens": 0,
+      "trecho": "API Error: Opus 5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Our intentionally broad safeguards allow us to deliver more capabilities faster, but can sometimes flag legit"
+    },
+    {
+      "chamada": 7,
+      "passo": 27,
+      "segundos": 4.558,
+      "recusada": true,
+      "categoria": "cyber",
+      "saida_tokens": 0,
+      "trecho": "API Error: Opus 5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Our intentionally broad safeguards allow us to deliver more capabilities faster, but can sometimes flag legit"
+    },
+    {
+      "chamada": 8,
+      "passo": 28,
+      "segundos": 14.592,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 700,
+      "trecho": null
+    },
+    {
+      "chamada": 9,
+      "passo": 29,
+      "segundos": 21.062,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 651,
+      "trecho": null
+    },
+    {
+      "chamada": 10,
+      "passo": 30,
+      "segundos": 14.344,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 663,
+      "trecho": null
+    },
+    {
+      "chamada": 11,
+      "passo": 31,
+      "segundos": 13.368,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 591,
+      "trecho": null
+    },
+    {
+      "chamada": 12,
+      "passo": 32,
+      "segundos": 17.583,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 988,
+      "trecho": null
+    },
+    {
+      "chamada": 13,
+      "passo": 33,
+      "segundos": 13.049,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 577,
+      "trecho": null
+    },
+    {
+      "chamada": 14,
+      "passo": 34,
+      "segundos": 4.811,
+      "recusada": true,
+      "categoria": "cyber",
+      "saida_tokens": 0,
+      "trecho": "API Error: Opus 5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Our intentionally broad safeguards allow us to deliver more capabilities faster, but can sometimes flag legit"
+    },
+    {
+      "chamada": 15,
+      "passo": 35,
+      "segundos": 16.556,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 886,
+      "trecho": null
+    },
+    {
+      "chamada": 16,
+      "passo": 36,
+      "segundos": 19.455,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 945,
+      "trecho": null
+    },
+    {
+      "chamada": 17,
+      "passo": 37,
+      "segundos": 4.391,
+      "recusada": true,
+      "categoria": "cyber",
+      "saida_tokens": 0,
+      "trecho": "API Error: Opus 5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Our intentionally broad safeguards allow us to deliver more capabilities faster, but can sometimes flag legit"
+    },
+    {
+      "chamada": 18,
+      "passo": 38,
+      "segundos": 13.711,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 609,
+      "trecho": null
+    },
+    {
+      "chamada": 19,
+      "passo": 39,
+      "segundos": 15.811,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 833,
+      "trecho": null
+    },
+    {
+      "chamada": 20,
+      "passo": 40,
+      "segundos": 16.433,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 811,
+      "trecho": null
+    },
+    {
+      "chamada": 21,
+      "passo": 41,
+      "segundos": 14.345,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 567,
+      "trecho": null
+    },
+    {
+      "chamada": 22,
+      "passo": 42,
+      "segundos": 14.346,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 577,
+      "trecho": null
+    },
+    {
+      "chamada": 23,
+      "passo": 43,
+      "segundos": 13.35,
+      "recusada": true,
+      "categoria": "cyber",
+      "saida_tokens": 475,
+      "trecho": "API Error: Opus 5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Our intentionally broad safeguards allow us to deliver more capabilities faster, but can sometimes flag legit"
+    },
+    {
+      "chamada": 24,
+      "passo": 44,
+      "segundos": 4.388,
+      "recusada": true,
+      "categoria": "cyber",
+      "saida_tokens": 0,
+      "trecho": "API Error: Opus 5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Our intentionally broad safeguards allow us to deliver more capabilities faster, but can sometimes flag legit"
+    },
+    {
+      "chamada": 25,
+      "passo": 45,
+      "segundos": 13.501,
+      "recusada": false,
+      "categoria": null,
+      "saida_tokens": 626,
+      "trecho": null
+    }
+  ]
+}

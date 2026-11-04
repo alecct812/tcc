@@ -165,7 +165,7 @@ cd ../.. && python docs/conferir-sintese.py                 # a sintese contra a
 ```
 
 O primeiro regenera `docs/resultados/coleta.md` a partir dos registros de execução; **nenhum número
-daquela tabela é digitado à mão**. O segundo confere 225 afirmações quantitativas da síntese contra
+daquela tabela é digitado à mão**. O segundo confere 261 afirmações quantitativas da síntese contra
 as fontes e falha se qualquer uma divergir.
 
 ---
@@ -181,6 +181,9 @@ docs/relatorio-pares-6-a-10.md    o fechamento da coleta, verificacao por verifi
 docs/heterogeneidade-do-instrumento.md   as versoes de instrumento entre pares
 docs/premissa.md                  verificacao da premissa nas fontes primarias
 docs/motor.md                     a medicao que decidiu o modelo adotado
+docs/medicao/                     so os arquivos que sustentam o Apendice B, mais medir.py e
+                                  motores.py; docs/medicao/LEIA-ME.md liga cada linha da
+                                  tabela ao arquivo que a sustenta
 docs/conferir-sintese.py          confere a sintese contra as fontes
 
 guia/CONTEXTO.md                  fundamentacao, levantamento das cinco solucoes, hipotese
@@ -201,6 +204,7 @@ lab/saidas-exemplo/               saida bruta de ferramenta, usada como fixture 
 
 execucoes/coleta-A-01..10         os vinte registros de execucao da coleta, passo a passo
 execucoes/coleta-B-01..10
+execucoes/diag-05                 o registro de 90 passos com 68 recusas, citado no Apendice B
 ```
 
 ### O que não está aqui, e por quê
@@ -209,12 +213,16 @@ O desenvolvimento manteve registros contínuos que **são andaime do trabalho, n
 ficam preservados fora deste repositório:
 
 ```
-o diario de decisoes tecnicas          256 entradas, 17.000 linhas, notacao interna
-o diario de observacoes de campo       120 observacoes, 8.100 linhas
+o diario de decisoes tecnicas          mais de 260 entradas, mais de 17.000 linhas, notacao interna
+o diario de observacoes de campo       64 observacoes, mais de 8.000 linhas
 o cronograma e as notas de sessao      gestao de projeto, nao metodologia
-o harness de medicao de modelos        70 arquivos de instrumentacao de desenvolvimento
-85 execucoes de piloto e descartadas   historia de desenvolvimento, nao dado do experimento
+o restante das medicoes de modelos     so os arquivos de docs/medicao/LEIA-ME.md sobem
+86 execucoes de piloto e descartadas   historia de desenvolvimento, nao dado do experimento
 ```
+
+Das medições de modelos, sobem apenas os arquivos que sustentam o Apêndice B do relatório
+([`docs/medicao/`](docs/medicao/LEIA-ME.md)); o restante fica no histórico local, disponível aos
+avaliadores mediante pedido.
 
 **O que substitui o diário de decisões é [`docs/ajustes.md`](docs/ajustes.md)**, derivado dele:
 reúne todo ajuste com motivação, problema resolvido, estado e impacto, e distingue o que foi
@@ -241,3 +249,19 @@ professor da própria instituição sob **GPL-3.0**. Ela **não** é redistribu�
 `docker-compose.yml` a referencia pela imagem `coriscope/glhf:v0.1-beta`, com tag fixada e sem
 modificação. O único arquivo local relacionado a ela, `lab/hosts/glhf/bloqueio.py`, é do autor e
 serve para confirmar o isolamento dela em relação à cadeia.
+
+---
+
+## Licença
+
+- **Código: [MIT](LICENSE)**, em nome de Alec Carneiro Theotônio, 2026. Inclui o agente e os
+  verificadores em `src/`, os scripts `.py` de `docs/` (`docs/medicao/medir.py`,
+  `docs/medicao/motores.py` e `docs/conferir-sintese.py`) e de `lab/`, e a configuração do laboratório
+  (Dockerfiles e compose).
+- **Documentação e registros: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.pt-br)**.
+  Cobre `docs/`, `guia/`, `execucoes/` e os `.md` de `lab/`, e também os dados de medição em
+  `docs/medicao/` e as saídas capturadas em `lab/saidas-exemplo/`. Pode copiar e adaptar, com
+  atribuição.
+- **GLHF**: não é redistribuída aqui e segue a própria licença, **GPL-3.0** (ver "Terceiros").
+
+As licenças acima não alteram o [aviso de uso restrito](#aviso-de-uso-restrito).
