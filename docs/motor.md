@@ -7,11 +7,13 @@ as taxas medidas aqui vão para a seção de desenvolvimento técnico do relató
 **Datas:** Motor 1 e Kimi K3 em 9 de setembro de 2026; Gemini em 10 de setembro.
 **CLI:** 2.1.267 (Claude Code).
 
-Esta é a segunda versão do documento. A primeira, de 8 de setembro, foi descartada e está
-em `medicao/historico/`, com o motivo em `medicao/historico/LEIA-ME.md`: ela produziu um
-número correto que **não media o que o método dizia medir**. Nada dela foi aproveitado
-como leitura; as medições brutas continuam citáveis e são a única medição de Opus 5 que
-este trabalho tem.
+Esta é a segunda versão do documento. A primeira, de 8 de setembro, foi descartada e fica
+no histórico local, com o motivo em `medicao/historico/LEIA-ME.md` (também local, disponível
+mediante pedido): ela produziu um número correto que **não media o que o método dizia
+medir**. Nada dela foi aproveitado como leitura; as medições brutas continuam citáveis e são
+a única medição de Opus 5 que este trabalho tem. As que sustentam o Apêndice B estão
+publicadas em `medicao/historico/` (`taxa-recusa.json`, `taxa-recusa-2.json` e
+`decomposicao-latencia.json`).
 
 ---
 
@@ -53,7 +55,8 @@ existe. Nenhum payload de exploração aparece no arquivo.
 
 Duas variantes são **derivadas** dele por transformação de código, nunca redigitadas, para
 que a única diferença entre células seja a pretendida. Ficam em `medicao/variantes/` para
-auditoria; o canônico não é alterado.
+auditoria, no histórico local (disponíveis mediante pedido); o canônico não é alterado. A
+transformação de código que as deriva do canônico está em `medicao/motores.py`.
 
 | Variante | Caracteres | O que muda |
 |---|---:|---|
@@ -66,7 +69,9 @@ auditoria; o canônico não é alterado.
 ## 3. Método
 
 Harness: `medicao/motores.py` (adaptadores e análise), `medicao/medir.py` (execução),
-`medicao/testes.py` (verificação sintética). Resultados em `medicao/resultados/`.
+`medicao/testes.py` (verificação sintética, no histórico local). Resultados em
+`medicao/resultados/`, de onde só os que sustentam o Apêndice B estão publicados (ver
+`medicao/LEIA-ME.md`); os demais ficam no histórico local, disponíveis mediante pedido.
 
     python testes.py                        # 127 verificações, zero chamada ao modelo
     python medir.py --motor anthropic  --modelo claude-sonnet-5   --matriz --repeticoes 5
